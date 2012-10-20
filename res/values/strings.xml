@@ -1,0 +1,11 @@
+<resources>
+
+    <string name="app_name">BattleShip</string>
+    <string name="connect">Connect to&#8230;</string>
+    <string name="game1">Game 1</string>
+    <string name="game2">Game 2</string>
+    <string name="game3">Game 3</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">BattleShip</string>
+
+</resources>
