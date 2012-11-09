@@ -20,7 +20,7 @@ ii. Week 2
      * Added dialog box with game instructions and modified home screen.
 
 _Needs:_
-    * Must finish user interface.
+    * Must finish user interface.<br/>
 _Coming up:_
 <br/>
 Week 3
