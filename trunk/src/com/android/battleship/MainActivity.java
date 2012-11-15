@@ -1,65 +1,156 @@
 package com.android.battleship;
 
-import android.os.Bundle;
+import java.util.Set;
+
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.os.Bundle;
 import android.view.Menu;
+import android.widget.ArrayAdapter;
 
 //class MainActivity
-public class MainActivity extends Activity 
-{
-	final Context context = this;  //Context object used in association with alertDialog
-	
-	//method onCreate
-    @Override
-    public void onCreate(Bundle savedInstanceState) 
-    {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-		
-        //object for creating game instructions dialog message
+public class MainActivity extends Activity {
+	final Context context = this; // Context object used in association with
+									// alertDialog
+	private BluetoothAdapter mBluetoothAdapter;
+	private ArrayAdapter mArrayAdapter;
+	private int REQUEST_ENABLE_BT = 1;
+
+	// method onCreate
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+
+		// object for creating game instructions dialog message
 		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
 				context);
-	
+
 		// set title
 		alertDialogBuilder.setTitle("Game Instructions");
-	
+
 		// set dialog message
 		alertDialogBuilder
-			.setMessage("The objective of this game is to place your fleet's ships in your desired position." +
-					"  You can play with a friend or against the computer.  Once your ships are positioned," +
-					" you will select coordinates for attacking the opponent's fleet and it will be determined" +
-					" whether you hit a ship.  Good luck!")
-			.setCancelable(false)
-			.setNegativeButton("Ok",new DialogInterface.OnClickListener() 
-			{
-				public void onClick(DialogInterface dialog,int id) 
-				{
-					// if this button is clicked, just close
-					// the dialog box and do nothing
-					dialog.cancel();
-				}
-			});
-	
+				.setMessage(
+						"The objective of this game is to place your fleet's ships in your desired position."
+								+ "  You can play with a friend or against the computer.  Once your ships are positioned,"
+								+ " you will select coordinates for attacking the opponent's fleet and it will be determined"
+								+ " whether you hit a ship.  Good luck!")
+				.setCancelable(false)
+				.setNegativeButton("Ok", new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int id) {
+						// if this button is clicked, just close
+						// the dialog box and do nothing
+						dialog.cancel();
+					}
+				});
+
 		// create alert dialog
 		AlertDialog alertDialog = alertDialogBuilder.create();
-	
+
 		// show it
 		alertDialog.show();
+
+	}
+
+	// end method onCreate
+
+	// method onCreateOptionsMenu
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getMenuInflater().inflate(R.menu.activity_main, menu);
+		return true;
+	}
+
+	/**
+	 * This method checks for a bluetooth adapter on the phone, checks to see if
+	 * its enabled, and allows the user to enable it from the app.
+	 */
+	private void setUpBluetoothConnection() {
+		mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+		if (mBluetoothAdapter == null) {
+			// device does not support bluetooth
+			new AlertDialog.Builder(MainActivity.this)
+					.setTitle("Your device is not bluetooth capable.")
+					.setMessage("")
+					.setPositiveButton("Ok",
+							new DialogInterface.OnClickListener() {
+								public void onClick(DialogInterface dialog,
+										int whichButton) {
+									finish();
+								}
+							}).show();
+		} else {
+			if (!mBluetoothAdapter.isEnabled()) {
+				Intent enableBtIntent = new Intent(
+						BluetoothAdapter.ACTION_REQUEST_ENABLE);
+				startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
+			} else {
+
+			}
+		}
+	}
+
+	/**
+	 * Checks to see if a device pairing is already known so we dont have to
+	 * pair again
+	 */
+	private void checkPairedDevices() {
+		Set<BluetoothDevice> pairedDevices = mBluetoothAdapter
+				.getBondedDevices();
+		// If there are paired devices
+		if (pairedDevices.size() > 0) {
+			// Loop through paired devices
+			for (BluetoothDevice device : pairedDevices) {
+				// Add the name and address to an array adapter to show in a ListView
+				mArrayAdapter.add(device.getName() + "\n" + device.getAddress());
+			}
+		}
+	}
 	
-    }
-    //end method onCreate
-    
-    //method onCreateOptionsMenu
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) 
-    {
-        getMenuInflater().inflate(R.menu.activity_main, menu);
-        return true;
-    }
-  //end method onCreateOptionsMenu
+	/*Caution: Performing device discovery is a heavy procedure for the Bluetooth adapter and
+	 *  will consume a lot of its resources. Once you have found a device to connect, be certain 
+	 *  that you always stop discovery with cancelDiscovery() before attempting a connection.
+	 *   Also, if you already hold a connection with a device, then performing discovery can
+	 *    significantly reduce the bandwidth available for the connection, so you should not 
+	 *    perform discovery while connected.
+	 */
+	private void registerBroadcastReceiver(){
+		// Create a BroadcastReceiver for ACTION_FOUND
+		final BroadcastReceiver mReceiver = new BroadcastReceiver() {
+		    public void onReceive(Context context, Intent intent) {
+		        String action = intent.getAction();
+		        // When discovery finds a device
+		        if (BluetoothDevice.ACTION_FOUND.equals(action)) {
+		            // Get the BluetoothDevice object from the Intent
+		            BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
+		            // Add the name and address to an array adapter to show in a ListView
+		            mArrayAdapter.add(device.getName() + "\n" + device.getAddress());
+		        }
+		    }
+		};
+		// Register the BroadcastReceiver
+		IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
+		registerReceiver(mReceiver, filter); // Don't forget to unregister during onDestroy		
+	}
+	
+	/**
+	 * Enable bluetooth discoveability
+	 */
+	private void enableDiscoverability(){
+		Intent discoverableIntent = new
+				Intent(BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);
+		discoverableIntent.putExtra(
+				BluetoothAdapter.EXTRA_DISCOVERABLE_DURATION, 300);
+		startActivity(discoverableIntent);
+	}
 
 }
-//end class MainActivity
+// end class MainActivity
