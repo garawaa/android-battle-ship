@@ -10,4 +10,23 @@ import android.app.Activity;
  */
 public class BattleshipHitsAndMissesScreen extends Activity{
 
+	
+	boolean CheckForHit (/*ArrayList Location Arguments*/)
+	{
+		//pseudo-code
+		/*
+		 * int move = Value at Array Location
+		 * 
+		 * if (move == 1)
+		 * {
+		 * 		return true;
+		 * }
+		 * 
+		 * else
+		 * {
+		 * 		return false;
+		 * }
+		 */
+	}
+	
 }
