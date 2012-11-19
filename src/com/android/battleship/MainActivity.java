@@ -15,28 +15,28 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.widget.ArrayAdapter;
 
-//class MainActivity
+/**
+ * This will be the starting screen for the app. From here we will click a button to open up a bluetooth
+ * pairing screen and start a new game.
+ * 
+ * @author Team Battleship
+ *
+ */
 public class MainActivity extends Activity {
-	final Context context = this; // Context object used in association with
-									// alertDialog
+	final Context context = this;
+	
 	private BluetoothAdapter mBluetoothAdapter;
 	private ArrayAdapter mArrayAdapter;
 	private int REQUEST_ENABLE_BT = 1;
 
-	// method onCreate
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		// object for creating game instructions dialog message
 		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
 				context);
-
-		// set title
 		alertDialogBuilder.setTitle("Game Instructions");
-
-		// set dialog message
 		alertDialogBuilder
 				.setMessage(
 						"The objective of this game is to place your fleet's ships in your desired position."
@@ -46,23 +46,13 @@ public class MainActivity extends Activity {
 				.setCancelable(false)
 				.setNegativeButton("Ok", new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int id) {
-						// if this button is clicked, just close
-						// the dialog box and do nothing
 						dialog.cancel();
 					}
 				});
-
-		// create alert dialog
 		AlertDialog alertDialog = alertDialogBuilder.create();
-
-		// show it
 		alertDialog.show();
-
 	}
 
-	// end method onCreate
-
-	// method onCreateOptionsMenu
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.activity_main, menu);
@@ -153,4 +143,3 @@ public class MainActivity extends Activity {
 	}
 
 }
-// end class MainActivity
