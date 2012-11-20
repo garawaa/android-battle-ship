@@ -1,6 +1,7 @@
 package com.android.battleship;
 
 import android.app.Activity;
+import android.util.Log;
 
 /**
  * This screen will show where you've tried or hit your opponent
@@ -10,23 +11,24 @@ import android.app.Activity;
  */
 public class BattleshipHitsAndMissesScreen extends Activity{
 
+	String msg;
 	
-	boolean CheckForHit (/*ArrayList Location Arguments*/)
+	boolean CheckForHit (int Array[][], int x, int y)
 	{
-		//pseudo-code
-		/*
-		 * int move = Value at Array Location
-		 * 
-		 * if (move == 1)
-		 * {
-		 * 		return true;
-		 * }
-		 * 
-		 * else
-		 * {
-		 * 		return false;
-		 * }
-		 */
+		int move;
+		
+		move = Array[x][y];
+		Log.v(msg,"move = " + move);
+		
+		if (move == 1)
+		{
+			return true;
+		}
+		
+		else
+		{
+			return false;
+		}		 
 	}
 	
 }
