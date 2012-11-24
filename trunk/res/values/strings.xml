@@ -4,6 +4,7 @@
     <string name="menu">Battleship Menu</string>
     <string name="single">Single Player Game</string>
     <string name="multi">Multiplayer Game</string>
+    <string name="gridButton">Grid Button</string>
     <string name="menu_settings">Settings</string>
     <string name="title_activity_main">BattleShip</string>
 

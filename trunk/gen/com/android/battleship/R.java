@@ -11,28 +11,134 @@ public final class R {
     public static final class attr {
     }
     public static final class drawable {
-        public static final int ic_action_search=0x7f020000;
-        public static final int ic_launcher=0x7f020001;
+        public static final int garnet=0x7f020000;
+        public static final int ic_action_search=0x7f020001;
+        public static final int ic_launcher=0x7f020002;
+        public static final int ocean=0x7f020003;
     }
     public static final class id {
+        public static final int A1=0x7f070004;
+        public static final int A10=0x7f07000d;
+        public static final int A2=0x7f070005;
+        public static final int A3=0x7f070006;
+        public static final int A4=0x7f070007;
+        public static final int A5=0x7f070008;
+        public static final int A6=0x7f070009;
+        public static final int A7=0x7f07000a;
+        public static final int A8=0x7f07000b;
+        public static final int A9=0x7f07000c;
+        public static final int B1=0x7f07000f;
+        public static final int B10=0x7f070018;
+        public static final int B2=0x7f070010;
+        public static final int B3=0x7f070011;
+        public static final int B4=0x7f070012;
+        public static final int B5=0x7f070013;
+        public static final int B6=0x7f070014;
+        public static final int B7=0x7f070015;
+        public static final int B8=0x7f070016;
+        public static final int B9=0x7f070017;
+        public static final int C1=0x7f07001a;
+        public static final int C10=0x7f070023;
+        public static final int C2=0x7f07001b;
+        public static final int C3=0x7f07001c;
+        public static final int C4=0x7f07001d;
+        public static final int C5=0x7f07001e;
+        public static final int C6=0x7f07001f;
+        public static final int C7=0x7f070020;
+        public static final int C8=0x7f070021;
+        public static final int C9=0x7f070022;
+        public static final int D1=0x7f070025;
+        public static final int D10=0x7f07002e;
+        public static final int D2=0x7f070026;
+        public static final int D3=0x7f070027;
+        public static final int D4=0x7f070028;
+        public static final int D5=0x7f070029;
+        public static final int D6=0x7f07002a;
+        public static final int D7=0x7f07002b;
+        public static final int D8=0x7f07002c;
+        public static final int D9=0x7f07002d;
+        public static final int E1=0x7f070030;
+        public static final int E10=0x7f070039;
+        public static final int E2=0x7f070031;
+        public static final int E3=0x7f070032;
+        public static final int E4=0x7f070033;
+        public static final int E5=0x7f070034;
+        public static final int E6=0x7f070035;
+        public static final int E7=0x7f070036;
+        public static final int E8=0x7f070037;
+        public static final int E9=0x7f070038;
+        public static final int F1=0x7f07003b;
+        public static final int F10=0x7f070044;
+        public static final int F2=0x7f07003c;
+        public static final int F3=0x7f07003d;
+        public static final int F4=0x7f07003e;
+        public static final int F5=0x7f07003f;
+        public static final int F6=0x7f070040;
+        public static final int F7=0x7f070041;
+        public static final int F8=0x7f070042;
+        public static final int F9=0x7f070043;
+        public static final int G1=0x7f070046;
+        public static final int G10=0x7f07004f;
+        public static final int G2=0x7f070047;
+        public static final int G3=0x7f070048;
+        public static final int G4=0x7f070049;
+        public static final int G5=0x7f07004a;
+        public static final int G6=0x7f07004b;
+        public static final int G7=0x7f07004c;
+        public static final int G8=0x7f07004d;
+        public static final int G9=0x7f07004e;
+        public static final int H1=0x7f070051;
+        public static final int H10=0x7f07005a;
+        public static final int H2=0x7f070052;
+        public static final int H3=0x7f070053;
+        public static final int H4=0x7f070054;
+        public static final int H5=0x7f070055;
+        public static final int H6=0x7f070056;
+        public static final int H7=0x7f070057;
+        public static final int H8=0x7f070058;
+        public static final int H9=0x7f070059;
+        public static final int I1=0x7f07005c;
+        public static final int I10=0x7f070065;
+        public static final int I2=0x7f07005d;
+        public static final int I3=0x7f07005e;
+        public static final int I4=0x7f07005f;
+        public static final int I5=0x7f070060;
+        public static final int I6=0x7f070061;
+        public static final int I7=0x7f070062;
+        public static final int I8=0x7f070063;
+        public static final int I9=0x7f070064;
         public static final int connect=0x7f070000;
         public static final int gameButton1=0x7f070001;
         public static final int gameButton2=0x7f070002;
-        public static final int menu_settings=0x7f070003;
+        public static final int menu_settings=0x7f070066;
+        public static final int rowA=0x7f070003;
+        public static final int rowB=0x7f07000e;
+        public static final int rowC=0x7f070019;
+        public static final int rowD=0x7f070024;
+        public static final int rowE=0x7f07002f;
+        public static final int rowF=0x7f07003a;
+        public static final int rowG=0x7f070045;
+        public static final int rowH=0x7f070050;
+        public static final int rowI=0x7f07005b;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
+        public static final int bluetooth_management_layout=0x7f030001;
+        public static final int grid_screen=0x7f030002;
+        public static final int hits_and_misses_layout=0x7f030003;
+        public static final int placement_layout=0x7f030004;
     }
     public static final class menu {
         public static final int activity_main=0x7f060000;
     }
     public static final class string {
         public static final int app_name=0x7f040000;
+        public static final int gridButton=0x7f040004;
         public static final int menu=0x7f040001;
-        public static final int menu_settings=0x7f040004;
+        public static final int menu_settings=0x7f040005;
         public static final int multi=0x7f040003;
         public static final int single=0x7f040002;
-        public static final int title_activity_main=0x7f040005;
+        public static final int title_activity_main=0x7f040006;
     }
     public static final class style {
         public static final int AppTheme=0x7f050000;

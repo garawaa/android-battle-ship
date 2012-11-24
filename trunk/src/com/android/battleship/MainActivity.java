@@ -1,7 +1,8 @@
 package com.android.battleship;
 
 import java.util.Set;
-
+import android.annotation.TargetApi;
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.bluetooth.BluetoothAdapter;
@@ -13,7 +14,9 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 
 /**
  * This will be the starting screen for the app. From here we will click a button to open up a bluetooth
@@ -22,13 +25,16 @@ import android.widget.ArrayAdapter;
  * @author Team Battleship
  *
  */
+@TargetApi(11)
 public class MainActivity extends Activity {
+	
 	final Context context = this;
 	
 	private BluetoothAdapter mBluetoothAdapter;
 	private ArrayAdapter mArrayAdapter;
 	private int REQUEST_ENABLE_BT = 1;
 
+	@TargetApi(11)
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -49,8 +55,37 @@ public class MainActivity extends Activity {
 						dialog.cancel();
 					}
 				});
+		
 		AlertDialog alertDialog = alertDialogBuilder.create();
 		alertDialog.show();
+		
+		
+		Button b1;
+		Button b2;
+
+		b1 = (Button) findViewById(R.id.gameButton1);
+		b2 = (Button) findViewById(R.id.gameButton2);
+
+		ActionBar bar = getActionBar();
+		bar.setBackgroundDrawable(getResources().getDrawable(R.drawable.garnet));
+
+		
+		b1.setOnClickListener(new View.OnClickListener() 
+		{
+			public void onClick(View v) 
+			{
+				setContentView(R.layout.grid_screen);
+			}
+		});
+
+		b2.setOnClickListener(new View.OnClickListener() 
+		{
+			public void onClick(View v) 
+			{
+				setContentView(R.layout.grid_screen);
+			}
+		});
+		
 	}
 
 	@Override
