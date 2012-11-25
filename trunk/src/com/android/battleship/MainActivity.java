@@ -29,17 +29,27 @@ import android.widget.Button;
 public class MainActivity extends Activity {
 	
 	final Context context = this;
+	GameMessages gm = new GameMessages();
 	
 	private BluetoothAdapter mBluetoothAdapter;
 	private ArrayAdapter mArrayAdapter;
 	private int REQUEST_ENABLE_BT = 1;
+	private String gameInstructions =  "The objective of this game is to place your fleet's ships in your desired position."
+			+ "  You can play with a friend or against the computer.  Once your ships are positioned,"
+			+ " you will select coordinates for attacking the opponent's fleet and it will be determined"
+			+ " whether you hit a ship.  Good luck!";
+	private String fireShot = "Select a cell to fire a shot at your opponent's fleet.";
 
 	@TargetApi(11)
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
+		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
+		gm.displayMsg(context, gameInstructions, "Game Instructions");
+		
+		/*
 		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
 				context);
 		alertDialogBuilder.setTitle("Game Instructions");
@@ -58,6 +68,7 @@ public class MainActivity extends Activity {
 		
 		AlertDialog alertDialog = alertDialogBuilder.create();
 		alertDialog.show();
+		*/
 		
 		
 		Button b1;
@@ -75,6 +86,7 @@ public class MainActivity extends Activity {
 			public void onClick(View v) 
 			{
 				setContentView(R.layout.grid_screen);
+				gm.displayMsg(context, fireShot, "Fire when ready!");
 			}
 		});
 
@@ -83,6 +95,7 @@ public class MainActivity extends Activity {
 			public void onClick(View v) 
 			{
 				setContentView(R.layout.grid_screen);
+				gm.displayMsg(context, fireShot, "Fire when ready!");
 			}
 		});
 		

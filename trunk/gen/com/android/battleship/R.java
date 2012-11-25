@@ -107,10 +107,20 @@ public final class R {
         public static final int I7=0x7f070062;
         public static final int I8=0x7f070063;
         public static final int I9=0x7f070064;
+        public static final int J1=0x7f070067;
+        public static final int J10=0x7f070070;
+        public static final int J2=0x7f070068;
+        public static final int J3=0x7f070069;
+        public static final int J4=0x7f07006a;
+        public static final int J5=0x7f07006b;
+        public static final int J6=0x7f07006c;
+        public static final int J7=0x7f07006d;
+        public static final int J8=0x7f07006e;
+        public static final int J9=0x7f07006f;
         public static final int connect=0x7f070000;
         public static final int gameButton1=0x7f070001;
         public static final int gameButton2=0x7f070002;
-        public static final int menu_settings=0x7f070066;
+        public static final int menu_settings=0x7f070071;
         public static final int rowA=0x7f070003;
         public static final int rowB=0x7f07000e;
         public static final int rowC=0x7f070019;
@@ -120,6 +130,7 @@ public final class R {
         public static final int rowG=0x7f070045;
         public static final int rowH=0x7f070050;
         public static final int rowI=0x7f07005b;
+        public static final int rowJ=0x7f070066;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
@@ -139,6 +150,7 @@ public final class R {
         public static final int multi=0x7f040003;
         public static final int single=0x7f040002;
         public static final int title_activity_main=0x7f040006;
+        public static final int userMsg=0x7f040007;
     }
     public static final class style {
         public static final int AppTheme=0x7f050000;

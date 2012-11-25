@@ -7,5 +7,6 @@
     <string name="gridButton">Grid Button</string>
     <string name="menu_settings">Settings</string>
     <string name="title_activity_main">BattleShip</string>
-
+    <string name="userMsg">Message prompting user about hits, misses, and turns.</string>
+    
 </resources>
