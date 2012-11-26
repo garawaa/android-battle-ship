@@ -28,7 +28,7 @@ public class BattleshipHitsAndMissesScreen extends Activity{
 		else
 		{
 			return false;
-		}		 
+		}
 	}
 	
 }
