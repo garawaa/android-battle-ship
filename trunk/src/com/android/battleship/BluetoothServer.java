@@ -1,27 +1,32 @@
 package com.android.battleship;
 
 import java.io.IOException;
+import java.util.UUID;
 
+import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothServerSocket;
 import android.bluetooth.BluetoothSocket;
 
 public class BluetoothServer extends Thread {
 	
-    private final BluetoothServerSocket mmServerSocket = null;
- 
+    private final BluetoothServerSocket mmServerSocket;
+    private BluetoothAdapter mBluetoothAdapter;
+    private String NAME = "";
+    private UUID MY_UUID = null;
+    
     public BluetoothServer() {
         // Use a temporary object that is later assigned to mmServerSocket,
         // because mmServerSocket is final
         BluetoothServerSocket tmp = null;
         try {
             // MY_UUID is the app's UUID string, also used by the client code
-            //TODO: tmp = mBluetoothAdapter.listenUsingRfcommWithServiceRecord(NAME, MY_UUID);
+            tmp = mBluetoothAdapter.listenUsingRfcommWithServiceRecord(NAME, MY_UUID);
         } catch (Exception e) { 
         	
         }
-        //mmServerSocket = tmp;
+        mmServerSocket = tmp;
     }
- 
+    
     public void run() {
         BluetoothSocket socket = null;
         // Keep listening until exception occurs or a socket is returned
@@ -38,7 +43,6 @@ public class BluetoothServer extends Thread {
                 try {
 					mmServerSocket.close();
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
                 break;

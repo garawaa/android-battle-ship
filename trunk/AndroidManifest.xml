@@ -22,6 +22,38 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".BluetoothManagerScreen"
+            android:label="Bluetooth Management"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>            
+        </activity>
+        <activity
+            android:name=".BattleshipGridScreen"
+            android:label="Main"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>            
+        </activity>
+        <activity
+            android:name=".BattleshipHitsAndMissesScreen"
+            android:label="Previous Moves"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>            
+        </activity>
+        <activity
+            android:name=".BattleshipPlacementScreen"
+            android:label="Place your battleship!"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>            
+        </activity>
     </application>
 
 </manifest>

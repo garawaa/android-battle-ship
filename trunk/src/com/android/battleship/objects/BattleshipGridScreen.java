@@ -1,4 +1,4 @@
-package com.android.battleship;
+package com.android.battleship.objects;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
