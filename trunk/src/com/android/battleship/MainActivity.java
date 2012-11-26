@@ -5,6 +5,7 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -75,7 +76,8 @@ public class MainActivity extends Activity {
 		
 		Button b1;
 		Button b2;
-
+		Button btTest = (Button) findViewById(R.id.bttest);
+		
 		b1 = (Button) findViewById(R.id.gameButton1);
 		b2 = (Button) findViewById(R.id.gameButton2);
 
@@ -98,6 +100,15 @@ public class MainActivity extends Activity {
 			{
 				setContentView(R.layout.grid_screen);
 				gm.displayMsg(context, fireShot, "Fire when ready!");
+			}
+		});
+		btTest.setOnClickListener(new View.OnClickListener() 
+		{
+			public void onClick(View v) 
+			{
+				Intent intent = new Intent(v.getContext(), BluetoothManagerScreen.class);
+				//expects a return from the bluetooth screen, 1 for sucess, 0 for failure
+				startActivityForResult(intent, 1);
 			}
 		});
 	}
