@@ -1,8 +1,6 @@
 package com.android.battleship;
 
-
 import java.util.ArrayList;
-
 import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.app.Activity;
@@ -58,35 +56,13 @@ public class MainActivity extends Activity implements OnClickListener {
 
 		gm.displayMsg(context, gameInstructions, "Game Instructions");		
 		
-		Button b1;
-		Button b2;
-		Button btTest = (Button) findViewById(R.id.bttest);
-		
-		b1 = (Button) findViewById(R.id.gameButton1);
-		b2 = (Button) findViewById(R.id.gameButton2);
-
+	 	Button btTest = (Button) findViewById(R.id.bttest);		
+	  
 		ActionBar bar = getActionBar();
 		bar.setBackgroundDrawable(getResources().getDrawable(R.drawable.garnet));
 
 		GridButtonDeclaration();
 		
-		b1.setOnClickListener(new View.OnClickListener() 
-		{
-			public void onClick(View v) 
-			{
-				setContentView(R.layout.grid_screen);
-				gm.displayMsg(context, fireShot, "Fire when ready!");
-			}
-		});
-
-		b2.setOnClickListener(new View.OnClickListener() 
-		{
-			public void onClick(View v) 
-			{
-				setContentView(R.layout.grid_screen);
-				gm.displayMsg(context, fireShot, "Fire when ready!");
-			}
-		});
 		btTest.setOnClickListener(new View.OnClickListener() 
 		{
 			public void onClick(View v) 
@@ -103,8 +79,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		getMenuInflater().inflate(R.menu.activity_main, menu);
 		return true;
 	}
-	
-	
+	    
 	void GridButtonDeclaration()
 	{
 		Button A1;
@@ -2215,7 +2190,21 @@ public class MainActivity extends Activity implements OnClickListener {
 				}
 	
 				break;
-				
+				 
+      case R.id.gameButton1:
+      
+        setContentView(R.layout.grid_screen);
+        gm.displayMsg(context, fireShot, "Fire when ready!");
+
+				 break;
+             
+      case R.id.gameButton2:
+      
+        setContentView(R.layout.grid_screen);
+        gm.displayMsg(context, fireShot, "Fire when ready!");
+
+				 break;
+                         
 			default:
 				
 				break;
