@@ -56,38 +56,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		gm.displayMsg(context, gameInstructions, "Game Instructions");
-		
-		/*
-		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-				context);
-		alertDialogBuilder.setTitle("Game Instructions");
-		alertDialogBuilder
-				.setMessage(
-						"The objective of this game is to place your fleet's ships in your desired position."
-								+ "  You can play with a friend or against the computer.  Once your ships are positioned,"
-								+ " you will select coordinates for attacking the opponent's fleet and it will be determined"
-								+ " whether you hit a ship.  Good luck!")
-				.setCancelable(false)
-				.setNegativeButton("Ok", new DialogInterface.OnClickListener() {
-					public void onClick(DialogInterface dialog, int id) {
-						dialog.cancel();
-					}
-				});
-		
-		AlertDialog alertDialog = alertDialogBuilder.create();
-		alertDialog.show();
-		
-		Button multiplayerButton = (Button)findViewById(R.id.gameButton2);
-		multiplayerButton.setOnClickListener(new OnClickListener(){
-			public void onClick(View view) {
-				Intent intent = new Intent(view.getContext(), BluetoothManagerScreen.class);
-				//expects a return from the bluetooth screen, 1 for sucess, 0 for failure
-				startActivityForResult(intent, 1);
-			}			
-		});
-		*/
-		
+		gm.displayMsg(context, gameInstructions, "Game Instructions");		
 		
 		Button b1;
 		Button b2;
@@ -100,7 +69,6 @@ public class MainActivity extends Activity implements OnClickListener {
 		bar.setBackgroundDrawable(getResources().getDrawable(R.drawable.garnet));
 
 		GridButtonDeclaration();
-		
 		
 		b1.setOnClickListener(new View.OnClickListener() 
 		{
