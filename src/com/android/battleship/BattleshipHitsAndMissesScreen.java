@@ -1,5 +1,7 @@
 package com.android.battleship;
 
+import java.util.ArrayList;
+
 import android.app.Activity;
 import android.util.Log;
 
@@ -13,22 +15,20 @@ public class BattleshipHitsAndMissesScreen extends Activity{
 
 	String msg;
 	
-	boolean CheckForHit (int Array[][], int x, int y)
+	boolean CheckForHit (ArrayList<String> Array, String move)
 	{
-		int move;
-		
-		move = Array[x][y];
-		Log.v(msg,"move = " + move);
-		
-		if (move == 1)
+				
+		for (int i = 0; i < Array.size(); ++i)
 		{
-			return true;
+			Log.v(msg, "move = ");
+			if (move.equals(Array.get(i)))
+			{
+				return true;
+			}
 		}
 		
-		else
-		{
-			return false;
-		}
+		return false;		
+		
 	}
 	
 }
