@@ -292,1918 +292,1918 @@ public class MainActivity extends Activity implements OnClickListener {
 		switch (v.getId())
 		{
 			
-			case R.id.A1:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "A1");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "A1");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.A2:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "A2");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "A2");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.A3:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "A3");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "A3");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.A4:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "A4");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "A4");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.A5:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "A5");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "A5");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.A6:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "A6");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "A6");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.A7:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "A7");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "A7");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.A8:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "A8");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "A8");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.A9:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "A9");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "A9");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.A10:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "A10");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "A10");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.B1:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "B1");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "B1");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.B2:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "B2");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "B2");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.B3:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "B3");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "B3");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.B4:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "B4");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "B4");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.B5:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "B5");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "B5");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.B6:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "B6");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "B6");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.B7:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "B7");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "B7");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.B8:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "B8");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "B8");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.B9:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "B9");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "B9");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.B10:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "B10");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "B10");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.C1:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "C1");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "C1");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.C2:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "C2");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "C2");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.C3:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "C3");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "C3");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.C4:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "C4");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "C4");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.C5:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "C5");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "C5");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.C6:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "C6");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "C6");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.C7:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "C7");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "C7");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.C8:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "C8");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "C8");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.C9:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "C9");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "C9");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.C10:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "C10");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "C10");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.D1:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "D1");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "D1");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.D2:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "D2");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "D2");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.D3:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "D3");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "D3");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.D4:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "D4");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "D4");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.D5:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "D5");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "D5");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.D6:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "D6");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "D6");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.D7:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "D7");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "D7");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.D8:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "D8");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "D8");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.D9:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "D9");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "D9");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.D10:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "D10");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "D10");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.E1:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "E1");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "E1");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.E2:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "E2");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "E2");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.E3:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "E3");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "E3");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.E4:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "E4");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "E4");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.E5:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "E5");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "E5");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.E6:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "E6");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "E6");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.E7:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "E7");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "E7");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.E8:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "E8");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "E8");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.E9:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "E9");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "E9");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.E10:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "E10");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "E10");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.F1:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "F1");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "F1");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.F2:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "F2");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "F2");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.F3:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "F3");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "F3");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.F4:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "F4");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "F4");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.F5:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "F5");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "F5");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.F6:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "F6");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "F6");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.F7:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "F7");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "F7");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.F8:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "F8");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "F8");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.F9:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "F9");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "F9");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.F10:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "F10");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "F10");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.G1:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "G1");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "G1");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.G2:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "G2");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "G2");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.G3:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "G3");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "G3");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.G4:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "G4");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "G4");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.G5:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "G5");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "G5");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.G6:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "G6");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "G6");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.G7:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "G7");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "G7");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.G8:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "G8");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "G8");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.G9:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "G9");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "G9");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.G10:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "G10");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "G10");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.H1:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "H1");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "H1");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.H2:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "H2");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "H2");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.H3:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "H3");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "H3");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.H4:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "H4");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "H4");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.H5:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "H5");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "H5");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.H6:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "H6");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "H6");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.H7:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "H7");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "H7");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.H8:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "H8");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "H8");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.H9:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "H9");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "H9");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.H10:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "H10");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "H10");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.I1:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "I1");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "I1");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.I2:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "I2");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "I2");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.I3:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "I3");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "I3");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.I4:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "I4");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "I4");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.I5:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "I5");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "I5");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.I6:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "I6");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "I6");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.I7:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "I7");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "I7");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.I8:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "I8");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "I8");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.I9:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "I9");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "I9");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.I10:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "I10");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "I10");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.J1:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "J1");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "J1");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.J2:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "J2");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "J2");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.J3:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "J3");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "J3");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.J4:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "J4");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "J4");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.J5:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "J5");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "J5");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.J6:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "J6");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "J6");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.J7:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "J7");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "J7");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.J8:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "J8");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "J8");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.J9:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "J9");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "J9");
-	
-					player = 1;
-				}
-	
-				break;
-	
-	
-			case R.id.J10:
-	
-				if (player == 1)
-				{
-					hit.CheckForHit(player1ShipArray, "J10");
-	
-					player = 2;
-				}
-	
-				else
-				{
-					hit.CheckForHit(player2ShipArray, "J10");
-	
-					player = 1;
-				}
-	
-				break;
+		case R.id.A1:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "A1");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "A1");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.A2:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "A2");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "A2");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.A3:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "A3");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "A3");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.A4:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "A4");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "A4");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.A5:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "A5");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "A5");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.A6:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "A6");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "A6");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.A7:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "A7");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "A7");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.A8:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "A8");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "A8");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.A9:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "A9");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "A9");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.A10:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "A10");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "A10");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.B1:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "B1");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "B1");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.B2:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "B2");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "B2");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.B3:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "B3");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "B3");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.B4:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "B4");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "B4");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.B5:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "B5");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "B5");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.B6:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "B6");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "B6");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.B7:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "B7");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "B7");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.B8:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "B8");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "B8");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.B9:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "B9");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "B9");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.B10:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "B10");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "B10");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.C1:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "C1");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "C1");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.C2:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "C2");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "C2");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.C3:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "C3");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "C3");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.C4:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "C4");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "C4");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.C5:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "C5");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "C5");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.C6:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "C6");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "C6");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.C7:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "C7");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "C7");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.C8:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "C8");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "C8");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.C9:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "C9");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "C9");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.C10:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "C10");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "C10");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.D1:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "D1");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "D1");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.D2:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "D2");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "D2");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.D3:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "D3");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "D3");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.D4:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "D4");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "D4");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.D5:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "D5");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "D5");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.D6:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "D6");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "D6");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.D7:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "D7");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "D7");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.D8:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "D8");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "D8");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.D9:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "D9");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "D9");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.D10:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "D10");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "D10");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.E1:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "E1");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "E1");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.E2:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "E2");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "E2");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.E3:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "E3");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "E3");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.E4:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "E4");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "E4");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.E5:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "E5");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "E5");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.E6:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "E6");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "E6");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.E7:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "E7");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "E7");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.E8:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "E8");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "E8");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.E9:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "E9");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "E9");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.E10:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "E10");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "E10");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.F1:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "F1");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "F1");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.F2:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "F2");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "F2");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.F3:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "F3");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "F3");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.F4:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "F4");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "F4");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.F5:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "F5");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "F5");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.F6:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "F6");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "F6");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.F7:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "F7");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "F7");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.F8:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "F8");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "F8");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.F9:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "F9");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "F9");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.F10:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "F10");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "F10");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.G1:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "G1");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "G1");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.G2:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "G2");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "G2");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.G3:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "G3");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "G3");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.G4:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "G4");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "G4");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.G5:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "G5");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "G5");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.G6:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "G6");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "G6");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.G7:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "G7");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "G7");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.G8:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "G8");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "G8");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.G9:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "G9");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "G9");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.G10:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "G10");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "G10");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.H1:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "H1");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "H1");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.H2:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "H2");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "H2");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.H3:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "H3");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "H3");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.H4:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "H4");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "H4");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.H5:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "H5");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "H5");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.H6:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "H6");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "H6");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.H7:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "H7");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "H7");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.H8:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "H8");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "H8");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.H9:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "H9");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "H9");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.H10:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "H10");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "H10");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.I1:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "I1");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "I1");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.I2:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "I2");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "I2");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.I3:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "I3");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "I3");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.I4:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "I4");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "I4");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.I5:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "I5");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "I5");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.I6:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "I6");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "I6");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.I7:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "I7");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "I7");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.I8:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "I8");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "I8");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.I9:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "I9");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "I9");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.I10:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "I10");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "I10");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.J1:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "J1");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "J1");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.J2:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "J2");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "J2");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.J3:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "J3");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "J3");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.J4:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "J4");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "J4");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.J5:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "J5");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "J5");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.J6:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "J6");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "J6");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.J7:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "J7");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "J7");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.J8:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "J8");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "J8");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.J9:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "J9");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "J9");
+
+				player = 1;
+			}
+
+			break;
+
+
+		case R.id.J10:
+
+			if (player == 1)
+			{
+				hit.CheckForHit(player2ShipArray, "J10");
+
+				player = 2;
+			}
+
+			else
+			{
+				hit.CheckForHit(player1ShipArray, "J10");
+
+				player = 1;
+			}
+
+			break;
 				 
-      case R.id.gameButton1:
+		case R.id.gameButton1:
       
-        setContentView(R.layout.grid_screen);
-        gm.displayMsg(context, fireShot, "Fire when ready!");
+			setContentView(R.layout.grid_screen);
+			gm.displayMsg(context, fireShot, "Fire when ready!");
 
-				 break;
+			break;
              
-      case R.id.gameButton2:
+		case R.id.gameButton2:
       
-        setContentView(R.layout.grid_screen);
-        gm.displayMsg(context, fireShot, "Fire when ready!");
+			setContentView(R.layout.grid_screen);
+			gm.displayMsg(context, fireShot, "Fire when ready!");
 
-				 break;
+			break;
                          
 			default:
 				
