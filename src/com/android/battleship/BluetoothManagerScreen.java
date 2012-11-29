@@ -10,7 +10,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * This screen will manage the bluetooth pairing and may turn into a game
@@ -23,7 +29,8 @@ public class BluetoothManagerScreen extends ListActivity {
 	private static final int REQUEST_ENABLE_BT = 2;
 
 	private ArrayAdapter mArrayAdapter;
-
+	private ListView listView;
+	
 	@SuppressWarnings("unchecked")
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -33,6 +40,18 @@ public class BluetoothManagerScreen extends ListActivity {
 				android.R.layout.simple_list_item_1);
 		this.setListAdapter(mArrayAdapter);
 
+		listView = getListView();
+		listView.setOnItemClickListener(new OnItemClickListener(){
+
+			public void onItemClick(AdapterView<?> viewAdapter, View view, int position,
+					long arg3) {
+					TextView textView = (TextView)view;
+					String deviceName = (String)textView.getText();
+					Toast.makeText(getApplicationContext(), deviceName, 2000).show();
+			}
+			
+		});
+		
 		BluetoothAdapter mBluetoothAdapter = BluetoothAdapter
 				.getDefaultAdapter();
 		if (mBluetoothAdapter == null) {
