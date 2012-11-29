@@ -1,5 +1,7 @@
 package com.android.battleship;
 
+import java.util.ArrayList;
+
 import android.app.Activity;
 
 /**
@@ -10,5 +12,88 @@ import android.app.Activity;
  *
  */
 public class BattleshipPlacementScreen extends Activity{
+	
+	int counter = 0;
+	
+	MainActivity main;
 
+	public int carrier(int player, String s) {
+		
+		if (player == 1)
+		{
+			main.player1ShipArray.add(s);
+		}
+		else
+		{
+			main.player2ShipArray.add(s);
+		}
+		
+		++counter;
+		
+		return counter;
+	}
+
+	public int battleship(int player, String s) {
+		
+		if (player == 1)
+		{
+			main.player1ShipArray.add(s);
+		}
+		else
+		{
+			main.player2ShipArray.add(s);
+		}
+		
+		++counter;
+
+		return counter;
+	}
+
+	public int destroyer(int player, String s) {
+		
+		if (player == 1)
+		{
+			main.player1ShipArray.add(s);
+		}
+		else
+		{
+			main.player2ShipArray.add(s);
+		}
+		
+		++counter;
+
+		return counter;
+	}
+
+	public int submarine(int player, String s) {
+		
+		if (player == 1)
+		{
+			main.player1ShipArray.add(s);
+		}
+		else
+		{
+			main.player2ShipArray.add(s);
+		}
+		
+		++counter;
+
+		return counter;
+	}
+
+	public int ptBoat(int player, String s) {
+		
+		if (player == 1)
+		{
+			main.player1ShipArray.add(s);
+		}
+		else
+		{
+			main.player2ShipArray.add(s);
+		}
+		
+		++counter;
+
+		return counter;
+	}
 }
