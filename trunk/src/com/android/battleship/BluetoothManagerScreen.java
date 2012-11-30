@@ -30,7 +30,6 @@ public class BluetoothManagerScreen extends ListActivity {
 
 	private ArrayAdapter mArrayAdapter;
 	private ListView listView;
-	
 	@SuppressWarnings("unchecked")
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -39,15 +38,20 @@ public class BluetoothManagerScreen extends ListActivity {
 		mArrayAdapter = new ArrayAdapter(this,
 				android.R.layout.simple_list_item_1);
 		this.setListAdapter(mArrayAdapter);
-
+		
 		listView = getListView();
 		listView.setOnItemClickListener(new OnItemClickListener(){
 
 			public void onItemClick(AdapterView<?> viewAdapter, View view, int position,
 					long arg3) {
 					TextView textView = (TextView)view;
-					String deviceName = (String)textView.getText();
-					Toast.makeText(getApplicationContext(), deviceName, 2000).show();
+					String deviceMac = (String)textView.getText();
+					String[] deviceMacArray = deviceMac.split("\n");
+					String macAddress = deviceMacArray[1];
+					String deviceName = deviceMacArray[0];
+					
+					//BluetoothClient btClient = new BluetoothClient(macAddress, getApplicationContext(), handler);
+					//btClient.start();
 			}
 			
 		});
@@ -72,8 +76,7 @@ public class BluetoothManagerScreen extends ListActivity {
 
 			for (BluetoothDevice device : pairedDevices)
 				// Loop through paired devices
-				mArrayAdapter.add(device.getName() + "\n" + // Display name and
-															// address
+				mArrayAdapter.add(device.getName() + "\n" + // Display name and address
 						device.getAddress());
 		}
 

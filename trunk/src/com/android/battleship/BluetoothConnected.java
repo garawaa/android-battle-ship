@@ -50,6 +50,14 @@ public class BluetoothConnected extends Thread {
             mmOutStream.write(bytes);
         } catch (IOException e) { }
     }
+    
+    public void read(byte[] bytes){
+    	try{
+    		mmInStream.read(bytes);    		
+    	} catch(IOException e){
+    		
+    	}
+    }
  
     /* Call this from the main activity to shutdown the connection */
     public void cancel() {
