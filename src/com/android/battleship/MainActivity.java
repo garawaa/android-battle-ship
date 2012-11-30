@@ -8,11 +8,13 @@ import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 /**
  * This will be the starting screen for the app. From here we will click a button to open up a bluetooth
@@ -26,7 +28,112 @@ public class MainActivity extends Activity implements OnClickListener {
 	
 	final Context context = this;
 	GameMessages gm = new GameMessages();	
-	BattleshipPlacementScreen shipPlacement = new BattleshipPlacementScreen();
+	BattleshipPlacementScreen shipPlacement;
+	
+	String msg;
+	
+	ImageButton placementA1 = (ImageButton) findViewById(R.id.placementA1);	
+	ImageButton placementA2 = (ImageButton) findViewById(R.id.placementA2);
+	ImageButton placementA3 = (ImageButton) findViewById(R.id.placementA3);
+	ImageButton placementA4 = (ImageButton) findViewById(R.id.placementA4);
+	ImageButton placementA5 = (ImageButton) findViewById(R.id.placementA5);
+	ImageButton placementA6 = (ImageButton) findViewById(R.id.placementA6);
+	ImageButton placementA7 = (ImageButton) findViewById(R.id.placementA7);
+	ImageButton placementA8 = (ImageButton) findViewById(R.id.placementA8);
+	ImageButton placementA9 = (ImageButton) findViewById(R.id.placementA9);
+	ImageButton placementA10 = (ImageButton) findViewById(R.id.placementA10);
+	ImageButton placementB1 = (ImageButton) findViewById(R.id.placementB1);
+	ImageButton placementB2 = (ImageButton) findViewById(R.id.placementB2);
+	ImageButton placementB3 = (ImageButton) findViewById(R.id.placementB3);
+	ImageButton placementB4 = (ImageButton) findViewById(R.id.placementB4);
+	ImageButton placementB5 = (ImageButton) findViewById(R.id.placementB5);
+	ImageButton placementB6 = (ImageButton) findViewById(R.id.placementB6);
+	ImageButton placementB7 = (ImageButton) findViewById(R.id.placementB7);
+	ImageButton placementB8 = (ImageButton) findViewById(R.id.placementB8);
+	ImageButton placementB9 = (ImageButton) findViewById(R.id.placementB9);
+	ImageButton placementB10 = (ImageButton) findViewById(R.id.placementB10);
+	ImageButton placementC1 = (ImageButton) findViewById(R.id.placementC1);
+	ImageButton placementC2 = (ImageButton) findViewById(R.id.placementC2);
+	ImageButton placementC3 = (ImageButton) findViewById(R.id.placementC3);
+	ImageButton placementC4 = (ImageButton) findViewById(R.id.placementC4);
+	ImageButton placementC5 = (ImageButton) findViewById(R.id.placementC5);
+	ImageButton placementC6 = (ImageButton) findViewById(R.id.placementC6);
+	ImageButton placementC7 = (ImageButton) findViewById(R.id.placementC7);
+	ImageButton placementC8 = (ImageButton) findViewById(R.id.placementC8);
+	ImageButton placementC9 = (ImageButton) findViewById(R.id.placementC9);
+	ImageButton placementC10 = (ImageButton) findViewById(R.id.placementC10);
+	ImageButton placementD1 = (ImageButton) findViewById(R.id.placementD1);
+	ImageButton placementD2 = (ImageButton) findViewById(R.id.placementD2);
+	ImageButton placementD3 = (ImageButton) findViewById(R.id.placementD3);
+	ImageButton placementD4 = (ImageButton) findViewById(R.id.placementD4);
+	ImageButton placementD5 = (ImageButton) findViewById(R.id.placementD5);
+	ImageButton placementD6 = (ImageButton) findViewById(R.id.placementD6);
+	ImageButton placementD7 = (ImageButton) findViewById(R.id.placementD7);
+	ImageButton placementD8 = (ImageButton) findViewById(R.id.placementD8);
+	ImageButton placementD9 = (ImageButton) findViewById(R.id.placementD9);
+	ImageButton placementD10 = (ImageButton) findViewById(R.id.placementD10);
+	ImageButton placementE1 = (ImageButton) findViewById(R.id.placementE1);
+	ImageButton placementE2 = (ImageButton) findViewById(R.id.placementE2);
+	ImageButton placementE3 = (ImageButton) findViewById(R.id.placementE3);
+	ImageButton placementE4 = (ImageButton) findViewById(R.id.placementE4);
+	ImageButton placementE5 = (ImageButton) findViewById(R.id.placementE5);
+	ImageButton placementE6 = (ImageButton) findViewById(R.id.placementE6);
+	ImageButton placementE7 = (ImageButton) findViewById(R.id.placementE7);
+	ImageButton placementE8 = (ImageButton) findViewById(R.id.placementE8);
+	ImageButton placementE9 = (ImageButton) findViewById(R.id.placementE9);
+	ImageButton placementE10 = (ImageButton) findViewById(R.id.placementE10);
+	ImageButton placementF1 = (ImageButton) findViewById(R.id.placementF1);
+	ImageButton placementF2 = (ImageButton) findViewById(R.id.placementF2);
+	ImageButton placementF3 = (ImageButton) findViewById(R.id.placementF3);
+	ImageButton placementF4 = (ImageButton) findViewById(R.id.placementF4);
+	ImageButton placementF5 = (ImageButton) findViewById(R.id.placementF5);
+	ImageButton placementF6 = (ImageButton) findViewById(R.id.placementF6);
+	ImageButton placementF7 = (ImageButton) findViewById(R.id.placementF7);
+	ImageButton placementF8 = (ImageButton) findViewById(R.id.placementF8);
+	ImageButton placementF9 = (ImageButton) findViewById(R.id.placementF9);
+	ImageButton placementF10 = (ImageButton) findViewById(R.id.placementF10);
+	ImageButton placementG1 = (ImageButton) findViewById(R.id.placementG1);
+	ImageButton placementG2 = (ImageButton) findViewById(R.id.placementG2);
+	ImageButton placementG3 = (ImageButton) findViewById(R.id.placementG3);
+	ImageButton placementG4 = (ImageButton) findViewById(R.id.placementG4);
+	ImageButton placementG5 = (ImageButton) findViewById(R.id.placementG5);
+	ImageButton placementG6 = (ImageButton) findViewById(R.id.placementG6);
+	ImageButton placementG7 = (ImageButton) findViewById(R.id.placementG7);
+	ImageButton placementG8 = (ImageButton) findViewById(R.id.placementG8);
+	ImageButton placementG9 = (ImageButton) findViewById(R.id.placementG9);
+	ImageButton placementG10 = (ImageButton) findViewById(R.id.placementG10);
+	ImageButton placementH1 = (ImageButton) findViewById(R.id.placementH1);
+	ImageButton placementH2 = (ImageButton) findViewById(R.id.placementH2);
+	ImageButton placementH3 = (ImageButton) findViewById(R.id.placementH3);
+	ImageButton placementH4 = (ImageButton) findViewById(R.id.placementH4);
+	ImageButton placementH5 = (ImageButton) findViewById(R.id.placementH5);
+	ImageButton placementH6 = (ImageButton) findViewById(R.id.placementH6);
+	ImageButton placementH7 = (ImageButton) findViewById(R.id.placementH7);
+	ImageButton placementH8 = (ImageButton) findViewById(R.id.placementH8);
+	ImageButton placementH9 = (ImageButton) findViewById(R.id.placementH9);
+	ImageButton placementH10 = (ImageButton) findViewById(R.id.placementH10);
+	ImageButton placementI1 = (ImageButton) findViewById(R.id.placementI1);
+	ImageButton placementI2 = (ImageButton) findViewById(R.id.placementI2);
+	ImageButton placementI3 = (ImageButton) findViewById(R.id.placementI3);
+	ImageButton placementI4 = (ImageButton) findViewById(R.id.placementI4);
+	ImageButton placementI5 = (ImageButton) findViewById(R.id.placementI5);
+	ImageButton placementI6 = (ImageButton) findViewById(R.id.placementI6);
+	ImageButton placementI7 = (ImageButton) findViewById(R.id.placementI7);
+	ImageButton placementI8 = (ImageButton) findViewById(R.id.placementI8);
+	ImageButton placementI9 = (ImageButton) findViewById(R.id.placementI9);
+	ImageButton placementI10 = (ImageButton) findViewById(R.id.placementI10);
+	ImageButton placementJ1 = (ImageButton) findViewById(R.id.placementJ1);
+	ImageButton placementJ2 = (ImageButton) findViewById(R.id.placementJ2);
+	ImageButton placementJ3 = (ImageButton) findViewById(R.id.placementJ3);
+	ImageButton placementJ4 = (ImageButton) findViewById(R.id.placementJ4);
+	ImageButton placementJ5 = (ImageButton) findViewById(R.id.placementJ5);
+	ImageButton placementJ6 = (ImageButton) findViewById(R.id.placementJ6);
+	ImageButton placementJ7 = (ImageButton) findViewById(R.id.placementJ7);
+	ImageButton placementJ8 = (ImageButton) findViewById(R.id.placementJ8);
+	ImageButton placementJ9 = (ImageButton) findViewById(R.id.placementJ9);
+	ImageButton placementJ10 = (ImageButton) findViewById(R.id.placementJ10);
+	
+	Button b1 = (Button) findViewById(R.id.gameButton1);
 	
 	//Bryan's Temporary Variables
 	BattleshipHitsAndMissesScreen hit;
@@ -65,8 +172,6 @@ public class MainActivity extends Activity implements OnClickListener {
 		ActionBar bar = getActionBar();
 		bar.setBackgroundDrawable(getResources().getDrawable(R.drawable.garnet));
 
-		GridButtonDeclaration();
-		
 		btTest.setOnClickListener(new View.OnClickListener() 
 		{
 			public void onClick(View v) 
@@ -76,6 +181,111 @@ public class MainActivity extends Activity implements OnClickListener {
 				startActivityForResult(intent, 1);
 			}
 		});
+		
+
+		placementA1.setOnClickListener(this);
+		placementA2.setOnClickListener(this);
+		placementA3.setOnClickListener(this);
+		placementA4.setOnClickListener(this);
+		placementA5.setOnClickListener(this);
+		placementA6.setOnClickListener(this);
+		placementA7.setOnClickListener(this);
+		placementA8.setOnClickListener(this);
+		placementA9.setOnClickListener(this);
+		placementA10.setOnClickListener(this);
+		placementB1.setOnClickListener(this);
+		placementB2.setOnClickListener(this);
+		placementB3.setOnClickListener(this);
+		placementB4.setOnClickListener(this);
+		placementB5.setOnClickListener(this);
+		placementB6.setOnClickListener(this);
+		placementB7.setOnClickListener(this);
+		placementB8.setOnClickListener(this);
+		placementB9.setOnClickListener(this);
+		placementB10.setOnClickListener(this);
+		placementC1.setOnClickListener(this);
+		placementC2.setOnClickListener(this);
+		placementC3.setOnClickListener(this);
+		placementC4.setOnClickListener(this);
+		placementC5.setOnClickListener(this);
+		placementC6.setOnClickListener(this);
+		placementC7.setOnClickListener(this);
+		placementC8.setOnClickListener(this);
+		placementC9.setOnClickListener(this);
+		placementC10.setOnClickListener(this);
+		placementD1.setOnClickListener(this);
+		placementD2.setOnClickListener(this);
+		placementD3.setOnClickListener(this);
+		placementD4.setOnClickListener(this);
+		placementD5.setOnClickListener(this);
+		placementD6.setOnClickListener(this);
+		placementD7.setOnClickListener(this);
+		placementD8.setOnClickListener(this);
+		placementD9.setOnClickListener(this);
+		placementD10.setOnClickListener(this);
+		placementE1.setOnClickListener(this);
+		placementE2.setOnClickListener(this);
+		placementE3.setOnClickListener(this);
+		placementE4.setOnClickListener(this);
+		placementE5.setOnClickListener(this);
+		placementE6.setOnClickListener(this);
+		placementE7.setOnClickListener(this);
+		placementE8.setOnClickListener(this);
+		placementE9.setOnClickListener(this);
+		placementE10.setOnClickListener(this);
+		placementF1.setOnClickListener(this);
+		placementF2.setOnClickListener(this);
+		placementF3.setOnClickListener(this);
+		placementF4.setOnClickListener(this);
+		placementF5.setOnClickListener(this);
+		placementF6.setOnClickListener(this);
+		placementF7.setOnClickListener(this);
+		placementF8.setOnClickListener(this);
+		placementF9.setOnClickListener(this);
+		placementF10.setOnClickListener(this);
+		placementG1.setOnClickListener(this);
+		placementG2.setOnClickListener(this);
+		placementG3.setOnClickListener(this);
+		placementG4.setOnClickListener(this);
+		placementG5.setOnClickListener(this);
+		placementG6.setOnClickListener(this);
+		placementG7.setOnClickListener(this);
+		placementG8.setOnClickListener(this);
+		placementG9.setOnClickListener(this);
+		placementG10.setOnClickListener(this);
+		placementH1.setOnClickListener(this);
+		placementH2.setOnClickListener(this);
+		placementH3.setOnClickListener(this);
+		placementH4.setOnClickListener(this);
+		placementH5.setOnClickListener(this);
+		placementH6.setOnClickListener(this);
+		placementH7.setOnClickListener(this);
+		placementH8.setOnClickListener(this);
+		placementH9.setOnClickListener(this);
+		placementH10.setOnClickListener(this);
+		placementI1.setOnClickListener(this);
+		placementI2.setOnClickListener(this);
+		placementI3.setOnClickListener(this);
+		placementI4.setOnClickListener(this);
+		placementI5.setOnClickListener(this);
+		placementI6.setOnClickListener(this);
+		placementI7.setOnClickListener(this);
+		placementI8.setOnClickListener(this);
+		placementI9.setOnClickListener(this);
+		placementI10.setOnClickListener(this);
+		placementJ1.setOnClickListener(this);
+		placementJ2.setOnClickListener(this);
+		placementJ3.setOnClickListener(this);
+		placementJ4.setOnClickListener(this);
+		placementJ5.setOnClickListener(this);
+		placementJ6.setOnClickListener(this);
+		placementJ7.setOnClickListener(this);
+		placementJ8.setOnClickListener(this);
+		placementJ9.setOnClickListener(this);
+		placementJ10.setOnClickListener(this);
+		
+		b1.setOnClickListener(this);
+		
 	}
 
 	@Override
@@ -84,214 +294,10 @@ public class MainActivity extends Activity implements OnClickListener {
 		return true;
 	}
 	    
-	void GridButtonDeclaration()
-	{
-		Button A1;
-		Button A2;
-		Button A3;
-		Button A4;
-		Button A5;
-		Button A6;
-		Button A7;
-		Button A8;
-		Button A9;
-		Button A10;
-		Button B1;
-		Button B2;
-		Button B3;
-		Button B4;
-		Button B5;
-		Button B6;
-		Button B7;
-		Button B8;
-		Button B9;
-		Button B10;
-		Button C1;
-		Button C2;
-		Button C3;
-		Button C4;
-		Button C5;
-		Button C6;
-		Button C7;
-		Button C8;
-		Button C9;
-		Button C10;
-		Button D1;
-		Button D2;
-		Button D3;
-		Button D4;
-		Button D5;
-		Button D6;
-		Button D7;
-		Button D8;
-		Button D9;
-		Button D10;
-		Button E1;
-		Button E2;
-		Button E3;
-		Button E4;
-		Button E5;
-		Button E6;
-		Button E7;
-		Button E8;
-		Button E9;
-		Button E10;
-		Button F1;
-		Button F2;
-		Button F3;
-		Button F4;
-		Button F5;
-		Button F6;
-		Button F7;
-		Button F8;
-		Button F9;
-		Button F10;
-		Button G1;
-		Button G2;
-		Button G3;
-		Button G4;
-		Button G5;
-		Button G6;
-		Button G7;
-		Button G8;
-		Button G9;
-		Button G10;
-		Button H1;
-		Button H2;
-		Button H3;
-		Button H4;
-		Button H5;
-		Button H6;
-		Button H7;
-		Button H8;
-		Button H9;
-		Button H10;
-		Button I1;
-		Button I2;
-		Button I3;
-		Button I4;
-		Button I5;
-		Button I6;
-		Button I7;
-		Button I8;
-		Button I9;
-		Button I10;
-		Button J1;
-		Button J2;
-		Button J3;
-		Button J4;
-		Button J5;
-		Button J6;
-		Button J7;
-		Button J8;
-		Button J9;
-		Button J10;
-		
-		A1 = (Button) findViewById(R.id.A1);
-		A2 = (Button) findViewById(R.id.A2);
-		A3 = (Button) findViewById(R.id.A3);
-		A4 = (Button) findViewById(R.id.A4);
-		A5 = (Button) findViewById(R.id.A5);
-		A6 = (Button) findViewById(R.id.A6);
-		A7 = (Button) findViewById(R.id.A7);
-		A8 = (Button) findViewById(R.id.A8);
-		A9 = (Button) findViewById(R.id.A9);
-		A10 = (Button) findViewById(R.id.A10);
-		B1 = (Button) findViewById(R.id.B1);
-		B2 = (Button) findViewById(R.id.B2);
-		B3 = (Button) findViewById(R.id.B3);
-		B4 = (Button) findViewById(R.id.B4);
-		B5 = (Button) findViewById(R.id.B5);
-		B6 = (Button) findViewById(R.id.B6);
-		B7 = (Button) findViewById(R.id.B7);
-		B8 = (Button) findViewById(R.id.B8);
-		B9 = (Button) findViewById(R.id.B9);
-		B10 = (Button) findViewById(R.id.B10);
-		C1 = (Button) findViewById(R.id.C1);
-		C2 = (Button) findViewById(R.id.C2);
-		C3 = (Button) findViewById(R.id.C3);
-		C4 = (Button) findViewById(R.id.C4);
-		C5 = (Button) findViewById(R.id.C5);
-		C6 = (Button) findViewById(R.id.C6);
-		C7 = (Button) findViewById(R.id.C7);
-		C8 = (Button) findViewById(R.id.C8);
-		C9 = (Button) findViewById(R.id.C9);
-		C10 = (Button) findViewById(R.id.C10);
-		D1 = (Button) findViewById(R.id.D1);
-		D2 = (Button) findViewById(R.id.D2);
-		D3 = (Button) findViewById(R.id.D3);
-		D4 = (Button) findViewById(R.id.D4);
-		D5 = (Button) findViewById(R.id.D5);
-		D6 = (Button) findViewById(R.id.D6);
-		D7 = (Button) findViewById(R.id.D7);
-		D8 = (Button) findViewById(R.id.D8);
-		D9 = (Button) findViewById(R.id.D9);
-		D10 = (Button) findViewById(R.id.D10);
-		E1 = (Button) findViewById(R.id.E1);
-		E2 = (Button) findViewById(R.id.E2);
-		E3 = (Button) findViewById(R.id.E3);
-		E4 = (Button) findViewById(R.id.E4);
-		E5 = (Button) findViewById(R.id.E5);
-		E6 = (Button) findViewById(R.id.E6);
-		E7 = (Button) findViewById(R.id.E7);
-		E8 = (Button) findViewById(R.id.E8);
-		E9 = (Button) findViewById(R.id.E9);
-		E10 = (Button) findViewById(R.id.E10);
-		F1 = (Button) findViewById(R.id.F1);
-		F2 = (Button) findViewById(R.id.F2);
-		F3 = (Button) findViewById(R.id.F3);
-		F4 = (Button) findViewById(R.id.F4);
-		F5 = (Button) findViewById(R.id.F5);
-		F6 = (Button) findViewById(R.id.F6);
-		F7 = (Button) findViewById(R.id.F7);
-		F8 = (Button) findViewById(R.id.F8);
-		F9 = (Button) findViewById(R.id.F9);
-		F10 = (Button) findViewById(R.id.F10);
-		G1 = (Button) findViewById(R.id.G1);
-		G2 = (Button) findViewById(R.id.G2);
-		G3 = (Button) findViewById(R.id.G3);
-		G4 = (Button) findViewById(R.id.G4);
-		G5 = (Button) findViewById(R.id.G5);
-		G6 = (Button) findViewById(R.id.G6);
-		G7 = (Button) findViewById(R.id.G7);
-		G8 = (Button) findViewById(R.id.G8);
-		G9 = (Button) findViewById(R.id.G9);
-		G10 = (Button) findViewById(R.id.G10);
-		H1 = (Button) findViewById(R.id.H1);
-		H2 = (Button) findViewById(R.id.H2);
-		H3 = (Button) findViewById(R.id.H3);
-		H4 = (Button) findViewById(R.id.H4);
-		H5 = (Button) findViewById(R.id.H5);
-		H6 = (Button) findViewById(R.id.H6);
-		H7 = (Button) findViewById(R.id.H7);
-		H8 = (Button) findViewById(R.id.H8);
-		H9 = (Button) findViewById(R.id.H9);
-		H10 = (Button) findViewById(R.id.H10);
-		I1 = (Button) findViewById(R.id.I1);
-		I2 = (Button) findViewById(R.id.I2);
-		I3 = (Button) findViewById(R.id.I3);
-		I4 = (Button) findViewById(R.id.I4);
-		I5 = (Button) findViewById(R.id.I5);
-		I6 = (Button) findViewById(R.id.I6);
-		I7 = (Button) findViewById(R.id.I7);
-		I8 = (Button) findViewById(R.id.I8);
-		I9 = (Button) findViewById(R.id.I9);
-		I10 = (Button) findViewById(R.id.I10);
-		J1 = (Button) findViewById(R.id.J1);
-		J2 = (Button) findViewById(R.id.J2);
-		J3 = (Button) findViewById(R.id.J3);
-		J4 = (Button) findViewById(R.id.J4);
-		J5 = (Button) findViewById(R.id.J5);
-		J6 = (Button) findViewById(R.id.J6);
-		J7 = (Button) findViewById(R.id.J7);
-		J8 = (Button) findViewById(R.id.J8);
-		J9 = (Button) findViewById(R.id.J9);
-		J10 = (Button) findViewById(R.id.J10);
-		
-	}
 	
 	public void onClick(View v)
 	{
+		
 		//Implemented onClick method courtesy of TheNewBoston on youtube
 		switch (v.getId())
 		{
@@ -2196,7 +2202,8 @@ public class MainActivity extends Activity implements OnClickListener {
 			break;
 				 
 		case R.id.gameButton1:
-      
+			
+			Log.v(msg, "I got clicked!");
 			setContentView(R.layout.placement_layout);
 			gm.displayMsg(context, "Place Your Ship", battleShip);
 
@@ -2210,12 +2217,405 @@ public class MainActivity extends Activity implements OnClickListener {
 			break;
 			
 		case R.id.placementA1:
-		      
-			shipPlacement.placeShips(player, "A1", placementA1);
-			
-
+			shipPlacement.placeShips("A1",1,placementA1);
 			break;
-                         
+
+		case R.id.placementA2:
+			shipPlacement.placeShips("A2",2,placementA2);
+			break;
+
+		case R.id.placementA3:
+			shipPlacement.placeShips("A3",3,placementA3);
+			break;
+
+		case R.id.placementA4:
+			shipPlacement.placeShips("A4",4,placementA4);
+			break;
+
+		case R.id.placementA5:
+			shipPlacement.placeShips("A5",5,placementA5);
+			break;
+
+		case R.id.placementA6:
+			shipPlacement.placeShips("A6",6,placementA6);
+			break;
+
+		case R.id.placementA7:
+			shipPlacement.placeShips("A7",7,placementA7);
+			break;
+
+		case R.id.placementA8:
+			shipPlacement.placeShips("A8",8,placementA8);
+			break;
+
+		case R.id.placementA9:
+			shipPlacement.placeShips("A9",9,placementA9);
+			break;
+
+		case R.id.placementA10:
+			shipPlacement.placeShips("A10",10,placementA10);
+			break;
+
+		case R.id.placementB1:
+			shipPlacement.placeShips("B1",11,placementB1);
+			break;
+
+		case R.id.placementB2:
+			shipPlacement.placeShips("B2",12,placementB2);
+			break;
+
+		case R.id.placementB3:
+			shipPlacement.placeShips("B3",13,placementB3);
+			break;
+
+		case R.id.placementB4:
+			shipPlacement.placeShips("B4",14,placementB4);
+			break;
+
+		case R.id.placementB5:
+			shipPlacement.placeShips("B5",15,placementB5);
+			break;
+
+		case R.id.placementB6:
+			shipPlacement.placeShips("B6",16,placementB6);
+			break;
+
+		case R.id.placementB7:
+			shipPlacement.placeShips("B7",17,placementB7);
+			break;
+
+		case R.id.placementB8:
+			shipPlacement.placeShips("B8",18,placementB8);
+			break;
+
+		case R.id.placementB9:
+			shipPlacement.placeShips("B9",19,placementB9);
+			break;
+
+		case R.id.placementB10:
+			shipPlacement.placeShips("B10",20,placementB10);
+			break;
+
+		case R.id.placementC1:
+			shipPlacement.placeShips("C1",21,placementC1);
+			break;
+
+		case R.id.placementC2:
+			shipPlacement.placeShips("C2",22,placementC2);
+			break;
+
+		case R.id.placementC3:
+			shipPlacement.placeShips("C3",23,placementC3);
+			break;
+
+		case R.id.placementC4:
+			shipPlacement.placeShips("C4",24,placementC4);
+			break;
+
+		case R.id.placementC5:
+			shipPlacement.placeShips("C5",25,placementC5);
+			break;
+
+		case R.id.placementC6:
+			shipPlacement.placeShips("C6",26,placementC6);
+			break;
+
+		case R.id.placementC7:
+			shipPlacement.placeShips("C7",27,placementC7);
+			break;
+
+		case R.id.placementC8:
+			shipPlacement.placeShips("C8",28,placementC8);
+			break;
+
+		case R.id.placementC9:
+			shipPlacement.placeShips("C9",29,placementC9);
+			break;
+
+		case R.id.placementC10:
+			shipPlacement.placeShips("C10",30,placementC10);
+			break;
+
+		case R.id.placementD1:
+			shipPlacement.placeShips("D1",31,placementD1);
+			break;
+
+		case R.id.placementD2:
+			shipPlacement.placeShips("D2",32,placementD2);
+			break;
+
+		case R.id.placementD3:
+			shipPlacement.placeShips("D3",33,placementD3);
+			break;
+
+		case R.id.placementD4:
+			shipPlacement.placeShips("D4",34,placementD4);
+			break;
+
+		case R.id.placementD5:
+			shipPlacement.placeShips("D5",35,placementD5);
+			break;
+
+		case R.id.placementD6:
+			shipPlacement.placeShips("D6",36,placementD6);
+			break;
+
+		case R.id.placementD7:
+			shipPlacement.placeShips("D7",37,placementD7);
+			break;
+
+		case R.id.placementD8:
+			shipPlacement.placeShips("D8",38,placementD8);
+			break;
+
+		case R.id.placementD9:
+			shipPlacement.placeShips("D9",39,placementD9);
+			break;
+
+		case R.id.placementD10:
+			shipPlacement.placeShips("D10",40,placementD10);
+			break;
+
+		case R.id.placementE1:
+			shipPlacement.placeShips("E1",41,placementE1);
+			break;
+
+		case R.id.placementE2:
+			shipPlacement.placeShips("E2",42,placementE2);
+			break;
+
+		case R.id.placementE3:
+			shipPlacement.placeShips("E3",43,placementE3);
+			break;
+
+		case R.id.placementE4:
+			shipPlacement.placeShips("E4",44,placementE4);
+			break;
+
+		case R.id.placementE5:
+			shipPlacement.placeShips("E5",45,placementE5);
+			break;
+
+		case R.id.placementE6:
+			shipPlacement.placeShips("E6",46,placementE6);
+			break;
+
+		case R.id.placementE7:
+			shipPlacement.placeShips("E7",47,placementE7);
+			break;
+
+		case R.id.placementE8:
+			shipPlacement.placeShips("E8",48,placementE8);
+			break;
+
+		case R.id.placementE9:
+			shipPlacement.placeShips("E9",49,placementE9);
+			break;
+
+		case R.id.placementE10:
+			shipPlacement.placeShips("E10",50,placementE10);
+			break;
+
+		case R.id.placementF1:
+			shipPlacement.placeShips("F1",51,placementF1);
+			break;
+
+		case R.id.placementF2:
+			shipPlacement.placeShips("F2",52,placementF2);
+			break;
+
+		case R.id.placementF3:
+			shipPlacement.placeShips("F3",53,placementF3);
+			break;
+
+		case R.id.placementF4:
+			shipPlacement.placeShips("F4",54,placementF4);
+			break;
+
+		case R.id.placementF5:
+			shipPlacement.placeShips("F5",55,placementF5);
+			break;
+
+		case R.id.placementF6:
+			shipPlacement.placeShips("F6",56,placementF6);
+			break;
+
+		case R.id.placementF7:
+			shipPlacement.placeShips("F7",57,placementF7);
+			break;
+
+		case R.id.placementF8:
+			shipPlacement.placeShips("F8",58,placementF8);
+			break;
+
+		case R.id.placementF9:
+			shipPlacement.placeShips("F9",59,placementF9);
+			break;
+
+		case R.id.placementF10:
+			shipPlacement.placeShips("F10",60,placementF10);
+			break;
+
+		case R.id.placementG1:
+			shipPlacement.placeShips("G1",61,placementG1);
+			break;
+
+		case R.id.placementG2:
+			shipPlacement.placeShips("G2",62,placementG2);
+			break;
+
+		case R.id.placementG3:
+			shipPlacement.placeShips("G3",63,placementG3);
+			break;
+
+		case R.id.placementG4:
+			shipPlacement.placeShips("G4",64,placementG4);
+			break;
+
+		case R.id.placementG5:
+			shipPlacement.placeShips("G5",65,placementG5);
+			break;
+
+		case R.id.placementG6:
+			shipPlacement.placeShips("G6",66,placementG6);
+			break;
+
+		case R.id.placementG7:
+			shipPlacement.placeShips("G7",67,placementG7);
+			break;
+
+		case R.id.placementG8:
+			shipPlacement.placeShips("G8",68,placementG8);
+			break;
+
+		case R.id.placementG9:
+			shipPlacement.placeShips("G9",69,placementG9);
+			break;
+
+		case R.id.placementG10:
+			shipPlacement.placeShips("G10",70,placementG10);
+			break;
+
+		case R.id.placementH1:
+			shipPlacement.placeShips("H1",71,placementH1);
+			break;
+
+		case R.id.placementH2:
+			shipPlacement.placeShips("H2",72,placementH2);
+			break;
+
+		case R.id.placementH3:
+			shipPlacement.placeShips("H3",73,placementH3);
+			break;
+
+		case R.id.placementH4:
+			shipPlacement.placeShips("H4",74,placementH4);
+			break;
+
+		case R.id.placementH5:
+			shipPlacement.placeShips("H5",75,placementH5);
+			break;
+
+		case R.id.placementH6:
+			shipPlacement.placeShips("H6",76,placementH6);
+			break;
+
+		case R.id.placementH7:
+			shipPlacement.placeShips("H7",77,placementH7);
+			break;
+
+		case R.id.placementH8:
+			shipPlacement.placeShips("H8",78,placementH8);
+			break;
+
+		case R.id.placementH9:
+			shipPlacement.placeShips("H9",79,placementH9);
+			break;
+
+		case R.id.placementH10:
+			shipPlacement.placeShips("H10",80,placementH10);
+			break;
+
+		case R.id.placementI1:
+			shipPlacement.placeShips("I1",81,placementI1);
+			break;
+
+		case R.id.placementI2:
+			shipPlacement.placeShips("I2",82,placementI2);
+			break;
+
+		case R.id.placementI3:
+			shipPlacement.placeShips("I3",83,placementI3);
+			break;
+
+		case R.id.placementI4:
+			shipPlacement.placeShips("I4",84,placementI4);
+			break;
+
+		case R.id.placementI5:
+			shipPlacement.placeShips("I5",85,placementI5);
+			break;
+
+		case R.id.placementI6:
+			shipPlacement.placeShips("I6",86,placementI6);
+			break;
+
+		case R.id.placementI7:
+			shipPlacement.placeShips("I7",87,placementI7);
+			break;
+
+		case R.id.placementI8:
+			shipPlacement.placeShips("I8",88,placementI8);
+			break;
+
+		case R.id.placementI9:
+			shipPlacement.placeShips("I9",89,placementI9);
+			break;
+
+		case R.id.placementI10:
+			shipPlacement.placeShips("I10",90,placementI10);
+			break;
+
+		case R.id.placementJ1:
+			shipPlacement.placeShips("J1",91,placementJ1);
+			break;
+
+		case R.id.placementJ2:
+			shipPlacement.placeShips("J2",92,placementJ2);
+			break;
+
+		case R.id.placementJ3:
+			shipPlacement.placeShips("J3",93,placementJ3);
+			break;
+
+		case R.id.placementJ4:
+			shipPlacement.placeShips("J4",94,placementJ4);
+			break;
+
+		case R.id.placementJ5:
+			shipPlacement.placeShips("J5",95,placementJ5);
+			break;
+
+		case R.id.placementJ6:
+			shipPlacement.placeShips("J6",96,placementJ6);
+			break;
+
+		case R.id.placementJ7:
+			shipPlacement.placeShips("J7",97,placementJ7);
+			break;
+
+		case R.id.placementJ8:
+			shipPlacement.placeShips("J8",98,placementJ8);
+			break;
+
+		case R.id.placementJ9:
+			shipPlacement.placeShips("J9",99,placementJ9);
+			break;
+
+		case R.id.placementJ10:
+			shipPlacement.placeShips("J10",100,placementJ10);
+			break;
+              
 		default:
 				
 			break;
