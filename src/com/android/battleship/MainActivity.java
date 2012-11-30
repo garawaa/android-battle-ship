@@ -25,8 +25,8 @@ import android.widget.Button;
 public class MainActivity extends Activity implements OnClickListener {
 	
 	final Context context = this;
-	GameMessages gm = new GameMessages();
-	
+	GameMessages gm = new GameMessages();	
+	BattleshipPlacementScreen shipPlacement = new BattleshipPlacementScreen();
 	
 	//Bryan's Temporary Variables
 	BattleshipHitsAndMissesScreen hit;
@@ -46,7 +46,11 @@ public class MainActivity extends Activity implements OnClickListener {
 			+ " you will select coordinates for attacking the opponent's fleet and it will be determined"
 			+ " whether you hit a ship.  Good luck!";
 	private String fireShot = "Select a cell to fire a shot at your opponent's fleet.";
-
+	private String battleShip = "Please select 5 cells adjacent to one another horizontally or vertically"
+			+ " to set your battleship";
+	
+	
+	
 	@TargetApi(11)
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -2193,15 +2197,22 @@ public class MainActivity extends Activity implements OnClickListener {
 				 
 		case R.id.gameButton1:
       
-			setContentView(R.layout.grid_screen);
-			gm.displayMsg(context, fireShot, "Fire when ready!");
+			setContentView(R.layout.placement_layout);
+			gm.displayMsg(context, "Place Your Ship", battleShip);
 
 			break;
              
 		case R.id.gameButton2:
       
-			setContentView(R.layout.grid_screen);
-			gm.displayMsg(context, fireShot, "Fire when ready!");
+			setContentView(R.layout.placement_layout);
+			gm.displayMsg(context, "Place Your Ship", battleShip);
+
+			break;
+			
+		case R.id.placementA1:
+		      
+			shipPlacement.placeShips(player, "A1", placementA1);
+			
 
 			break;
                          
