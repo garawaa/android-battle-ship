@@ -2,9 +2,11 @@ package com.android.battleship;
 
 import java.util.ArrayList;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 import android.widget.ImageButton;
 
 /**
@@ -28,6 +30,12 @@ public class BattleshipPlacementScreen extends Activity {
 
 	MainActivity main;
 
+	@TargetApi(11)
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		
+	}
+	
 	public void placeShips(String s, int i, ImageButton b) {
 
 		int x = 0;
