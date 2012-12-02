@@ -175,7 +175,7 @@ public class BattleshipGridScreen extends Activity{
 	{
 		
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.grid_screen_layout);
+		setContentView(R.layout.grid_screen);
 		
 		init();
 		
