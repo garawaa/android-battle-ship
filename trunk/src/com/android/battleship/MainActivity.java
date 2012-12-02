@@ -96,25 +96,21 @@ public class MainActivity extends Activity {
 	{
 		public void onClick(View v)
 		{
-			
+			Intent intent = new Intent(v.getContext(), BattleshipPlacementScreen.class);
 			switch (v.getId())
 			{
 					 
 				case R.id.gameButton1:
 					
-					Log.v(msg, "I got clicked!");
-					setContentView(R.layout.placement_layout);
 					gm.displayMsg(context, "Place Your Ship", battleShip);
-					Intent intent = new Intent(v.getContext(), BattleshipPlacementScreen.class);
-					//expects a return from the bluetooth screen, 1 for sucess, 0 for failure
 					startActivityForResult(intent, 1);
 		
 					break;
 		             
 				case R.id.gameButton2:
 		      
-					setContentView(R.layout.placement_layout);
 					gm.displayMsg(context, "Place Your Ship", battleShip);
+					startActivityForResult(intent, 1);
 		
 					break;
 		              

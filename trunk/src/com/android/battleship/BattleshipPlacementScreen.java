@@ -1,16 +1,15 @@
 package com.android.battleship;
 
-import java.util.ArrayList;
-
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
+
+import com.android.battleship.objects.PlayerShipArrays;
 
 /**
  * onClick screen will be opened from an onClickListener in the GridScreen. From
@@ -35,7 +34,8 @@ public class BattleshipPlacementScreen extends Activity {
 	int player = 1;
 
 	BattleshipGridScreen grid;
-	MainActivity main;
+	PlayerShipArrays player1ShipArray = new PlayerShipArrays();
+	PlayerShipArrays player2ShipArray = new PlayerShipArrays();
 	
 	ImageButton placementA1;
 	ImageButton placementA2;
@@ -331,7 +331,7 @@ public class BattleshipPlacementScreen extends Activity {
 			btnSelected = checkSelection(previous, i);
 
 			if (btnSelected) {
-				main.player1ShipArray.add(s);
+				player1ShipArray.getPlayerShipArray().add(s);
 				changeImage(button);
 				previousBtn = s;
 			}
@@ -346,7 +346,7 @@ public class BattleshipPlacementScreen extends Activity {
 			btnSelected = checkSelection(previous, i);
 
 			if (btnSelected) {
-				main.player2ShipArray.add(s);
+				player2ShipArray.getPlayerShipArray().add(s);
 				previousBtn = s;
 			}
 
@@ -372,7 +372,7 @@ public class BattleshipPlacementScreen extends Activity {
 			btnSelected = checkSelection(previous, i);
 
 			if (btnSelected) {
-				main.player1ShipArray.add(s);
+				player1ShipArray.getPlayerShipArray().add(s);
 				changeImage(button);
 				previousBtn = s;
 			}
@@ -385,7 +385,7 @@ public class BattleshipPlacementScreen extends Activity {
 			btnSelected = checkSelection(previous, i);
 
 			if (btnSelected) {
-				main.player2ShipArray.add(s);
+				player2ShipArray.getPlayerShipArray().add(s);
 				previousBtn = s;
 			}
 
@@ -410,7 +410,7 @@ public class BattleshipPlacementScreen extends Activity {
 			btnSelected = checkSelection(previous, i);
 
 			if (btnSelected) {
-				main.player1ShipArray.add(s);
+				player1ShipArray.getPlayerShipArray().add(s);
 				changeImage(button);
 				previousBtn = s;
 			}
@@ -423,7 +423,7 @@ public class BattleshipPlacementScreen extends Activity {
 			btnSelected = checkSelection(previous, i);
 
 			if (btnSelected) {
-				main.player2ShipArray.add(s);
+				player2ShipArray.getPlayerShipArray().add(s);
 				previousBtn = s;
 			}
 
@@ -447,7 +447,7 @@ public class BattleshipPlacementScreen extends Activity {
 			btnSelected = checkSelection(previous, i);
 
 			if (btnSelected) {
-				main.player1ShipArray.add(s);
+				player1ShipArray.getPlayerShipArray().add(s);
 				previousBtn = s;
 				++counter;
 			}
@@ -456,7 +456,7 @@ public class BattleshipPlacementScreen extends Activity {
 			btnSelected = checkSelection(previous, i);
 
 			if (btnSelected) {
-				main.player2ShipArray.add(s);
+				player2ShipArray.getPlayerShipArray().add(s);
 				previousBtn = s;
 				++counter;
 			}
@@ -484,9 +484,9 @@ public class BattleshipPlacementScreen extends Activity {
 		}
 		
 		if (player == 1) {
-			main.player1ShipArray.add(s);
+			player1ShipArray.getPlayerShipArray().add(s);
 		} else {
-			main.player2ShipArray.add(s);
+			player2ShipArray.getPlayerShipArray().add(s);
 		}
 
 		++counter;
