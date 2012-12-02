@@ -1,6 +1,8 @@
 package com.android.battleship;
 
 
+import java.util.ArrayList;
+
 import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.app.Activity;
@@ -33,6 +35,10 @@ public class MainActivity extends Activity {
 	
 	Button b1;
 	Button b2;
+	
+	int player = 1;
+	ArrayList<String> player1ShipArray = new ArrayList<String>(1);
+	ArrayList<String> player2ShipArray = new ArrayList<String>(1);
 	
 	private BluetoothAdapter mBluetoothAdapter;
 	private ArrayAdapter mArrayAdapter;
@@ -99,6 +105,9 @@ public class MainActivity extends Activity {
 					Log.v(msg, "I got clicked!");
 					setContentView(R.layout.placement_layout);
 					gm.displayMsg(context, "Place Your Ship", battleShip);
+					Intent intent = new Intent(v.getContext(), BattleshipPlacementScreen.class);
+					//expects a return from the bluetooth screen, 1 for sucess, 0 for failure
+					startActivityForResult(intent, 1);
 		
 					break;
 		             
