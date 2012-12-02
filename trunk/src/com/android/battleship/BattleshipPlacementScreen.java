@@ -31,8 +31,11 @@ public class BattleshipPlacementScreen extends Activity {
 	boolean btnSelected = false;
 	String firstBtn;
 	String previousBtn;
+	
+	int player = 1;
 
 	BattleshipGridScreen grid;
+	MainActivity main;
 	
 	ImageButton placementA1;
 	ImageButton placementA2;
@@ -255,8 +258,8 @@ public class BattleshipPlacementScreen extends Activity {
 
 		switch (shipPlaced) {
 		case 1:
-			x = carrier(grid.player, s, i);
-
+			x = carrier(player, s, i);
+			Log.v(msg, "x = " + x);
 			if (x == 999) {
 				GameMessages gm = new GameMessages();
 				final Context context = this;
@@ -266,7 +269,7 @@ public class BattleshipPlacementScreen extends Activity {
 			break;
 
 		case 2:
-			x = submarine(grid.player, s, i);
+			x = submarine(player, s, i);
 
 			if (x == 999) {
 				GameMessages gm = new GameMessages();
@@ -278,7 +281,7 @@ public class BattleshipPlacementScreen extends Activity {
 			break;
 
 		case 3:
-			x = battleship(grid.player, s, i);
+			x = battleship(player, s, i);
 
 			if (x == 999) {
 				GameMessages gm = new GameMessages();
@@ -290,7 +293,7 @@ public class BattleshipPlacementScreen extends Activity {
 			break;
 
 		case 4:
-			x = destroyer(grid.player, s, i);
+			x = destroyer(player, s, i);
 
 			if (x == 999) {
 				GameMessages gm = new GameMessages();
@@ -302,7 +305,7 @@ public class BattleshipPlacementScreen extends Activity {
 			break;
 
 		case 5:
-			x = ptBoat(grid.player, s, i);
+			x = ptBoat(player, s, i);
 
 			if (x == 999) {
 				GameMessages gm = new GameMessages();
@@ -325,23 +328,25 @@ public class BattleshipPlacementScreen extends Activity {
 		}
 		
 		if (player == 1) {
-			btnSelected = checkSelection(i, previous);
+			btnSelected = checkSelection(previous, i);
 
 			if (btnSelected) {
-				grid.player1ShipArray.add(s);
+				main.player1ShipArray.add(s);
 				changeImage(button);
 				previousBtn = s;
 			}
 
-			else {
+			else
+			{
+				Log.v(msg, "Returning 999)");
 				return 999;
 			}
 
 		} else {
-			btnSelected = checkSelection(i, previous);
+			btnSelected = checkSelection(previous, i);
 
 			if (btnSelected) {
-				grid.player2ShipArray.add(s);
+				main.player2ShipArray.add(s);
 				previousBtn = s;
 			}
 
@@ -351,6 +356,7 @@ public class BattleshipPlacementScreen extends Activity {
 		}
 
 		counter++;
+		Log.v(msg, "Counter = " + counter);
 		return counter;
 	}
 
@@ -363,10 +369,10 @@ public class BattleshipPlacementScreen extends Activity {
 		}
 		
 		if (player == 1) {
-			btnSelected = checkSelection(i, previous);
+			btnSelected = checkSelection(previous, i);
 
 			if (btnSelected) {
-				grid.player1ShipArray.add(s);
+				main.player1ShipArray.add(s);
 				changeImage(button);
 				previousBtn = s;
 			}
@@ -376,10 +382,10 @@ public class BattleshipPlacementScreen extends Activity {
 			}
 
 		} else {
-			btnSelected = checkSelection(i, previous);
+			btnSelected = checkSelection(previous, i);
 
 			if (btnSelected) {
-				grid.player2ShipArray.add(s);
+				main.player2ShipArray.add(s);
 				previousBtn = s;
 			}
 
@@ -401,10 +407,10 @@ public class BattleshipPlacementScreen extends Activity {
 		}
 		
 		if (player == 1) {
-			btnSelected = checkSelection(i, previous);
+			btnSelected = checkSelection(previous, i);
 
 			if (btnSelected) {
-				grid.player1ShipArray.add(s);
+				main.player1ShipArray.add(s);
 				changeImage(button);
 				previousBtn = s;
 			}
@@ -414,10 +420,10 @@ public class BattleshipPlacementScreen extends Activity {
 			}
 
 		} else {
-			btnSelected = checkSelection(i, previous);
+			btnSelected = checkSelection(previous, i);
 
 			if (btnSelected) {
-				grid.player2ShipArray.add(s);
+				main.player2ShipArray.add(s);
 				previousBtn = s;
 			}
 
@@ -438,19 +444,19 @@ public class BattleshipPlacementScreen extends Activity {
 		}
 		
 		if (player == 1) {
-			btnSelected = checkSelection(i, previous);
+			btnSelected = checkSelection(previous, i);
 
 			if (btnSelected) {
-				grid.player1ShipArray.add(s);
+				main.player1ShipArray.add(s);
 				previousBtn = s;
 				++counter;
 			}
 
 		} else {
-			btnSelected = checkSelection(i, previous);
+			btnSelected = checkSelection(previous, i);
 
 			if (btnSelected) {
-				grid.player2ShipArray.add(s);
+				main.player2ShipArray.add(s);
 				previousBtn = s;
 				++counter;
 			}
@@ -478,9 +484,9 @@ public class BattleshipPlacementScreen extends Activity {
 		}
 		
 		if (player == 1) {
-			grid.player1ShipArray.add(s);
+			main.player1ShipArray.add(s);
 		} else {
-			grid.player2ShipArray.add(s);
+			main.player2ShipArray.add(s);
 		}
 
 		++counter;
@@ -492,14 +498,31 @@ public class BattleshipPlacementScreen extends Activity {
 
 		switch (shipPlaced) {
 		case 1:
-
-			if (current == previous + 1 || current == previous - 1
-					|| current == previous + 10 || current == previous - 10) {
+			
+			Log.v(msg,"previous = " + previous);
+			Log.v(msg,"current = " + current);
+			if (current == previous + 1 || current == previous - 1 || current == previous + 10 || current == previous - 10)
+			{
+				previous = current;
+				Log.v(msg, "Returning true");
 				return true;
-			} else {
+			}
+			
+			else if (previous == 999)
+			{
+				previous = current;
+				Log.v(msg, "Returning true");
+				return true;
+			}
+			
+			else
+			{
+				Log.v(msg,"Returning calculated false");
 				return false;
 			}
+
 		default:
+			Log.v(msg,"Returning default false");
 			return false;
 		}
 
