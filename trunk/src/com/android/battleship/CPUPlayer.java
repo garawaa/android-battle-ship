@@ -8,35 +8,39 @@ import android.util.Log;
 
 public class CPUPlayer extends Activity{
 
-	Random generator = new Random( 10 );
-	boolean useSmartMove = false;
-	int[] thisMove = new int[2];
-	int x, y, lastX, lastY, hitX, hitY;
-	int[] hitGuesses = new int[4];
-	String orientation = "unknown";
-	MainActivity main;
+	private Random generator = new Random( 10 );
+	private boolean useSmartMove = false;
+	private int x, y, lastX, lastY, hitX, hitY, lastCase;
+	private int[] hitGuesses = new int[4];
+	private String orientation = "unknown";
+	private String strategyState = "random";
+	private MainActivity main;
 	
+	//TODO: need to create computer ability to set ships.	
 	
 	public void computerMove() { // this is the "main" function to facilitate CPU logic
+		
 		if (useSmartMove == false) {
 			getCpuRandomMove();
+		}
+		else{
+			cpuSmartMove();
 		}
 		
 		
 		String move = getMove(x, y);
-		checkForHit(MainActivity.player2ShipArray, move);
+		checkForHit(MainActivity.player1ShipArray, move);
 	}
 	
-	public getCpuRandomMove(){
+	private  void getCpuRandomMove(){
 		x = generator.nextInt(10);
 		y = generator.nextInt(10)+1;
 
 	}
 	
-	//TODO: need to create computer ability to set ships.
-	
-	public String getMove(int x, int y){
 
+	
+	private  String getMove(int x, int y){
 		
 		String id = null;
 		switch (x){
@@ -78,7 +82,7 @@ public class CPUPlayer extends Activity{
 		}
 
 
-	boolean checkForHit (ArrayList<String> Array, String move)
+	private boolean checkForHit (ArrayList<String> Array, String move)
 	{
 				
 		for (int i = 0; i < Array.size(); ++i)
@@ -100,7 +104,7 @@ public class CPUPlayer extends Activity{
 		
 	}
 	
-	public void cpuSmartMove(){
+	private  void cpuSmartMove(){
 		
 		Random generator2 = new Random (4);
 		int guess = generator2.nextInt();
@@ -183,6 +187,8 @@ public class CPUPlayer extends Activity{
 				}
 				break;
 			}
+			
+			lastCase = guess;
 		}
 	}
 }
