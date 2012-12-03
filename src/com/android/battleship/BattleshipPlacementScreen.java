@@ -3,6 +3,7 @@ package com.android.battleship;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -20,18 +21,17 @@ import com.android.battleship.objects.PlayerShipArrays;
  * 
  */
 public class BattleshipPlacementScreen extends Activity {
-
+	
 	int counter = 0;
 	int shipPlaced = 1;
 	int previous = 999;
 	ImageButton button;
 	String msg;
+	GameMessages gm = new GameMessages();
 
 	boolean btnSelected = false;
 	String firstBtn;
 	String previousBtn;
-	
-	int player = 1;
 
 	BattleshipGridScreen grid;
 	PlayerShipArrays player1ShipArray = new PlayerShipArrays();
@@ -146,6 +146,10 @@ public class BattleshipPlacementScreen extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.placement_layout);
 		
+		String u = "Please select 5 cells adjacent to one another horizontally or vertically"
+				+ " to set your carrier";
+		gm.displayMsg(this, u, "Place Your Ship");
+		
 		placementA1 = (ImageButton) findViewById(R.id.placementA1);
 		placementA2 = (ImageButton) findViewById(R.id.placementA2);
 		placementA3 = (ImageButton) findViewById(R.id.placementA3);
@@ -251,6 +255,33 @@ public class BattleshipPlacementScreen extends Activity {
 		
 	}
 	
+	private boolean checkSelection(int p, int c) {
+			
+			Log.v(msg,"previous = " + previous);
+			Log.v(msg,"current = " + c);
+			if (c == p + 1 || c == p - 1 || c == p + 10 || c == p - 10)
+			{
+				previous = c;
+				Log.v(msg, "Returning true");
+				return true;
+			}
+			
+			else if (p == 999)
+			{
+				previous = c;
+				Log.v(msg, "Previous after previous = current: " + previous);
+				Log.v(msg, "Returning true for 999 clause");
+				return true;
+			}
+			
+			else
+			{
+				Log.v(msg,"Returning calculated false");
+				return false;
+			}
+
+	}
+	
 	public void placeShips(String s, int i, ImageButton b) {
 
 		int x = 0;
@@ -258,7 +289,7 @@ public class BattleshipPlacementScreen extends Activity {
 
 		switch (shipPlaced) {
 		case 1:
-			x = carrier(player, s, i);
+			x = carrier(s, i);
 			Log.v(msg, "x = " + x);
 			if (x == 999) {
 				GameMessages gm = new GameMessages();
@@ -266,10 +297,17 @@ public class BattleshipPlacementScreen extends Activity {
 				gm.displayMsg(context, "Move Not Available",
 						"Please select another cell.");
 			}
+			
+			if (x > 4)
+			{
+				s = "Please select 4 cells adjacent to one another horizontally or vertically"
+						+ " to set your submarine";
+				gm.displayMsg(this, s, "Place Your Ship");
+			}
 			break;
 
 		case 2:
-			x = submarine(player, s, i);
+			x = submarine(s, i);
 
 			if (x == 999) {
 				GameMessages gm = new GameMessages();
@@ -278,22 +316,36 @@ public class BattleshipPlacementScreen extends Activity {
 						"Please select another cell.");
 			}
 
+			if (x > 8)
+			{
+				s = "Please select 3 cells adjacent to one another horizontally or vertically"
+						+ " to set your battleship";
+				gm.displayMsg(this, s, "Place Your Ship");
+			}
+			
 			break;
 
 		case 3:
-			x = battleship(player, s, i);
+			x = battleship(s, i);
 
 			if (x == 999) {
 				GameMessages gm = new GameMessages();
 				final Context context = this;
 				gm.displayMsg(context, "Move Not Available",
 						"Please select another cell.");
+			}
+			
+			if (x > 11)
+			{
+				s = "Please select 3 cells adjacent to one another horizontally or vertically"
+						+ " to set your destroyer";
+				gm.displayMsg(this, s, "Place Your Ship");
 			}
 
 			break;
 
 		case 4:
-			x = destroyer(player, s, i);
+			x = destroyer(s, i);
 
 			if (x == 999) {
 				GameMessages gm = new GameMessages();
@@ -301,17 +353,29 @@ public class BattleshipPlacementScreen extends Activity {
 				gm.displayMsg(context, "Move Not Available",
 						"Please select another cell.");
 			}
+			
+			if (x > 14)
+			{
+				s = "Please select 2 cells adjacent to one another horizontally or vertically"
+						+ " to set your pt boat";
+				gm.displayMsg(this, s, "Place Your Ship");
+			}
 
 			break;
 
 		case 5:
-			x = ptBoat(player, s, i);
+			x = ptBoat(s, i);
 
 			if (x == 999) {
 				GameMessages gm = new GameMessages();
 				final Context context = this;
 				gm.displayMsg(context, "Move Not Available",
 						"Please select another cell.");
+			}
+			
+			if (x > 16)
+			{
+				gm.displayMsg(this, "All your ships have been placed.", "Ships placed");
 			}
 
 			break;
@@ -319,17 +383,12 @@ public class BattleshipPlacementScreen extends Activity {
 		}
 	}
 
-	public int carrier(int player, String s, int i) {
-
-		if (counter > 4)
-		{
-			++shipPlaced;
-			return 0;
-		}
+	public int carrier(String s, int i) {
 		
-		if (player == 1) {
+		if (MainActivity.player == 1) {
 			btnSelected = checkSelection(previous, i);
-
+			Log.v(msg,"Previous after return = " + previous);			
+			
 			if (btnSelected) {
 				player1ShipArray.getPlayerShipArray().add(s);
 				changeImage(button);
@@ -357,18 +416,20 @@ public class BattleshipPlacementScreen extends Activity {
 
 		counter++;
 		Log.v(msg, "Counter = " + counter);
+		
+
+		if (counter > 4)
+		{
+			++shipPlaced;
+			Log.v(msg, "Incrementing shipPlaced.  shipPlaced = " + shipPlaced);
+		}
+		
 		return counter;
 	}
 
-	public int submarine(int player, String s, int i) {
-
-		if (counter >= 8)
-		{
-			++shipPlaced;
-			return 0;
-		}
+	public int submarine(String s, int i) {
 		
-		if (player == 1) {
+		if (MainActivity.player == 1) {
 			btnSelected = checkSelection(previous, i);
 
 			if (btnSelected) {
@@ -395,18 +456,21 @@ public class BattleshipPlacementScreen extends Activity {
 		}
 
 		counter++;
+		Log.v(msg, "Counter = " + counter);
+		
+
+		if (counter > 8)
+		{
+			++shipPlaced;
+			Log.v(msg, "Incrementing shipPlaced.  shipPlaced = " + shipPlaced);
+		}
+		
 		return counter;
 	}
 	
-	public int battleship(int player, String s, int i) {
-
-		if (counter > 10)
-		{
-			++shipPlaced;
-			return 0;
-		}
+	public int battleship(String s, int i) {
 		
-		if (player == 1) {
+		if (MainActivity.player == 1) {
 			btnSelected = checkSelection(previous, i);
 
 			if (btnSelected) {
@@ -433,23 +497,31 @@ public class BattleshipPlacementScreen extends Activity {
 		}
 
 		counter++;
-		return counter;
-	}
-	public int destroyer(int player, String s, int i) {
+		Log.v(msg, "Counter = " + counter);
+		
 
-		if (counter > 13)
+		if (counter > 11)
 		{
 			++shipPlaced;
-			return 0;
+			Log.v(msg, "Incrementing shipPlaced.  shipPlaced = " + shipPlaced);
 		}
 		
-		if (player == 1) {
+		return counter;
+		
+	}
+	public int destroyer(String s, int i) {
+		
+		if (MainActivity.player == 1) {
 			btnSelected = checkSelection(previous, i);
 
 			if (btnSelected) {
 				player1ShipArray.getPlayerShipArray().add(s);
+				changeImage(button);
 				previousBtn = s;
-				++counter;
+			}
+
+			else {
+				return 999;
 			}
 
 		} else {
@@ -458,74 +530,69 @@ public class BattleshipPlacementScreen extends Activity {
 			if (btnSelected) {
 				player2ShipArray.getPlayerShipArray().add(s);
 				previousBtn = s;
-				++counter;
 			}
 
-			if (counter == 5) {
-				++shipPlaced;
+			else {
+				return 999;
 			}
 		}
 
-		++counter;
+		counter++;
+		Log.v(msg, "Counter = " + counter);
+		
 
-		return counter;
-	}
-
-	public int ptBoat(int player, String s, int i) {
-
-		if (counter > 15)
+		if (counter > 14)
 		{
 			++shipPlaced;
-			GameMessages gm = new GameMessages();
-			final Context context = this;
-			gm.displayMsg(context, "Ships placed",
-					"All your ships have been placed.");
-			return 0;
+			Log.v(msg, "Incrementing shipPlaced.  shipPlaced = " + shipPlaced);
 		}
 		
-		if (player == 1) {
-			player1ShipArray.getPlayerShipArray().add(s);
-		} else {
-			player2ShipArray.getPlayerShipArray().add(s);
-		}
-
-		++counter;
-
 		return counter;
 	}
 
-	private boolean checkSelection(int previous, int current) {
+	public int ptBoat(String s, int i) {
 
-		switch (shipPlaced) {
-		case 1:
-			
-			Log.v(msg,"previous = " + previous);
-			Log.v(msg,"current = " + current);
-			if (current == previous + 1 || current == previous - 1 || current == previous + 10 || current == previous - 10)
-			{
-				previous = current;
-				Log.v(msg, "Returning true");
-				return true;
-			}
-			
-			else if (previous == 999)
-			{
-				previous = current;
-				Log.v(msg, "Returning true");
-				return true;
-			}
-			
-			else
-			{
-				Log.v(msg,"Returning calculated false");
-				return false;
+		if (MainActivity.player == 1) {
+			btnSelected = checkSelection(previous, i);
+
+			if (btnSelected) {
+				player1ShipArray.getPlayerShipArray().add(s);
+				changeImage(button);
+				previousBtn = s;
 			}
 
-		default:
-			Log.v(msg,"Returning default false");
-			return false;
+			else {
+				return 999;
+			}
+
+		} else {
+			btnSelected = checkSelection(previous, i);
+
+			if (btnSelected) {
+				player2ShipArray.getPlayerShipArray().add(s);
+				previousBtn = s;
+			}
+
+			else {
+				return 999;
+			}
 		}
 
+		counter++;
+		Log.v(msg, "Counter = " + counter);
+		
+
+		if (counter > 16)
+		{
+			++shipPlaced;
+			Log.v(msg, "Incrementing shipPlaced.  shipPlaced = " + shipPlaced);
+			
+			Intent intent = new Intent(this, BattleshipGridScreen.class);
+			startActivityForResult(intent, 1);
+			
+		}
+		
+		return counter;
 	}
 	
 
@@ -1049,6 +1116,6 @@ public class BattleshipPlacementScreen extends Activity {
 	}
 
 	public void changeImage(ImageButton b) {
-		b.setBackgroundResource(R.drawable.ocean);
+		b.setImageResource(R.drawable.gray);
 	}
 }

@@ -36,9 +36,10 @@ public class MainActivity extends Activity {
 	Button b1;
 	Button b2;
 	
-	int player = 1;
-	ArrayList<String> player1ShipArray = new ArrayList<String>(1);
-	ArrayList<String> player2ShipArray = new ArrayList<String>(1);
+	static int player = 1;
+	
+	static ArrayList<String> player1ShipArray = new ArrayList<String>(1);
+	static ArrayList<String> player2ShipArray = new ArrayList<String>(1);
 	
 	private BluetoothAdapter mBluetoothAdapter;
 	private ArrayAdapter mArrayAdapter;
@@ -48,10 +49,6 @@ public class MainActivity extends Activity {
 			+ " you will select coordinates for attacking the opponent's fleet and it will be determined"
 			+ " whether you hit a ship.  Good luck!";
 	private String fireShot = "Select a cell to fire a shot at your opponent's fleet.";
-	private String battleShip = "Please select 5 cells adjacent to one another horizontally or vertically"
-			+ " to set your battleship";
-	
-	
 	
 	@TargetApi(11)
 	@Override
@@ -102,14 +99,12 @@ public class MainActivity extends Activity {
 					 
 				case R.id.gameButton1:
 					
-					gm.displayMsg(context, "Place Your Ship", battleShip);
 					startActivityForResult(intent, 1);
 		
 					break;
 		             
 				case R.id.gameButton2:
 		      
-					gm.displayMsg(context, "Place Your Ship", battleShip);
 					startActivityForResult(intent, 1);
 		
 					break;

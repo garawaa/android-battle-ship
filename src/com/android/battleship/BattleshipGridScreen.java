@@ -1,21 +1,13 @@
 package com.android.battleship;
 
-import java.util.ArrayList;
-
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup;
-import android.view.ViewGroup.LayoutParams;
-import android.widget.FrameLayout;
 import android.widget.ImageButton;
-import android.widget.TableLayout;
-import android.widget.TableRow;
 
 /**
  * This will be the main screen with a grid of buttons.
@@ -25,46 +17,9 @@ import android.widget.TableRow;
  */
 @SuppressLint("Registered")
 public class BattleshipGridScreen extends Activity{
-/*
-	public void switchLayout()
-	{
-		TableLayout table = new TableLayout(this);
 	
-		TableLayout.LayoutParams lp = new TableLayout.LayoutParams(
-		        ViewGroup.LayoutParams.MATCH_PARENT,
-		        ViewGroup.LayoutParams.MATCH_PARENT);
-		
-		table.setLayoutParams(lp);
-		table.setStretchAllColumns(true);
+	BattleshipHitsAndMissesScreen hit = new BattleshipHitsAndMissesScreen();
 	
-		TableLayout.LayoutParams rowLp = new TableLayout.LayoutParams(
-		        ViewGroup.LayoutParams.MATCH_PARENT,
-		        ViewGroup.LayoutParams.MATCH_PARENT);
-		
-		TableRow.LayoutParams cellLp = new TableRow.LayoutParams(
-		        ViewGroup.LayoutParams.MATCH_PARENT,
-		        ViewGroup.LayoutParams.MATCH_PARENT);
-		
-		for (int r = 0; r < 2; ++r)
-		{
-		    TableRow row = new TableRow(this);
-		    for (int c = 0; c < 2; ++c)
-		    {
-		        ImageButton btn = new ImageButton(this);
-		        btn.setBackgroundResource(R.drawable.ocean);
-		        row.addView(btn, cellLp);
-		    }
-		    
-		    table.addView(row, rowLp);
-		    
-		}
-		
-		setContentView(table);
-	}
-*/
-	BattleshipHitsAndMissesScreen hit;
-	
-	MainActivity main;
 	String msg;
 	
 	ImageButton A1;
@@ -176,7 +131,108 @@ public class BattleshipGridScreen extends Activity{
 		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.grid_screen);
-		
+
+		 A1 = (ImageButton) findViewById(R.id.A1);
+		 A2 = (ImageButton) findViewById(R.id.A2);
+		 A3 = (ImageButton) findViewById(R.id.A3);
+		 A4 = (ImageButton) findViewById(R.id.A4);
+		 A5 = (ImageButton) findViewById(R.id.A5);
+		 A6 = (ImageButton) findViewById(R.id.A6);
+		 A7 = (ImageButton) findViewById(R.id.A7);
+		 A8 = (ImageButton) findViewById(R.id.A8);
+		 A9 = (ImageButton) findViewById(R.id.A9);
+		 A10 = (ImageButton) findViewById(R.id.A10);
+		 B1 = (ImageButton) findViewById(R.id.B1);
+		 B2 = (ImageButton) findViewById(R.id.B2);
+		 B3 = (ImageButton) findViewById(R.id.B3);
+		 B4 = (ImageButton) findViewById(R.id.B4);
+		 B5 = (ImageButton) findViewById(R.id.B5);
+		 B6 = (ImageButton) findViewById(R.id.B6);
+		 B7 = (ImageButton) findViewById(R.id.B7);
+		 B8 = (ImageButton) findViewById(R.id.B8);
+		 B9 = (ImageButton) findViewById(R.id.B9);
+		 B10 = (ImageButton) findViewById(R.id.B10);
+		 C1 = (ImageButton) findViewById(R.id.C1);
+		 C2 = (ImageButton) findViewById(R.id.C2);
+		 C3 = (ImageButton) findViewById(R.id.C3);
+		 C4 = (ImageButton) findViewById(R.id.C4);
+		 C5 = (ImageButton) findViewById(R.id.C5);
+		 C6 = (ImageButton) findViewById(R.id.C6);
+		 C7 = (ImageButton) findViewById(R.id.C7);
+		 C8 = (ImageButton) findViewById(R.id.C8);
+		 C9 = (ImageButton) findViewById(R.id.C9);
+		 C10 = (ImageButton) findViewById(R.id.C10);
+		 D1 = (ImageButton) findViewById(R.id.D1);
+		 D2 = (ImageButton) findViewById(R.id.D2);
+		 D3 = (ImageButton) findViewById(R.id.D3);
+		 D4 = (ImageButton) findViewById(R.id.D4);
+		 D5 = (ImageButton) findViewById(R.id.D5);
+		 D6 = (ImageButton) findViewById(R.id.D6);
+		 D7 = (ImageButton) findViewById(R.id.D7);
+		 D8 = (ImageButton) findViewById(R.id.D8);
+		 D9 = (ImageButton) findViewById(R.id.D9);
+		 D10 = (ImageButton) findViewById(R.id.D10);
+		 E1 = (ImageButton) findViewById(R.id.E1);
+		 E2 = (ImageButton) findViewById(R.id.E2);
+		 E3 = (ImageButton) findViewById(R.id.E3);
+		 E4 = (ImageButton) findViewById(R.id.E4);
+		 E5 = (ImageButton) findViewById(R.id.E5);
+		 E6 = (ImageButton) findViewById(R.id.E6);
+		 E7 = (ImageButton) findViewById(R.id.E7);
+		 E8 = (ImageButton) findViewById(R.id.E8);
+		 E9 = (ImageButton) findViewById(R.id.E9);
+		 E10 = (ImageButton) findViewById(R.id.E10);
+		 F1 = (ImageButton) findViewById(R.id.F1);
+		 F2 = (ImageButton) findViewById(R.id.F2);
+		 F3 = (ImageButton) findViewById(R.id.F3);
+		 F4 = (ImageButton) findViewById(R.id.F4);
+		 F5 = (ImageButton) findViewById(R.id.F5);
+		 F6 = (ImageButton) findViewById(R.id.F6);
+		 F7 = (ImageButton) findViewById(R.id.F7);
+		 F8 = (ImageButton) findViewById(R.id.F8);
+		 F9 = (ImageButton) findViewById(R.id.F9);
+		 F10 = (ImageButton) findViewById(R.id.F10);
+		 G1 = (ImageButton) findViewById(R.id.G1);
+		 G2 = (ImageButton) findViewById(R.id.G2);
+		 G3 = (ImageButton) findViewById(R.id.G3);
+		 G4 = (ImageButton) findViewById(R.id.G4);
+		 G5 = (ImageButton) findViewById(R.id.G5);
+		 G6 = (ImageButton) findViewById(R.id.G6);
+		 G7 = (ImageButton) findViewById(R.id.G7);
+		 G8 = (ImageButton) findViewById(R.id.G8);
+		 G9 = (ImageButton) findViewById(R.id.G9);
+		 G10 = (ImageButton) findViewById(R.id.G10);
+		 H1 = (ImageButton) findViewById(R.id.H1);
+		 H2 = (ImageButton) findViewById(R.id.H2);
+		 H3 = (ImageButton) findViewById(R.id.H3);
+		 H4 = (ImageButton) findViewById(R.id.H4);
+		 H5 = (ImageButton) findViewById(R.id.H5);
+		 H6 = (ImageButton) findViewById(R.id.H6);
+		 H7 = (ImageButton) findViewById(R.id.H7);
+		 H8 = (ImageButton) findViewById(R.id.H8);
+		 H9 = (ImageButton) findViewById(R.id.H9);
+		 H10 = (ImageButton) findViewById(R.id.H10);
+		 I1 = (ImageButton) findViewById(R.id.I1);
+		 I2 = (ImageButton) findViewById(R.id.I2);
+		 I3 = (ImageButton) findViewById(R.id.I3);
+		 I4 = (ImageButton) findViewById(R.id.I4);
+		 I5 = (ImageButton) findViewById(R.id.I5);
+		 I6 = (ImageButton) findViewById(R.id.I6);
+		 I7 = (ImageButton) findViewById(R.id.I7);
+		 I8 = (ImageButton) findViewById(R.id.I8);
+		 I9 = (ImageButton) findViewById(R.id.I9);
+		 I10 = (ImageButton) findViewById(R.id.I10);
+		 J1 = (ImageButton) findViewById(R.id.J1);
+		 J2 = (ImageButton) findViewById(R.id.J2);
+		 J3 = (ImageButton) findViewById(R.id.J3);
+		 J4 = (ImageButton) findViewById(R.id.J4);
+		 J5 = (ImageButton) findViewById(R.id.J5);
+		 J6 = (ImageButton) findViewById(R.id.J6);
+		 J7 = (ImageButton) findViewById(R.id.J7);
+		 J8 = (ImageButton) findViewById(R.id.J8);
+		 J9 = (ImageButton) findViewById(R.id.J9);
+		 J10 = (ImageButton) findViewById(R.id.J10);
+		 
 		init();
 		
 	}
@@ -192,18 +248,18 @@ public class BattleshipGridScreen extends Activity{
 				case R.id.A1:
 					Log.v(msg,"placementA1 click Argument received");
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "A1");
+						hit.CheckForHit(MainActivity.player2ShipArray, "A1");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "A1");
+						hit.CheckForHit(MainActivity.player1ShipArray, "A1");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -211,18 +267,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.A2:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "A2");
+						hit.CheckForHit(MainActivity.player2ShipArray, "A2");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "A2");
+						hit.CheckForHit(MainActivity.player1ShipArray, "A2");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -230,18 +286,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.A3:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "A3");
+						hit.CheckForHit(MainActivity.player2ShipArray, "A3");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "A3");
+						hit.CheckForHit(MainActivity.player1ShipArray, "A3");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -249,18 +305,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.A4:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "A4");
+						hit.CheckForHit(MainActivity.player2ShipArray, "A4");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "A4");
+						hit.CheckForHit(MainActivity.player1ShipArray, "A4");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -268,18 +324,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.A5:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "A5");
+						hit.CheckForHit(MainActivity.player2ShipArray, "A5");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "A5");
+						hit.CheckForHit(MainActivity.player1ShipArray, "A5");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -287,18 +343,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.A6:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "A6");
+						hit.CheckForHit(MainActivity.player2ShipArray, "A6");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "A6");
+						hit.CheckForHit(MainActivity.player1ShipArray, "A6");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -306,18 +362,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.A7:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "A7");
+						hit.CheckForHit(MainActivity.player2ShipArray, "A7");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "A7");
+						hit.CheckForHit(MainActivity.player1ShipArray, "A7");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -325,18 +381,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.A8:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "A8");
+						hit.CheckForHit(MainActivity.player2ShipArray, "A8");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "A8");
+						hit.CheckForHit(MainActivity.player1ShipArray, "A8");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -344,18 +400,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.A9:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "A9");
+						hit.CheckForHit(MainActivity.player2ShipArray, "A9");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "A9");
+						hit.CheckForHit(MainActivity.player1ShipArray, "A9");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -363,18 +419,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.A10:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "A10");
+						hit.CheckForHit(MainActivity.player2ShipArray, "A10");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "A10");
+						hit.CheckForHit(MainActivity.player1ShipArray, "A10");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -382,18 +438,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.B1:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "B1");
+						hit.CheckForHit(MainActivity.player2ShipArray, "B1");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "B1");
+						hit.CheckForHit(MainActivity.player1ShipArray, "B1");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -401,18 +457,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.B2:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "B2");
+						hit.CheckForHit(MainActivity.player2ShipArray, "B2");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "B2");
+						hit.CheckForHit(MainActivity.player1ShipArray, "B2");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -420,18 +476,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.B3:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "B3");
+						hit.CheckForHit(MainActivity.player2ShipArray, "B3");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "B3");
+						hit.CheckForHit(MainActivity.player1ShipArray, "B3");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -439,18 +495,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.B4:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "B4");
+						hit.CheckForHit(MainActivity.player2ShipArray, "B4");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "B4");
+						hit.CheckForHit(MainActivity.player1ShipArray, "B4");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -458,18 +514,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.B5:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "B5");
+						hit.CheckForHit(MainActivity.player2ShipArray, "B5");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "B5");
+						hit.CheckForHit(MainActivity.player1ShipArray, "B5");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -477,18 +533,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.B6:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "B6");
+						hit.CheckForHit(MainActivity.player2ShipArray, "B6");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "B6");
+						hit.CheckForHit(MainActivity.player1ShipArray, "B6");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -496,18 +552,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.B7:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "B7");
+						hit.CheckForHit(MainActivity.player2ShipArray, "B7");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "B7");
+						hit.CheckForHit(MainActivity.player1ShipArray, "B7");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -515,18 +571,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.B8:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "B8");
+						hit.CheckForHit(MainActivity.player2ShipArray, "B8");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "B8");
+						hit.CheckForHit(MainActivity.player1ShipArray, "B8");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -534,18 +590,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.B9:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "B9");
+						hit.CheckForHit(MainActivity.player2ShipArray, "B9");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "B9");
+						hit.CheckForHit(MainActivity.player1ShipArray, "B9");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -553,18 +609,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.B10:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "B10");
+						hit.CheckForHit(MainActivity.player2ShipArray, "B10");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "B10");
+						hit.CheckForHit(MainActivity.player1ShipArray, "B10");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -572,18 +628,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.C1:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "C1");
+						hit.CheckForHit(MainActivity.player2ShipArray, "C1");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "C1");
+						hit.CheckForHit(MainActivity.player1ShipArray, "C1");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -591,18 +647,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.C2:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "C2");
+						hit.CheckForHit(MainActivity.player2ShipArray, "C2");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "C2");
+						hit.CheckForHit(MainActivity.player1ShipArray, "C2");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -610,18 +666,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.C3:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "C3");
+						hit.CheckForHit(MainActivity.player2ShipArray, "C3");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "C3");
+						hit.CheckForHit(MainActivity.player1ShipArray, "C3");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -629,18 +685,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.C4:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "C4");
+						hit.CheckForHit(MainActivity.player2ShipArray, "C4");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "C4");
+						hit.CheckForHit(MainActivity.player1ShipArray, "C4");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -648,18 +704,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.C5:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "C5");
+						hit.CheckForHit(MainActivity.player2ShipArray, "C5");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "C5");
+						hit.CheckForHit(MainActivity.player1ShipArray, "C5");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -667,18 +723,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.C6:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "C6");
+						hit.CheckForHit(MainActivity.player2ShipArray, "C6");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "C6");
+						hit.CheckForHit(MainActivity.player1ShipArray, "C6");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -686,18 +742,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.C7:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "C7");
+						hit.CheckForHit(MainActivity.player2ShipArray, "C7");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "C7");
+						hit.CheckForHit(MainActivity.player1ShipArray, "C7");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -705,18 +761,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.C8:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "C8");
+						hit.CheckForHit(MainActivity.player2ShipArray, "C8");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "C8");
+						hit.CheckForHit(MainActivity.player1ShipArray, "C8");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -724,18 +780,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.C9:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "C9");
+						hit.CheckForHit(MainActivity.player2ShipArray, "C9");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "C9");
+						hit.CheckForHit(MainActivity.player1ShipArray, "C9");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -743,18 +799,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.C10:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "C10");
+						hit.CheckForHit(MainActivity.player2ShipArray, "C10");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "C10");
+						hit.CheckForHit(MainActivity.player1ShipArray, "C10");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -762,18 +818,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.D1:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "D1");
+						hit.CheckForHit(MainActivity.player2ShipArray, "D1");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "D1");
+						hit.CheckForHit(MainActivity.player1ShipArray, "D1");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -781,18 +837,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.D2:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "D2");
+						hit.CheckForHit(MainActivity.player2ShipArray, "D2");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "D2");
+						hit.CheckForHit(MainActivity.player1ShipArray, "D2");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -800,18 +856,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.D3:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "D3");
+						hit.CheckForHit(MainActivity.player2ShipArray, "D3");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "D3");
+						hit.CheckForHit(MainActivity.player1ShipArray, "D3");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -819,18 +875,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.D4:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "D4");
+						hit.CheckForHit(MainActivity.player2ShipArray, "D4");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "D4");
+						hit.CheckForHit(MainActivity.player1ShipArray, "D4");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -838,18 +894,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.D5:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "D5");
+						hit.CheckForHit(MainActivity.player2ShipArray, "D5");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "D5");
+						hit.CheckForHit(MainActivity.player1ShipArray, "D5");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -857,18 +913,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.D6:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "D6");
+						hit.CheckForHit(MainActivity.player2ShipArray, "D6");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "D6");
+						hit.CheckForHit(MainActivity.player1ShipArray, "D6");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -876,18 +932,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.D7:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "D7");
+						hit.CheckForHit(MainActivity.player2ShipArray, "D7");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "D7");
+						hit.CheckForHit(MainActivity.player1ShipArray, "D7");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -895,18 +951,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.D8:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "D8");
+						hit.CheckForHit(MainActivity.player2ShipArray, "D8");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "D8");
+						hit.CheckForHit(MainActivity.player1ShipArray, "D8");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -914,18 +970,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.D9:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "D9");
+						hit.CheckForHit(MainActivity.player2ShipArray, "D9");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "D9");
+						hit.CheckForHit(MainActivity.player1ShipArray, "D9");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -933,18 +989,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.D10:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "D10");
+						hit.CheckForHit(MainActivity.player2ShipArray, "D10");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "D10");
+						hit.CheckForHit(MainActivity.player1ShipArray, "D10");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -952,18 +1008,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.E1:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "E1");
+						hit.CheckForHit(MainActivity.player2ShipArray, "E1");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "E1");
+						hit.CheckForHit(MainActivity.player1ShipArray, "E1");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -971,18 +1027,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.E2:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "E2");
+						hit.CheckForHit(MainActivity.player2ShipArray, "E2");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "E2");
+						hit.CheckForHit(MainActivity.player1ShipArray, "E2");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -990,18 +1046,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.E3:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "E3");
+						hit.CheckForHit(MainActivity.player2ShipArray, "E3");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "E3");
+						hit.CheckForHit(MainActivity.player1ShipArray, "E3");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -1009,18 +1065,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.E4:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "E4");
+						hit.CheckForHit(MainActivity.player2ShipArray, "E4");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "E4");
+						hit.CheckForHit(MainActivity.player1ShipArray, "E4");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -1028,18 +1084,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.E5:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "E5");
+						hit.CheckForHit(MainActivity.player2ShipArray, "E5");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "E5");
+						hit.CheckForHit(MainActivity.player1ShipArray, "E5");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -1047,18 +1103,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.E6:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "E6");
+						hit.CheckForHit(MainActivity.player2ShipArray, "E6");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "E6");
+						hit.CheckForHit(MainActivity.player1ShipArray, "E6");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -1066,18 +1122,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.E7:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "E7");
+						hit.CheckForHit(MainActivity.player2ShipArray, "E7");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "E7");
+						hit.CheckForHit(MainActivity.player1ShipArray, "E7");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -1085,18 +1141,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.E8:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "E8");
+						hit.CheckForHit(MainActivity.player2ShipArray, "E8");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "E8");
+						hit.CheckForHit(MainActivity.player1ShipArray, "E8");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -1104,18 +1160,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.E9:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "E9");
+						hit.CheckForHit(MainActivity.player2ShipArray, "E9");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "E9");
+						hit.CheckForHit(MainActivity.player1ShipArray, "E9");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -1123,18 +1179,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.E10:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "E10");
+						hit.CheckForHit(MainActivity.player2ShipArray, "E10");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "E10");
+						hit.CheckForHit(MainActivity.player1ShipArray, "E10");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -1142,18 +1198,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.F1:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "F1");
+						hit.CheckForHit(MainActivity.player2ShipArray, "F1");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "F1");
+						hit.CheckForHit(MainActivity.player1ShipArray, "F1");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -1161,18 +1217,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.F2:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "F2");
+						hit.CheckForHit(MainActivity.player2ShipArray, "F2");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "F2");
+						hit.CheckForHit(MainActivity.player1ShipArray, "F2");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -1180,18 +1236,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.F3:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "F3");
+						hit.CheckForHit(MainActivity.player2ShipArray, "F3");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "F3");
+						hit.CheckForHit(MainActivity.player1ShipArray, "F3");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -1199,18 +1255,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.F4:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "F4");
+						hit.CheckForHit(MainActivity.player2ShipArray, "F4");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "F4");
+						hit.CheckForHit(MainActivity.player1ShipArray, "F4");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -1218,18 +1274,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.F5:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "F5");
+						hit.CheckForHit(MainActivity.player2ShipArray, "F5");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "F5");
+						hit.CheckForHit(MainActivity.player1ShipArray, "F5");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -1237,18 +1293,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.F6:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "F6");
+						hit.CheckForHit(MainActivity.player2ShipArray, "F6");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "F6");
+						hit.CheckForHit(MainActivity.player1ShipArray, "F6");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -1256,18 +1312,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.F7:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "F7");
+						hit.CheckForHit(MainActivity.player2ShipArray, "F7");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "F7");
+						hit.CheckForHit(MainActivity.player1ShipArray, "F7");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -1275,18 +1331,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.F8:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "F8");
+						hit.CheckForHit(MainActivity.player2ShipArray, "F8");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "F8");
+						hit.CheckForHit(MainActivity.player1ShipArray, "F8");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -1294,18 +1350,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.F9:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "F9");
+						hit.CheckForHit(MainActivity.player2ShipArray, "F9");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "F9");
+						hit.CheckForHit(MainActivity.player1ShipArray, "F9");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -1313,18 +1369,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.F10:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "F10");
+						hit.CheckForHit(MainActivity.player2ShipArray, "F10");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "F10");
+						hit.CheckForHit(MainActivity.player1ShipArray, "F10");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -1332,18 +1388,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.G1:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "G1");
+						hit.CheckForHit(MainActivity.player2ShipArray, "G1");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "G1");
+						hit.CheckForHit(MainActivity.player1ShipArray, "G1");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -1351,18 +1407,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.G2:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "G2");
+						hit.CheckForHit(MainActivity.player2ShipArray, "G2");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "G2");
+						hit.CheckForHit(MainActivity.player1ShipArray, "G2");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -1370,18 +1426,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.G3:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "G3");
+						hit.CheckForHit(MainActivity.player2ShipArray, "G3");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "G3");
+						hit.CheckForHit(MainActivity.player1ShipArray, "G3");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -1389,18 +1445,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.G4:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "G4");
+						hit.CheckForHit(MainActivity.player2ShipArray, "G4");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "G4");
+						hit.CheckForHit(MainActivity.player1ShipArray, "G4");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -1408,18 +1464,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.G5:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "G5");
+						hit.CheckForHit(MainActivity.player2ShipArray, "G5");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "G5");
+						hit.CheckForHit(MainActivity.player1ShipArray, "G5");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -1427,18 +1483,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.G6:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "G6");
+						hit.CheckForHit(MainActivity.player2ShipArray, "G6");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "G6");
+						hit.CheckForHit(MainActivity.player1ShipArray, "G6");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -1446,18 +1502,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.G7:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "G7");
+						hit.CheckForHit(MainActivity.player2ShipArray, "G7");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "G7");
+						hit.CheckForHit(MainActivity.player1ShipArray, "G7");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -1465,18 +1521,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.G8:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "G8");
+						hit.CheckForHit(MainActivity.player2ShipArray, "G8");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "G8");
+						hit.CheckForHit(MainActivity.player1ShipArray, "G8");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -1484,18 +1540,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.G9:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "G9");
+						hit.CheckForHit(MainActivity.player2ShipArray, "G9");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "G9");
+						hit.CheckForHit(MainActivity.player1ShipArray, "G9");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -1503,18 +1559,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.G10:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "G10");
+						hit.CheckForHit(MainActivity.player2ShipArray, "G10");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "G10");
+						hit.CheckForHit(MainActivity.player1ShipArray, "G10");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -1522,18 +1578,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.H1:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "H1");
+						hit.CheckForHit(MainActivity.player2ShipArray, "H1");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "H1");
+						hit.CheckForHit(MainActivity.player1ShipArray, "H1");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -1541,18 +1597,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.H2:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "H2");
+						hit.CheckForHit(MainActivity.player2ShipArray, "H2");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "H2");
+						hit.CheckForHit(MainActivity.player1ShipArray, "H2");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -1560,18 +1616,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.H3:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "H3");
+						hit.CheckForHit(MainActivity.player2ShipArray, "H3");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "H3");
+						hit.CheckForHit(MainActivity.player1ShipArray, "H3");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -1579,18 +1635,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.H4:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "H4");
+						hit.CheckForHit(MainActivity.player2ShipArray, "H4");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "H4");
+						hit.CheckForHit(MainActivity.player1ShipArray, "H4");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -1598,18 +1654,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.H5:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "H5");
+						hit.CheckForHit(MainActivity.player2ShipArray, "H5");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "H5");
+						hit.CheckForHit(MainActivity.player1ShipArray, "H5");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -1617,18 +1673,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.H6:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "H6");
+						hit.CheckForHit(MainActivity.player2ShipArray, "H6");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "H6");
+						hit.CheckForHit(MainActivity.player1ShipArray, "H6");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -1636,18 +1692,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.H7:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "H7");
+						hit.CheckForHit(MainActivity.player2ShipArray, "H7");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "H7");
+						hit.CheckForHit(MainActivity.player1ShipArray, "H7");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -1655,18 +1711,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.H8:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "H8");
+						hit.CheckForHit(MainActivity.player2ShipArray, "H8");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "H8");
+						hit.CheckForHit(MainActivity.player1ShipArray, "H8");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -1674,18 +1730,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.H9:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "H9");
+						hit.CheckForHit(MainActivity.player2ShipArray, "H9");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "H9");
+						hit.CheckForHit(MainActivity.player1ShipArray, "H9");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -1693,18 +1749,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.H10:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "H10");
+						hit.CheckForHit(MainActivity.player2ShipArray, "H10");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "H10");
+						hit.CheckForHit(MainActivity.player1ShipArray, "H10");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -1712,18 +1768,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.I1:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "I1");
+						hit.CheckForHit(MainActivity.player2ShipArray, "I1");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "I1");
+						hit.CheckForHit(MainActivity.player1ShipArray, "I1");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -1731,18 +1787,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.I2:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "I2");
+						hit.CheckForHit(MainActivity.player2ShipArray, "I2");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "I2");
+						hit.CheckForHit(MainActivity.player1ShipArray, "I2");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -1750,18 +1806,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.I3:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "I3");
+						hit.CheckForHit(MainActivity.player2ShipArray, "I3");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "I3");
+						hit.CheckForHit(MainActivity.player1ShipArray, "I3");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -1769,18 +1825,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.I4:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "I4");
+						hit.CheckForHit(MainActivity.player2ShipArray, "I4");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "I4");
+						hit.CheckForHit(MainActivity.player1ShipArray, "I4");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -1788,18 +1844,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.I5:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "I5");
+						hit.CheckForHit(MainActivity.player2ShipArray, "I5");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "I5");
+						hit.CheckForHit(MainActivity.player1ShipArray, "I5");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -1807,18 +1863,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.I6:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "I6");
+						hit.CheckForHit(MainActivity.player2ShipArray, "I6");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "I6");
+						hit.CheckForHit(MainActivity.player1ShipArray, "I6");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -1826,18 +1882,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.I7:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "I7");
+						hit.CheckForHit(MainActivity.player2ShipArray, "I7");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "I7");
+						hit.CheckForHit(MainActivity.player1ShipArray, "I7");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -1845,18 +1901,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.I8:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "I8");
+						hit.CheckForHit(MainActivity.player2ShipArray, "I8");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "I8");
+						hit.CheckForHit(MainActivity.player1ShipArray, "I8");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -1864,18 +1920,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.I9:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "I9");
+						hit.CheckForHit(MainActivity.player2ShipArray, "I9");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "I9");
+						hit.CheckForHit(MainActivity.player1ShipArray, "I9");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -1883,18 +1939,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.I10:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "I10");
+						hit.CheckForHit(MainActivity.player2ShipArray, "I10");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "I10");
+						hit.CheckForHit(MainActivity.player1ShipArray, "I10");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -1902,18 +1958,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.J1:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "J1");
+						hit.CheckForHit(MainActivity.player2ShipArray, "J1");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "J1");
+						hit.CheckForHit(MainActivity.player1ShipArray, "J1");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -1921,18 +1977,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.J2:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "J2");
+						hit.CheckForHit(MainActivity.player2ShipArray, "J2");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "J2");
+						hit.CheckForHit(MainActivity.player1ShipArray, "J2");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -1940,18 +1996,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.J3:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "J3");
+						hit.CheckForHit(MainActivity.player2ShipArray, "J3");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "J3");
+						hit.CheckForHit(MainActivity.player1ShipArray, "J3");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -1959,18 +2015,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.J4:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "J4");
+						hit.CheckForHit(MainActivity.player2ShipArray, "J4");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "J4");
+						hit.CheckForHit(MainActivity.player1ShipArray, "J4");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -1978,18 +2034,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.J5:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "J5");
+						hit.CheckForHit(MainActivity.player2ShipArray, "J5");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "J5");
+						hit.CheckForHit(MainActivity.player1ShipArray, "J5");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -1997,18 +2053,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.J6:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "J6");
+						hit.CheckForHit(MainActivity.player2ShipArray, "J6");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "J6");
+						hit.CheckForHit(MainActivity.player1ShipArray, "J6");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -2016,18 +2072,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.J7:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "J7");
+						hit.CheckForHit(MainActivity.player2ShipArray, "J7");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "J7");
+						hit.CheckForHit(MainActivity.player1ShipArray, "J7");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -2035,18 +2091,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.J8:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "J8");
+						hit.CheckForHit(MainActivity.player2ShipArray, "J8");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "J8");
+						hit.CheckForHit(MainActivity.player1ShipArray, "J8");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -2054,18 +2110,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.J9:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "J9");
+						hit.CheckForHit(MainActivity.player2ShipArray, "J9");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "J9");
+						hit.CheckForHit(MainActivity.player1ShipArray, "J9");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
@@ -2073,18 +2129,18 @@ public class BattleshipGridScreen extends Activity{
 	
 				case R.id.J10:
 	
-					if (main.player == 1)
+					if (MainActivity.player == 1)
 					{
-						hit.CheckForHit(main.player2ShipArray, "J10");
+						hit.CheckForHit(MainActivity.player2ShipArray, "J10");
 	
-						main.player = 2;
+						MainActivity.player = 2;
 					}
 	
 					else
 					{
-						hit.CheckForHit(main.player1ShipArray, "J10");
+						hit.CheckForHit(MainActivity.player1ShipArray, "J10");
 	
-						main.player = 1;
+						MainActivity.player = 1;
 					}
 	
 					break;
