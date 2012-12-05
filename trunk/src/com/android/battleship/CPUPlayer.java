@@ -14,6 +14,8 @@ package com.android.battleship;
 import java.util.ArrayList;
 import java.util.Random;
 
+import com.android.battleship.objects.Ship;
+
 import android.app.Activity;
 import android.util.Log;
 
@@ -21,7 +23,7 @@ public class CPUPlayer extends Activity{
 
 	private Random generator = new Random( 10 );
 	private int x, y, lastX, lastY, firstHitX, firstHitY, direction;
-	private int[] hitGuesses = new int[4];
+	private int[] hitGuesses = new int[]{0,0,0,0};
 	private boolean attackSuccess;
 	final int random = 0;
 	final int directionFind = 1;
@@ -32,9 +34,49 @@ public class CPUPlayer extends Activity{
 	final int south = 2;
 	final int west = 3;	
 	private int strategyState = 0;
+	// Initialize the ships array
+	private Ship[] ships = new Ship[5];{
+		ships[0] = new Ship("Carrier"); // Add a carrier
+		ships[1] = new Ship("Submarine"); // Add a submarine
+		ships[2] = new Ship("Battleship"); // Add a battleship
+		ships[3] = new Ship("Destroyer"); // Add a destroyer
+		ships[4] = new Ship("PT Boat"); // Add a PT boat
+	}
 
-	//TODO: need to create computer ability to set ships.	
+	public CPUPlayer(){
+		initShips();
+	}
+	
+	/** Use this to access the CPUs ships array from other classes */
+	protected Ship[] getShipArray(){
+		return ships;
+	}
+	//TODO: Randomize CPU ships
 
+	private void initShips(){
+		// Carrier - 5 cells
+		ships[0].getShipArray().add("B2");
+		ships[0].getShipArray().add("B3");
+		ships[0].getShipArray().add("B4");
+		ships[0].getShipArray().add("B5");
+		ships[0].getShipArray().add("B6");
+		// Submarine - 4 cells
+		ships[0].getShipArray().add("F6");
+		ships[0].getShipArray().add("G6");
+		ships[0].getShipArray().add("H6");
+		ships[0].getShipArray().add("I6");
+		// Battleship - 3 cells
+		ships[0].getShipArray().add("J1");
+		ships[0].getShipArray().add("J2");
+		ships[0].getShipArray().add("J3");
+		// Destroyer - 3 cells
+		ships[0].getShipArray().add("B9");
+		ships[0].getShipArray().add("C9");
+		ships[0].getShipArray().add("D9");
+		// PT Boat - 2 cells
+		ships[0].getShipArray().add("A5");
+		ships[0].getShipArray().add("A6");
+	}
 	public void computerMove(int shipSunk) { 	// this is the "main" function to facilitate CPU logic
 												// needs to be passed an int: 0 for ship not sunk, 1 for ship sunk
 		if (shipSunk == 1){						// this will reset the CPU state to random guess attack
@@ -233,8 +275,8 @@ public class CPUPlayer extends Activity{
 	
 	private void setCpuDirection(){
 		
-		Random generator2 = new Random (4);
-		int guess = generator2.nextInt();
+		Random generator2 = new Random (100);
+		int guess = generator2.nextInt(4);
 		
 		if (hitGuesses[guess] == 1) { // if the random guess has already been tried, gets new random number
 			setCpuDirection();

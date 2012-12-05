@@ -30,6 +30,7 @@ public class MainActivity extends Activity {
 	final Context context = this;
 	GameMessages gm = new GameMessages();	
 	BattleshipPlacementScreen shipPlacement;
+	static CPUPlayer cpu = null; // For use in the 1-player game
 	
 	String msg;
 	
@@ -105,6 +106,7 @@ public class MainActivity extends Activity {
 				case R.id.gameButton1:
 					
 					startActivityForResult(intent, 1);
+					cpu = new CPUPlayer();
 		
 					break;
 		             
