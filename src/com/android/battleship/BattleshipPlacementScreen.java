@@ -11,6 +11,7 @@ import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 
 import com.android.battleship.objects.PlayerShipArrays;
+import com.android.battleship.objects.Ship;
 
 /**
  * onClick screen will be opened from an onClickListener in the GridScreen. From
@@ -22,7 +23,7 @@ import com.android.battleship.objects.PlayerShipArrays;
  */
 public class BattleshipPlacementScreen extends Activity {
 	
-	int counter = 0;
+	int cellsOccupied = 0;
 	int shipPlaced = 1;
 	int previous = 999;
 	int randHigh = 6;
@@ -31,14 +32,20 @@ public class BattleshipPlacementScreen extends Activity {
 	ImageButton button;
 	String msg;
 	GameMessages gm = new GameMessages();
-
 	boolean btnSelected = false;
 	String firstBtn;
 	String previousBtn;
-
 	BattleshipGridScreen grid;
 	PlayerShipArrays player1ShipArray = new PlayerShipArrays();
 	PlayerShipArrays player2ShipArray = new PlayerShipArrays();
+	// Initialize the ships array
+	static Ship[] ships = new Ship[5];{
+		ships[0] = new Ship("Carrier"); // Add a carrier
+		ships[1] = new Ship("Submarine"); // Add a submarine
+		ships[2] = new Ship("Battleship"); // Add a battleship
+		ships[3] = new Ship("Destroyer"); // Add a destroyer
+		ships[4] = new Ship("PT Boat"); // Add a PT boat
+	}
 	
 	ImageButton placementA1;
 	ImageButton placementA2;
@@ -145,117 +152,15 @@ public class BattleshipPlacementScreen extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState)
 	{
-		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.placement_layout);
 		
-		String u = "Please select 5 cells adjacent to one another horizontally or vertically"
-				+ " to set your carrier";
-		gm.displayMsg(this, u, "Place Your Ship");
-		
-		placementA1 = (ImageButton) findViewById(R.id.placementA1);
-		placementA2 = (ImageButton) findViewById(R.id.placementA2);
-		placementA3 = (ImageButton) findViewById(R.id.placementA3);
-		placementA4 = (ImageButton) findViewById(R.id.placementA4);
-		placementA5 = (ImageButton) findViewById(R.id.placementA5);
-		placementA6 = (ImageButton) findViewById(R.id.placementA6);
-		placementA7 = (ImageButton) findViewById(R.id.placementA7);
-		placementA8 = (ImageButton) findViewById(R.id.placementA8);
-		placementA9 = (ImageButton) findViewById(R.id.placementA9);
-		placementA10 = (ImageButton) findViewById(R.id.placementA10);
-		placementB1 = (ImageButton) findViewById(R.id.placementB1);
-		placementB2 = (ImageButton) findViewById(R.id.placementB2);
-		placementB3 = (ImageButton) findViewById(R.id.placementB3);
-		placementB4 = (ImageButton) findViewById(R.id.placementB4);
-		placementB5 = (ImageButton) findViewById(R.id.placementB5);
-		placementB6 = (ImageButton) findViewById(R.id.placementB6);
-		placementB7 = (ImageButton) findViewById(R.id.placementB7);
-		placementB8 = (ImageButton) findViewById(R.id.placementB8);
-		placementB9 = (ImageButton) findViewById(R.id.placementB9);
-		placementB10 = (ImageButton) findViewById(R.id.placementB10);
-		placementC1 = (ImageButton) findViewById(R.id.placementC1);
-		placementC2 = (ImageButton) findViewById(R.id.placementC2);
-		placementC3 = (ImageButton) findViewById(R.id.placementC3);
-		placementC4 = (ImageButton) findViewById(R.id.placementC4);
-		placementC5 = (ImageButton) findViewById(R.id.placementC5);
-		placementC6 = (ImageButton) findViewById(R.id.placementC6);
-		placementC7 = (ImageButton) findViewById(R.id.placementC7);
-		placementC8 = (ImageButton) findViewById(R.id.placementC8);
-		placementC9 = (ImageButton) findViewById(R.id.placementC9);
-		placementC10 = (ImageButton) findViewById(R.id.placementC10);
-		placementD1 = (ImageButton) findViewById(R.id.placementD1);
-		placementD2 = (ImageButton) findViewById(R.id.placementD2);
-		placementD3 = (ImageButton) findViewById(R.id.placementD3);
-		placementD4 = (ImageButton) findViewById(R.id.placementD4);
-		placementD5 = (ImageButton) findViewById(R.id.placementD5);
-		placementD6 = (ImageButton) findViewById(R.id.placementD6);
-		placementD7 = (ImageButton) findViewById(R.id.placementD7);
-		placementD8 = (ImageButton) findViewById(R.id.placementD8);
-		placementD9 = (ImageButton) findViewById(R.id.placementD9);
-		placementD10 = (ImageButton) findViewById(R.id.placementD10);
-		placementE1 = (ImageButton) findViewById(R.id.placementE1);
-		placementE2 = (ImageButton) findViewById(R.id.placementE2);
-		placementE3 = (ImageButton) findViewById(R.id.placementE3);
-		placementE4 = (ImageButton) findViewById(R.id.placementE4);
-		placementE5 = (ImageButton) findViewById(R.id.placementE5);
-		placementE6 = (ImageButton) findViewById(R.id.placementE6);
-		placementE7 = (ImageButton) findViewById(R.id.placementE7);
-		placementE8 = (ImageButton) findViewById(R.id.placementE8);
-		placementE9 = (ImageButton) findViewById(R.id.placementE9);
-		placementE10 = (ImageButton) findViewById(R.id.placementE10);
-		placementF1 = (ImageButton) findViewById(R.id.placementF1);
-		placementF2 = (ImageButton) findViewById(R.id.placementF2);
-		placementF3 = (ImageButton) findViewById(R.id.placementF3);
-		placementF4 = (ImageButton) findViewById(R.id.placementF4);
-		placementF5 = (ImageButton) findViewById(R.id.placementF5);
-		placementF6 = (ImageButton) findViewById(R.id.placementF6);
-		placementF7 = (ImageButton) findViewById(R.id.placementF7);
-		placementF8 = (ImageButton) findViewById(R.id.placementF8);
-		placementF9 = (ImageButton) findViewById(R.id.placementF9);
-		placementF10 = (ImageButton) findViewById(R.id.placementF10);
-		placementG1 = (ImageButton) findViewById(R.id.placementG1);
-		placementG2 = (ImageButton) findViewById(R.id.placementG2);
-		placementG3 = (ImageButton) findViewById(R.id.placementG3);
-		placementG4 = (ImageButton) findViewById(R.id.placementG4);
-		placementG5 = (ImageButton) findViewById(R.id.placementG5);
-		placementG6 = (ImageButton) findViewById(R.id.placementG6);
-		placementG7 = (ImageButton) findViewById(R.id.placementG7);
-		placementG8 = (ImageButton) findViewById(R.id.placementG8);
-		placementG9 = (ImageButton) findViewById(R.id.placementG9);
-		placementG10 = (ImageButton) findViewById(R.id.placementG10);
-		placementH1 = (ImageButton) findViewById(R.id.placementH1);
-		placementH2 = (ImageButton) findViewById(R.id.placementH2);
-		placementH3 = (ImageButton) findViewById(R.id.placementH3);
-		placementH4 = (ImageButton) findViewById(R.id.placementH4);
-		placementH5 = (ImageButton) findViewById(R.id.placementH5);
-		placementH6 = (ImageButton) findViewById(R.id.placementH6);
-		placementH7 = (ImageButton) findViewById(R.id.placementH7);
-		placementH8 = (ImageButton) findViewById(R.id.placementH8);
-		placementH9 = (ImageButton) findViewById(R.id.placementH9);
-		placementH10 = (ImageButton) findViewById(R.id.placementH10);
-		placementI1 = (ImageButton) findViewById(R.id.placementI1);
-		placementI2 = (ImageButton) findViewById(R.id.placementI2);
-		placementI3 = (ImageButton) findViewById(R.id.placementI3);
-		placementI4 = (ImageButton) findViewById(R.id.placementI4);
-		placementI5 = (ImageButton) findViewById(R.id.placementI5);
-		placementI6 = (ImageButton) findViewById(R.id.placementI6);
-		placementI7 = (ImageButton) findViewById(R.id.placementI7);
-		placementI8 = (ImageButton) findViewById(R.id.placementI8);
-		placementI9 = (ImageButton) findViewById(R.id.placementI9);
-		placementI10 = (ImageButton) findViewById(R.id.placementI10);
-		placementJ1 = (ImageButton) findViewById(R.id.placementJ1);
-		placementJ2 = (ImageButton) findViewById(R.id.placementJ2);
-		placementJ3 = (ImageButton) findViewById(R.id.placementJ3);
-		placementJ4 = (ImageButton) findViewById(R.id.placementJ4);
-		placementJ5 = (ImageButton) findViewById(R.id.placementJ5);
-		placementJ6 = (ImageButton) findViewById(R.id.placementJ6);
-		placementJ7 = (ImageButton) findViewById(R.id.placementJ7);
-		placementJ8 = (ImageButton) findViewById(R.id.placementJ8);
-		placementJ9 = (ImageButton) findViewById(R.id.placementJ9);
-		placementJ10 = (ImageButton) findViewById(R.id.placementJ10);
-		
+		// Create buttons and set their onClick listeners
 		init();
 		
+		String carrier = "Please select 5 cells adjacent to one another horizontally or vertically"
+				+ " to set your carrier";
+		gm.displayMsg(this, carrier, "Place Your Ship");
 	}
 	
 	private boolean checkSelection(int p, int c) {
@@ -285,100 +190,101 @@ public class BattleshipPlacementScreen extends Activity {
 
 	}
 	
-	public void placeShips(String s, int i, ImageButton b) {
-
-		int x = 0;
+	public void placeShips(String cellId, int cellNum, ImageButton b) {
+		boolean validSelection = false;
 		button = b;
-
+		String message = "";
+		int max = 0;
+		
 		switch (shipPlaced) {
 		case 1:
-			x = carrier(s, i);
-			Log.v(msg, "x = " + x);
-			if (x == 999) {
-				GameMessages gm = new GameMessages();
-				final Context context = this;
-				gm.displayMsg(context, "Move Not Available",
-						"Please select another cell.");
+			max = 4;
+			validSelection = createShip(cellId, cellNum, max, 0);
+
+			if (!validSelection) {
+				displayMsgInvalid();
 			}
 			
-			if (x > 4)
+			if (cellsOccupied > max)
 			{
-				s = "Please select 4 cells adjacent to one another horizontally or vertically"
+				message = "Please select 4 cells adjacent to one another horizontally or vertically"
 						+ " to set your submarine";
-				gm.displayMsg(this, s, "Place Your Ship");
+				gm.displayMsg(this, message, "Place Your Ship");
 			}
 			break;
 
 		case 2:
-			x = submarine(s, i);
+			max = 8;
+			validSelection = createShip(cellId, cellNum, max, 1);
 
-			if (x == 999) {
-				GameMessages gm = new GameMessages();
-				final Context context = this;
-				gm.displayMsg(context, "Move Not Available",
-						"Please select another cell.");
+			if (!validSelection) {
+				displayMsgInvalid();
 			}
 
-			if (x > 8)
+			if (cellsOccupied > max)
 			{
-				s = "Please select 3 cells adjacent to one another horizontally or vertically"
+				message = "Please select 3 cells adjacent to one another horizontally or vertically"
 						+ " to set your battleship";
-				gm.displayMsg(this, s, "Place Your Ship");
+				gm.displayMsg(this, message, "Place Your Ship");
 			}
 			
 			break;
 
 		case 3:
-			x = battleship(s, i);
+			max = 11;
+			validSelection = createShip(cellId, cellNum, max, 2);
 
-			if (x == 999) {
-				GameMessages gm = new GameMessages();
-				final Context context = this;
-				gm.displayMsg(context, "Move Not Available",
-						"Please select another cell.");
+			if (!validSelection) {
+				displayMsgInvalid();
 			}
 			
-			if (x > 11)
+			if (cellsOccupied > max)
 			{
-				s = "Please select 3 cells adjacent to one another horizontally or vertically"
+				message = "Please select 3 cells adjacent to one another horizontally or vertically"
 						+ " to set your destroyer";
-				gm.displayMsg(this, s, "Place Your Ship");
+				gm.displayMsg(this, message, "Place Your Ship");
 			}
 
 			break;
 
 		case 4:
-			x = destroyer(s, i);
+			max = 14;
+			validSelection = createShip(cellId, cellNum, max, 3);
 
-			if (x == 999) {
-				GameMessages gm = new GameMessages();
-				final Context context = this;
-				gm.displayMsg(context, "Move Not Available",
-						"Please select another cell.");
+			if (!validSelection) {
+				displayMsgInvalid();
 			}
 			
-			if (x > 14)
+			if (cellsOccupied > max)
 			{
-				s = "Please select 2 cells adjacent to one another horizontally or vertically"
+				message = "Please select 2 cells adjacent to one another horizontally or vertically"
 						+ " to set your pt boat";
-				gm.displayMsg(this, s, "Place Your Ship");
+				gm.displayMsg(this, message, "Place Your Ship");
 			}
 
 			break;
 
 		case 5:
-			x = ptBoat(s, i);
+			max = 16;
+			validSelection = createShip(cellId, cellNum, max, 4);
 
-			if (x == 999) {
-				GameMessages gm = new GameMessages();
-				final Context context = this;
-				gm.displayMsg(context, "Move Not Available",
-						"Please select another cell.");
+			if (!validSelection) {
+				displayMsgInvalid();
 			}
 			
-			if (x > 16)
+			// All ships are placed
+			if (cellsOccupied > max)
 			{
 				gm.displayMsg(this, "All your ships have been placed.", "Ships placed");
+				// Switch to the Grid Screen
+					++shipPlaced;
+					Log.v(msg, "Incrementing shipPlaced.  shipPlaced = " + shipPlaced);
+					
+					CPURandomizer();
+					Log.v(msg, "Changing intent to Grid Screen.");
+					
+					Intent intent = new Intent(this, BattleshipGridScreen.class);
+					startActivityForResult(intent, 1);
 			}
 
 			break;
@@ -386,221 +292,72 @@ public class BattleshipPlacementScreen extends Activity {
 		}
 	}
 
-	public int carrier(String s, int i) {
+	/** User has selected a cell that is not adjacent to the previous while trying to create a ship; Display a message
+	 * to inform them of this and ask them to chose another cell.
+	 */
+	public void displayMsgInvalid(){
+		GameMessages gm = new GameMessages();
+		final Context context = this;
+		gm.displayMsg(context, "Move Not Available",
+				"Please select another cell.");
+	}
+	
+	/** This method will use the cellId to update the previousBtn and the cellNum to check if the cell selection is valid. It will
+	 * also determine if the cellsOccupied exceeds the provided max shipsPlaced will be incremented. The idx will be used
+	 * to determine which ship's shipArray to update with the current cell. False will be returned if the user needs to select 
+	 * another cell.
+	 * @param cellId
+	 * @param cellNum
+	 * @param max
+	 * @param idx
+	 * @return boolean
+	 */
+	public boolean createShip(String cellId, int cellNum, int max, int idx) {
 		
 		if (MainActivity.player == 1) {
-			btnSelected = checkSelection(previous, i);
+			btnSelected = checkSelection(previous, cellNum);
 			Log.v(msg,"Previous after return = " + previous);			
 			
 			if (btnSelected) {
-				player1ShipArray.getPlayerShipArray().add(s);
+				player1ShipArray.getPlayerShipArray().add(cellId);
+				// Add the cellId to the ships array
+				ships[idx].getShipArray().add(cellId);
 				changeImage(button);
-				previousBtn = s;
+				previousBtn = cellId;
 			}
 
+			// Not a valid selection
 			else
 			{
-				Log.v(msg, "Returning 999)");
-				return 999;
+				Log.v(msg, "Returning false)");
+				return false;
 			}
 
 		} else {
-			btnSelected = checkSelection(previous, i);
+			btnSelected = checkSelection(previous, cellNum);
 
 			if (btnSelected) {
-				player2ShipArray.getPlayerShipArray().add(s);
-				previousBtn = s;
+				player2ShipArray.getPlayerShipArray().add(cellId);
+				previousBtn = cellId;
 			}
 
+			// Not a valid selection
 			else {
-				return 999;
+				return false;
 			}
 		}
 
-		counter++;
-		Log.v(msg, "Counter = " + counter);
+		cellsOccupied++;
+		Log.v(msg, "cellsOccupied = " + cellsOccupied);
 		
-
-		if (counter > 4)
+		if (cellsOccupied > max)
 		{
 			++shipPlaced;
 			Log.v(msg, "Incrementing shipPlaced.  shipPlaced = " + shipPlaced);
 		}
-		
-		return counter;
+		return true;
 	}
 
-	public int submarine(String s, int i) {
-		
-		if (MainActivity.player == 1) {
-			btnSelected = checkSelection(previous, i);
-
-			if (btnSelected) {
-				player1ShipArray.getPlayerShipArray().add(s);
-				changeImage(button);
-				previousBtn = s;
-			}
-
-			else {
-				return 999;
-			}
-
-		} else {
-			btnSelected = checkSelection(previous, i);
-
-			if (btnSelected) {
-				player2ShipArray.getPlayerShipArray().add(s);
-				previousBtn = s;
-			}
-
-			else {
-				return 999;
-			}
-		}
-
-		counter++;
-		Log.v(msg, "Counter = " + counter);
-		
-
-		if (counter > 8)
-		{
-			++shipPlaced;
-			Log.v(msg, "Incrementing shipPlaced.  shipPlaced = " + shipPlaced);
-		}
-		
-		return counter;
-	}
-	
-	public int battleship(String s, int i) {
-		
-		if (MainActivity.player == 1) {
-			btnSelected = checkSelection(previous, i);
-
-			if (btnSelected) {
-				player1ShipArray.getPlayerShipArray().add(s);
-				changeImage(button);
-				previousBtn = s;
-			}
-
-			else {
-				return 999;
-			}
-
-		} else {
-			btnSelected = checkSelection(previous, i);
-
-			if (btnSelected) {
-				player2ShipArray.getPlayerShipArray().add(s);
-				previousBtn = s;
-			}
-
-			else {
-				return 999;
-			}
-		}
-
-		counter++;
-		Log.v(msg, "Counter = " + counter);
-		
-
-		if (counter > 11)
-		{
-			++shipPlaced;
-			Log.v(msg, "Incrementing shipPlaced.  shipPlaced = " + shipPlaced);
-		}
-		
-		return counter;
-		
-	}
-	public int destroyer(String s, int i) {
-		
-		if (MainActivity.player == 1) {
-			btnSelected = checkSelection(previous, i);
-
-			if (btnSelected) {
-				player1ShipArray.getPlayerShipArray().add(s);
-				changeImage(button);
-				previousBtn = s;
-			}
-
-			else {
-				return 999;
-			}
-
-		} else {
-			btnSelected = checkSelection(previous, i);
-
-			if (btnSelected) {
-				player2ShipArray.getPlayerShipArray().add(s);
-				previousBtn = s;
-			}
-
-			else {
-				return 999;
-			}
-		}
-
-		counter++;
-		Log.v(msg, "Counter = " + counter);
-		
-
-		if (counter > 14)
-		{
-			++shipPlaced;
-			Log.v(msg, "Incrementing shipPlaced.  shipPlaced = " + shipPlaced);
-		}
-		
-		return counter;
-	}
-
-	public int ptBoat(String s, int i) {
-
-		if (MainActivity.player == 1) {
-			btnSelected = checkSelection(previous, i);
-
-			if (btnSelected) {
-				player1ShipArray.getPlayerShipArray().add(s);
-				changeImage(button);
-				previousBtn = s;
-			}
-
-			else {
-				return 999;
-			}
-
-		} else {
-			btnSelected = checkSelection(previous, i);
-
-			if (btnSelected) {
-				player2ShipArray.getPlayerShipArray().add(s);
-				previousBtn = s;
-			}
-
-			else {
-				return 999;
-			}
-		}
-
-		counter++;
-		Log.v(msg, "Counter = " + counter);
-		
-
-		if (counter > 16)
-		{
-			++shipPlaced;
-			Log.v(msg, "Incrementing shipPlaced.  shipPlaced = " + shipPlaced);
-			
-			CPURandomizer();
-			Log.v(msg, "Changing intent to Grid Screen.");
-			
-			Intent intent = new Intent(this, BattleshipGridScreen.class);
-			startActivityForResult(intent, 1);
-			
-		}
-		
-		return counter;
-	}
-	
 	void CPURandomizer()
 	{
 		result = randLow + (int) (Math.random() * (randHigh - randLow) + 0.5);
@@ -1241,6 +998,109 @@ public class BattleshipPlacementScreen extends Activity {
 	
 	public void init()
 	{
+		// Create buttons
+		placementA1 = (ImageButton) findViewById(R.id.placementA1);
+		placementA2 = (ImageButton) findViewById(R.id.placementA2);
+		placementA3 = (ImageButton) findViewById(R.id.placementA3);
+		placementA4 = (ImageButton) findViewById(R.id.placementA4);
+		placementA5 = (ImageButton) findViewById(R.id.placementA5);
+		placementA6 = (ImageButton) findViewById(R.id.placementA6);
+		placementA7 = (ImageButton) findViewById(R.id.placementA7);
+		placementA8 = (ImageButton) findViewById(R.id.placementA8);
+		placementA9 = (ImageButton) findViewById(R.id.placementA9);
+		placementA10 = (ImageButton) findViewById(R.id.placementA10);
+		placementB1 = (ImageButton) findViewById(R.id.placementB1);
+		placementB2 = (ImageButton) findViewById(R.id.placementB2);
+		placementB3 = (ImageButton) findViewById(R.id.placementB3);
+		placementB4 = (ImageButton) findViewById(R.id.placementB4);
+		placementB5 = (ImageButton) findViewById(R.id.placementB5);
+		placementB6 = (ImageButton) findViewById(R.id.placementB6);
+		placementB7 = (ImageButton) findViewById(R.id.placementB7);
+		placementB8 = (ImageButton) findViewById(R.id.placementB8);
+		placementB9 = (ImageButton) findViewById(R.id.placementB9);
+		placementB10 = (ImageButton) findViewById(R.id.placementB10);
+		placementC1 = (ImageButton) findViewById(R.id.placementC1);
+		placementC2 = (ImageButton) findViewById(R.id.placementC2);
+		placementC3 = (ImageButton) findViewById(R.id.placementC3);
+		placementC4 = (ImageButton) findViewById(R.id.placementC4);
+		placementC5 = (ImageButton) findViewById(R.id.placementC5);
+		placementC6 = (ImageButton) findViewById(R.id.placementC6);
+		placementC7 = (ImageButton) findViewById(R.id.placementC7);
+		placementC8 = (ImageButton) findViewById(R.id.placementC8);
+		placementC9 = (ImageButton) findViewById(R.id.placementC9);
+		placementC10 = (ImageButton) findViewById(R.id.placementC10);
+		placementD1 = (ImageButton) findViewById(R.id.placementD1);
+		placementD2 = (ImageButton) findViewById(R.id.placementD2);
+		placementD3 = (ImageButton) findViewById(R.id.placementD3);
+		placementD4 = (ImageButton) findViewById(R.id.placementD4);
+		placementD5 = (ImageButton) findViewById(R.id.placementD5);
+		placementD6 = (ImageButton) findViewById(R.id.placementD6);
+		placementD7 = (ImageButton) findViewById(R.id.placementD7);
+		placementD8 = (ImageButton) findViewById(R.id.placementD8);
+		placementD9 = (ImageButton) findViewById(R.id.placementD9);
+		placementD10 = (ImageButton) findViewById(R.id.placementD10);
+		placementE1 = (ImageButton) findViewById(R.id.placementE1);
+		placementE2 = (ImageButton) findViewById(R.id.placementE2);
+		placementE3 = (ImageButton) findViewById(R.id.placementE3);
+		placementE4 = (ImageButton) findViewById(R.id.placementE4);
+		placementE5 = (ImageButton) findViewById(R.id.placementE5);
+		placementE6 = (ImageButton) findViewById(R.id.placementE6);
+		placementE7 = (ImageButton) findViewById(R.id.placementE7);
+		placementE8 = (ImageButton) findViewById(R.id.placementE8);
+		placementE9 = (ImageButton) findViewById(R.id.placementE9);
+		placementE10 = (ImageButton) findViewById(R.id.placementE10);
+		placementF1 = (ImageButton) findViewById(R.id.placementF1);
+		placementF2 = (ImageButton) findViewById(R.id.placementF2);
+		placementF3 = (ImageButton) findViewById(R.id.placementF3);
+		placementF4 = (ImageButton) findViewById(R.id.placementF4);
+		placementF5 = (ImageButton) findViewById(R.id.placementF5);
+		placementF6 = (ImageButton) findViewById(R.id.placementF6);
+		placementF7 = (ImageButton) findViewById(R.id.placementF7);
+		placementF8 = (ImageButton) findViewById(R.id.placementF8);
+		placementF9 = (ImageButton) findViewById(R.id.placementF9);
+		placementF10 = (ImageButton) findViewById(R.id.placementF10);
+		placementG1 = (ImageButton) findViewById(R.id.placementG1);
+		placementG2 = (ImageButton) findViewById(R.id.placementG2);
+		placementG3 = (ImageButton) findViewById(R.id.placementG3);
+		placementG4 = (ImageButton) findViewById(R.id.placementG4);
+		placementG5 = (ImageButton) findViewById(R.id.placementG5);
+		placementG6 = (ImageButton) findViewById(R.id.placementG6);
+		placementG7 = (ImageButton) findViewById(R.id.placementG7);
+		placementG8 = (ImageButton) findViewById(R.id.placementG8);
+		placementG9 = (ImageButton) findViewById(R.id.placementG9);
+		placementG10 = (ImageButton) findViewById(R.id.placementG10);
+		placementH1 = (ImageButton) findViewById(R.id.placementH1);
+		placementH2 = (ImageButton) findViewById(R.id.placementH2);
+		placementH3 = (ImageButton) findViewById(R.id.placementH3);
+		placementH4 = (ImageButton) findViewById(R.id.placementH4);
+		placementH5 = (ImageButton) findViewById(R.id.placementH5);
+		placementH6 = (ImageButton) findViewById(R.id.placementH6);
+		placementH7 = (ImageButton) findViewById(R.id.placementH7);
+		placementH8 = (ImageButton) findViewById(R.id.placementH8);
+		placementH9 = (ImageButton) findViewById(R.id.placementH9);
+		placementH10 = (ImageButton) findViewById(R.id.placementH10);
+		placementI1 = (ImageButton) findViewById(R.id.placementI1);
+		placementI2 = (ImageButton) findViewById(R.id.placementI2);
+		placementI3 = (ImageButton) findViewById(R.id.placementI3);
+		placementI4 = (ImageButton) findViewById(R.id.placementI4);
+		placementI5 = (ImageButton) findViewById(R.id.placementI5);
+		placementI6 = (ImageButton) findViewById(R.id.placementI6);
+		placementI7 = (ImageButton) findViewById(R.id.placementI7);
+		placementI8 = (ImageButton) findViewById(R.id.placementI8);
+		placementI9 = (ImageButton) findViewById(R.id.placementI9);
+		placementI10 = (ImageButton) findViewById(R.id.placementI10);
+		placementJ1 = (ImageButton) findViewById(R.id.placementJ1);
+		placementJ2 = (ImageButton) findViewById(R.id.placementJ2);
+		placementJ3 = (ImageButton) findViewById(R.id.placementJ3);
+		placementJ4 = (ImageButton) findViewById(R.id.placementJ4);
+		placementJ5 = (ImageButton) findViewById(R.id.placementJ5);
+		placementJ6 = (ImageButton) findViewById(R.id.placementJ6);
+		placementJ7 = (ImageButton) findViewById(R.id.placementJ7);
+		placementJ8 = (ImageButton) findViewById(R.id.placementJ8);
+		placementJ9 = (ImageButton) findViewById(R.id.placementJ9);
+		placementJ10 = (ImageButton) findViewById(R.id.placementJ10);
+		
+		// Set onClick() listeners
 		placementA1.setOnClickListener(onPlacementClick);
 		placementA2.setOnClickListener(onPlacementClick);
 		placementA3.setOnClickListener(onPlacementClick);
