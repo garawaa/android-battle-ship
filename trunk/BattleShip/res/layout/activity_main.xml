@@ -1,0 +1,45 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#8B0000" >
+
+    <TextView
+        android:id="@+id/connect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="82dp"
+        android:text="@string/menu"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#FFD700"
+        android:typeface="monospace" />
+
+    <Button
+        android:id="@+id/gameButton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/connect"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="28dp"
+        android:text="@string/single" />
+
+    <Button
+        android:id="@+id/gameButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/gameButton1"
+        android:layout_alignRight="@+id/gameButton1"
+        android:layout_centerVertical="true"
+        android:text="@string/multi" />
+
+    <Button
+        android:id="@+id/bttest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/gameButton2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="55dp"
+        android:text="Bluetooth Testing" />
+</RelativeLayout>
