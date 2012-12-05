@@ -32,9 +32,9 @@ public class CPUPlayer extends Activity{
 	final int south = 2;
 	final int west = 3;	
 	private int strategyState = 0;
-	
+
 	//TODO: need to create computer ability to set ships.	
-	
+
 	public void computerMove(int shipSunk) { 	// this is the "main" function to facilitate CPU logic
 												// needs to be passed an int: 0 for ship not sunk, 1 for ship sunk
 		if (shipSunk == 1){						// this will reset the CPU state to random guess attack
@@ -163,6 +163,7 @@ public class CPUPlayer extends Activity{
 	}
 
 	private void getCpuRandomMove(){
+		
 		x = generator.nextInt(10);
 		y = generator.nextInt(10)+1;
 
