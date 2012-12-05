@@ -78,8 +78,7 @@ public class MainActivity extends Activity {
 		b1 = (Button) findViewById(R.id.gameButton1);
 		b2 = (Button) findViewById(R.id.gameButton2);
 		
-		b1.setOnClickListener(onClick);
-		b2.setOnClickListener(onClick);
+		init();
 		
 	}
 
@@ -87,6 +86,12 @@ public class MainActivity extends Activity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.activity_main, menu);
 		return true;
+	}
+	
+	void init()
+	{
+		b1.setOnClickListener(onClick);
+		b2.setOnClickListener(onClick);
 	}
 	    
 	private OnClickListener onClick = new OnClickListener()
