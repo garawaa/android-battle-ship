@@ -25,6 +25,9 @@ public class BattleshipPlacementScreen extends Activity {
 	int counter = 0;
 	int shipPlaced = 1;
 	int previous = 999;
+	int randHigh = 6;
+	int randLow = 0;
+	int result = 0;
 	ImageButton button;
 	String msg;
 	GameMessages gm = new GameMessages();
@@ -587,12 +590,237 @@ public class BattleshipPlacementScreen extends Activity {
 			++shipPlaced;
 			Log.v(msg, "Incrementing shipPlaced.  shipPlaced = " + shipPlaced);
 			
+			CPURandomizer();
+			Log.v(msg, "Changing intent to Grid Screen.");
+			
 			Intent intent = new Intent(this, BattleshipGridScreen.class);
 			startActivityForResult(intent, 1);
 			
 		}
 		
 		return counter;
+	}
+	
+	void CPURandomizer()
+	{
+		result = randLow + (int) (Math.random() * (randHigh - randLow) + 0.5);
+		CPUPlacer(result);
+	}
+	
+	void CPUPlacer(int r)
+	{
+			switch (r)
+			{
+				case 1:
+					//carrier
+					player2ShipArray.getPlayerShipArray().add("A1");
+					player2ShipArray.getPlayerShipArray().add("A2");
+					player2ShipArray.getPlayerShipArray().add("A3");
+					player2ShipArray.getPlayerShipArray().add("A4");
+					player2ShipArray.getPlayerShipArray().add("A5");
+					
+					//submarine
+					player2ShipArray.getPlayerShipArray().add("A9");
+					player2ShipArray.getPlayerShipArray().add("B9");
+					player2ShipArray.getPlayerShipArray().add("C9");
+					player2ShipArray.getPlayerShipArray().add("D9");
+					
+					//destroyer
+					player2ShipArray.getPlayerShipArray().add("C3");
+					player2ShipArray.getPlayerShipArray().add("C4");
+					player2ShipArray.getPlayerShipArray().add("C5");
+					
+					//battleship
+					player2ShipArray.getPlayerShipArray().add("J4");
+					player2ShipArray.getPlayerShipArray().add("J5");
+					player2ShipArray.getPlayerShipArray().add("J7");
+					
+					//PT Boat
+					player2ShipArray.getPlayerShipArray().add("G1");
+					player2ShipArray.getPlayerShipArray().add("H1");
+					
+					for (int i = 0; i < player2ShipArray.getPlayerShipArray().size(); i++)
+					{
+						Log.v(msg, "player2ShipArray[" + i + "] = " + player2ShipArray.getPlayerShipArray().get(i));
+					}
+					
+					break;
+					
+				case 2:
+					//carrier
+					player2ShipArray.getPlayerShipArray().add("A1");
+					player2ShipArray.getPlayerShipArray().add("B1");
+					player2ShipArray.getPlayerShipArray().add("C1");
+					player2ShipArray.getPlayerShipArray().add("D1");
+					player2ShipArray.getPlayerShipArray().add("E1");
+					
+					//submarine
+					player2ShipArray.getPlayerShipArray().add("B7");
+					player2ShipArray.getPlayerShipArray().add("C7");
+					player2ShipArray.getPlayerShipArray().add("D7");
+					player2ShipArray.getPlayerShipArray().add("E7");
+					
+					//destroyer
+					player2ShipArray.getPlayerShipArray().add("H1");
+					player2ShipArray.getPlayerShipArray().add("H2");
+					player2ShipArray.getPlayerShipArray().add("H3");
+					
+					//battleship
+					player2ShipArray.getPlayerShipArray().add("H10");
+					player2ShipArray.getPlayerShipArray().add("I10");
+					player2ShipArray.getPlayerShipArray().add("J10");
+					
+					//PT Boat
+					player2ShipArray.getPlayerShipArray().add("D4");
+					player2ShipArray.getPlayerShipArray().add("D5");
+					
+					for (int i = 0; i < player2ShipArray.getPlayerShipArray().size(); i++)
+					{
+						Log.v(msg, "player2ShipArray[" + i + "] = " + player2ShipArray.getPlayerShipArray().get(i));
+					}
+					
+					break;
+					
+				case 3:
+					//carrier
+					player2ShipArray.getPlayerShipArray().add("E5");
+					player2ShipArray.getPlayerShipArray().add("E6");
+					player2ShipArray.getPlayerShipArray().add("E7");
+					player2ShipArray.getPlayerShipArray().add("E8");
+					player2ShipArray.getPlayerShipArray().add("E9");
+					
+					//submarine
+					player2ShipArray.getPlayerShipArray().add("J3");
+					player2ShipArray.getPlayerShipArray().add("I3");
+					player2ShipArray.getPlayerShipArray().add("H3");
+					player2ShipArray.getPlayerShipArray().add("G3");
+					
+					//destroyer
+					player2ShipArray.getPlayerShipArray().add("A8");
+					player2ShipArray.getPlayerShipArray().add("A9");
+					player2ShipArray.getPlayerShipArray().add("A10");
+					
+					//battleship
+					player2ShipArray.getPlayerShipArray().add("C7");
+					player2ShipArray.getPlayerShipArray().add("D7");
+					player2ShipArray.getPlayerShipArray().add("E7");
+					
+					//PT Boat
+					player2ShipArray.getPlayerShipArray().add("F3");
+					player2ShipArray.getPlayerShipArray().add("F4");
+					
+					for (int i = 0; i < player2ShipArray.getPlayerShipArray().size(); i++)
+					{
+						Log.v(msg, "player2ShipArray[" + i + "] = " + player2ShipArray.getPlayerShipArray().get(i));
+					}
+					
+					break;
+					
+				case 4:
+					//carrier
+					player2ShipArray.getPlayerShipArray().add("J10");
+					player2ShipArray.getPlayerShipArray().add("J9");
+					player2ShipArray.getPlayerShipArray().add("J8");
+					player2ShipArray.getPlayerShipArray().add("J7");
+					player2ShipArray.getPlayerShipArray().add("J6");
+					
+					//submarine
+					player2ShipArray.getPlayerShipArray().add("J1");
+					player2ShipArray.getPlayerShipArray().add("J2");
+					player2ShipArray.getPlayerShipArray().add("J3");
+					player2ShipArray.getPlayerShipArray().add("J4");
+					
+					//destroyer
+					player2ShipArray.getPlayerShipArray().add("H1");
+					player2ShipArray.getPlayerShipArray().add("G1");
+					player2ShipArray.getPlayerShipArray().add("F1");
+					
+					//battleship
+					player2ShipArray.getPlayerShipArray().add("B2");
+					player2ShipArray.getPlayerShipArray().add("B3");
+					player2ShipArray.getPlayerShipArray().add("B4");
+					
+					//PT Boat
+					player2ShipArray.getPlayerShipArray().add("D10");
+					player2ShipArray.getPlayerShipArray().add("E10");
+					
+					for (int i = 0; i < player2ShipArray.getPlayerShipArray().size(); i++)
+					{
+						Log.v(msg, "player2ShipArray[" + i + "] = " + player2ShipArray.getPlayerShipArray().get(i));
+					}
+					
+					break;
+					
+				case 5:
+					//carrier
+					player2ShipArray.getPlayerShipArray().add("I3");
+					player2ShipArray.getPlayerShipArray().add("I4");
+					player2ShipArray.getPlayerShipArray().add("I5");
+					player2ShipArray.getPlayerShipArray().add("I6");
+					player2ShipArray.getPlayerShipArray().add("I7");
+					
+					//submarine
+					player2ShipArray.getPlayerShipArray().add("A10");
+					player2ShipArray.getPlayerShipArray().add("A9");
+					player2ShipArray.getPlayerShipArray().add("A8");
+					player2ShipArray.getPlayerShipArray().add("A7");
+					
+					//destroyer
+					player2ShipArray.getPlayerShipArray().add("J5");
+					player2ShipArray.getPlayerShipArray().add("I5");
+					player2ShipArray.getPlayerShipArray().add("H5");
+					
+					//battleship
+					player2ShipArray.getPlayerShipArray().add("E7");
+					player2ShipArray.getPlayerShipArray().add("F7");
+					player2ShipArray.getPlayerShipArray().add("G7");
+					
+					//PT Boat
+					player2ShipArray.getPlayerShipArray().add("B1");
+					player2ShipArray.getPlayerShipArray().add("C1");
+					
+					for (int i = 0; i < player2ShipArray.getPlayerShipArray().size(); i++)
+					{
+						Log.v(msg, "player2ShipArray[" + i + "] = " + player2ShipArray.getPlayerShipArray().get(i));
+					}
+					
+					break;
+			
+				default:
+					//carrier
+					player2ShipArray.getPlayerShipArray().add("F10");
+					player2ShipArray.getPlayerShipArray().add("G10");
+					player2ShipArray.getPlayerShipArray().add("H10");
+					player2ShipArray.getPlayerShipArray().add("I10");
+					player2ShipArray.getPlayerShipArray().add("J10");
+					
+					//submarine
+					player2ShipArray.getPlayerShipArray().add("D5");
+					player2ShipArray.getPlayerShipArray().add("D4");
+					player2ShipArray.getPlayerShipArray().add("D3");
+					player2ShipArray.getPlayerShipArray().add("D2");
+					
+					//destroyer
+					player2ShipArray.getPlayerShipArray().add("B7");
+					player2ShipArray.getPlayerShipArray().add("C7");
+					player2ShipArray.getPlayerShipArray().add("D7");
+					
+					//battleship
+					player2ShipArray.getPlayerShipArray().add("I1");
+					player2ShipArray.getPlayerShipArray().add("I2");
+					player2ShipArray.getPlayerShipArray().add("I3");
+					
+					//PT Boat
+					player2ShipArray.getPlayerShipArray().add("A4");
+					player2ShipArray.getPlayerShipArray().add("B4");
+					
+					for (int i = 0; i < player2ShipArray.getPlayerShipArray().size(); i++)
+					{
+						Log.v(msg, "player2ShipArray[" + i + "] = " + player2ShipArray.getPlayerShipArray().get(i));
+					}
+					
+					break;
+			}
 	}
 	
 
