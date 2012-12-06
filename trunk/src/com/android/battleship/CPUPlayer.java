@@ -64,13 +64,13 @@ public class CPUPlayer extends Activity {
 
 	}
 
-	public void computerMove(int shipSunk) { // this is the "main" function to
-												// facilitate CPU logic
-												// needs to be passed an int: 0
-												// for ship not sunk, 1 for ship
-												// sunk
+	/** This is the "main" function to facilitate CPU logic needs to be passed an int: 0 for ship not
+	 *  sunk, 1 for ship sunk
+	 */
+
+	public void computerMove(int shipSunk) { 
 		if (shipSunk == 1) { // this will reset the CPU state to random guess
-								// attack
+
 			strategyState = random;
 		}
 
