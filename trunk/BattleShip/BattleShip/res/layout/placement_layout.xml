@@ -1,0 +1,974 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:orientation="vertical"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent">
+
+<TableLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:stretchColumns="*" >
+    
+    <TableRow 
+        android:id="@+id/rowA"
+        android:layout_weight="1"
+        android:gravity="center">
+        
+        <ImageButton 
+            android:id="@+id/placementA1"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"
+            android:background="#000000"/>
+        
+        <ImageButton 
+            android:id="@+id/placementA2"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementA3"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+         <ImageButton 
+            android:id="@+id/placementA4"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementA5"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementA6"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+         <ImageButton 
+            android:id="@+id/placementA7"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementA8"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementA9"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementA10"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+    </TableRow>
+    
+    <TableRow 
+        android:id="@+id/rowB"
+        android:layout_weight="1"
+        android:gravity="center">
+        
+        <ImageButton 
+            android:id="@+id/placementB1"
+            android:contentDescription="@string/gridButton" 
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementB2"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementB3"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+         <ImageButton 
+            android:id="@+id/placementB4"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementB5"
+            android:contentDescription="@string/gridButton" 
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementB6"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+         <ImageButton 
+            android:id="@+id/placementB7"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementB8"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementB9"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementB10"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+    </TableRow>
+    
+    <TableRow 
+        android:id="@+id/rowC"
+        android:layout_weight="1"
+        android:gravity="center">
+        
+        <ImageButton 
+            android:id="@+id/placementC1"
+            android:contentDescription="@string/gridButton" 
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementC2"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementC3"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+         <ImageButton 
+            android:id="@+id/placementC4"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementC5"
+            android:contentDescription="@string/gridButton" 
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementC6"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+         <ImageButton 
+            android:id="@+id/placementC7"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementC8"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementC9"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementC10"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+    </TableRow>
+    
+    <TableRow 
+        android:id="@+id/rowD"
+        android:layout_weight="1"
+        android:gravity="center">
+        
+        <ImageButton 
+            android:id="@+id/placementD1"
+            android:contentDescription="@string/gridButton" 
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementD2"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementD3"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+         <ImageButton 
+            android:id="@+id/placementD4"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementD5"
+            android:contentDescription="@string/gridButton" 
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementD6"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+         <ImageButton 
+            android:id="@+id/placementD7"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementD8"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementD9"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementD10"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+    </TableRow>
+    
+    <TableRow 
+        android:id="@+id/rowE"
+        android:layout_weight="1"
+        android:gravity="center">
+        
+        <ImageButton 
+            android:id="@+id/placementE1"
+            android:contentDescription="@string/gridButton" 
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementE2"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementE3"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+         <ImageButton 
+            android:id="@+id/placementE4"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementE5"
+            android:contentDescription="@string/gridButton" 
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementE6"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+         <ImageButton 
+            android:id="@+id/placementE7"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementE8"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementE9"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementE10"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+    </TableRow>
+    
+    <TableRow 
+        android:id="@+id/rowF"
+        android:layout_weight="1"
+        android:gravity="center">
+        
+        <ImageButton 
+            android:id="@+id/placementF1"
+            android:contentDescription="@string/gridButton" 
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementF2"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementF3"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+         <ImageButton 
+            android:id="@+id/placementF4"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementF5"
+            android:contentDescription="@string/gridButton" 
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementF6"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+         <ImageButton 
+            android:id="@+id/placementF7"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementF8"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementF9"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementF10"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+    </TableRow>
+    
+    <TableRow 
+        android:id="@+id/rowG"
+        android:layout_weight="1"
+        android:gravity="center">
+        
+        <ImageButton 
+            android:id="@+id/placementG1"
+            android:contentDescription="@string/gridButton" 
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementG2"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementG3"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+         <ImageButton 
+            android:id="@+id/placementG4"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementG5"
+            android:contentDescription="@string/gridButton" 
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementG6"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+         <ImageButton 
+            android:id="@+id/placementG7"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementG8"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementG9"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementG10"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+    </TableRow>
+    
+    <TableRow 
+        android:id="@+id/rowH"
+        android:layout_weight="1"
+        android:gravity="center">
+        
+        <ImageButton 
+            android:id="@+id/placementH1"
+            android:contentDescription="@string/gridButton" 
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementH2"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementH3"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+         <ImageButton 
+            android:id="@+id/placementH4"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementH5"
+            android:contentDescription="@string/gridButton" 
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementH6"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+         <ImageButton 
+            android:id="@+id/placementH7"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementH8"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementH9"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementH10"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+    </TableRow>
+    
+    <TableRow 
+        android:id="@+id/rowI"
+        android:layout_weight="1"
+        android:gravity="center">
+        
+        <ImageButton 
+            android:id="@+id/placementI1"
+            android:contentDescription="@string/gridButton" 
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementI2"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementI3"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+         <ImageButton 
+            android:id="@+id/placementI4"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementI5"
+            android:contentDescription="@string/gridButton" 
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementI6"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+         <ImageButton 
+            android:id="@+id/placementI7"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementI8"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementI9"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementI10"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+    </TableRow>    
+    
+    <TableRow 
+        android:id="@+id/rowJ"
+        android:layout_weight="1"
+        android:gravity="center">
+        
+        <ImageButton 
+            android:id="@+id/placementJ1"
+            android:contentDescription="@string/gridButton" 
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementJ2"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementJ3"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+         <ImageButton 
+            android:id="@+id/placementJ4"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementJ5"
+            android:contentDescription="@string/gridButton" 
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementJ6"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+         <ImageButton 
+            android:id="@+id/placementJ7"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementJ8"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementJ9"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+        
+        <ImageButton 
+            android:id="@+id/placementJ10"
+            android:contentDescription="@string/gridButton"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:layout_weight="1" 
+            android:src="@drawable/spear"
+            android:layout_margin="0.1dp"/>
+    </TableRow>
+    
+</TableLayout>
+</LinearLayout>
