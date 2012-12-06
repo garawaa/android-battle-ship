@@ -11,6 +11,7 @@ import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 
 import com.android.battleship.objects.PlayerShipArrays;
+import com.android.battleship.objects.Ship;
 
 /**
  * onClick screen will be opened from an onClickListener in the GridScreen. From
@@ -21,27 +22,31 @@ import com.android.battleship.objects.PlayerShipArrays;
  * 
  */
 public class BattleshipPlacementScreen extends Activity {
-
+	
+	int counter = 0;
 	int firstMove = 0;
 	int secondMove = 0;
-	int counter = 0;
+	int cellsOccupied = 0;
 	int shipPlaced = 1;
 	int previous = 999;
-	int randHigh = 6;
-	int randLow = 0;
-	int result = 0;
 	ImageButton button;
 	String msg;
 	GameMessages gm = new GameMessages();
-
 	boolean btnSelected = false;
 	String firstBtn;
 	String previousBtn;
-
 	BattleshipGridScreen grid;
 	PlayerShipArrays player1ShipArray = new PlayerShipArrays();
 	PlayerShipArrays player2ShipArray = new PlayerShipArrays();
-
+	// Initialize the ships array
+	static Ship[] ships = new Ship[5];{
+		ships[0] = new Ship("Carrier"); // Add a carrier
+		ships[1] = new Ship("Submarine"); // Add a submarine
+		ships[2] = new Ship("Battleship"); // Add a battleship
+		ships[3] = new Ship("Destroyer"); // Add a destroyer
+		ships[4] = new Ship("PT Boat"); // Add a PT boat
+	}
+	
 	ImageButton placementA1;
 	ImageButton placementA2;
 	ImageButton placementA3;
@@ -145,15 +150,753 @@ public class BattleshipPlacementScreen extends Activity {
 
 	@TargetApi(11)
 	@Override
-	public void onCreate(Bundle savedInstanceState) {
-
+	public void onCreate(Bundle savedInstanceState)
+	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.placement_layout);
-
-		String u = "Please select 5 cells adjacent to one another horizontally or vertically"
+		
+		// Create buttons and set their onClick listeners
+		init();
+		
+		String carrier = "Please select 5 cells adjacent to one another horizontally or vertically"
 				+ " to set your carrier";
-		gm.displayMsg(this, u, "Place Your Ship");
+		gm.displayMsg(this, carrier, "Place Your Ship");
+	}
+	
+	private boolean checkSelection(int p, int c) {
 
+		if (counter == 0 || counter == 5 || counter == 9 || counter == 15) {
+			firstMove = c;
+			previous = c;
+
+			return true;
+
+		} else if (counter == 1 || counter == 6 || counter == 10
+				|| counter == 16) {
+			if (firstMove == secondMove - 1 || firstMove == secondMove + 1
+					|| firstMove == secondMove + 10
+					|| firstMove == secondMove - 10)
+			{
+				secondMove = c;
+				previous = c;
+				return true;
+			}
+			
+			return false;
+
+		} else {
+			switch (shipPlaced) {
+			case 1: {
+				if (firstMove == secondMove - 1 || firstMove == secondMove + 1
+						|| firstMove == secondMove + 2
+						|| firstMove == secondMove - 2
+						|| firstMove == secondMove + 3
+						|| firstMove == secondMove - 3
+						|| firstMove == secondMove + 4
+						|| firstMove == secondMove - 4) {
+					if (c == firstMove + 1 || c == firstMove + 2
+							|| c == firstMove + 3 || c == firstMove + 4
+							|| c == firstMove - 1 || c == firstMove - 2
+							|| c == firstMove - 3 || c == firstMove - 4) {
+						previous = c;
+						Log.v(msg, "Returning true");
+						return true;
+					}
+
+				} else if (firstMove == secondMove - 10
+						|| firstMove == secondMove + 10
+						|| firstMove == secondMove + 20
+						|| firstMove == secondMove - 20
+						|| firstMove == secondMove + 30
+						|| firstMove == secondMove - 30
+						|| firstMove == secondMove + 40
+						|| firstMove == secondMove - 40) {
+					if (c == firstMove + 10 || c == firstMove + 20
+							|| c == firstMove + 30 || c == firstMove + 40
+							|| c == firstMove - 10 || c == firstMove - 20
+							|| c == firstMove - 30 || c == firstMove - 40) {
+						previous = c;
+						Log.v(msg, "Returning true");
+						return true;
+					}
+				} else {
+					Log.v(msg, "Returning calculated false");
+					return false;
+				}
+
+			}
+			case 2: {
+				if (firstMove == secondMove - 1 || firstMove == secondMove + 1
+						|| firstMove == secondMove + 2
+						|| firstMove == secondMove - 2
+						|| firstMove == secondMove + 3
+						|| firstMove == secondMove - 3) {
+					if (c == firstMove + 1 || c == firstMove + 2
+							|| c == firstMove + 3 || c == firstMove - 1
+							|| c == firstMove - 2 || c == firstMove - 3) {
+						previous = c;
+						Log.v(msg, "Returning true");
+						return true;
+					}
+
+				} else if (firstMove == secondMove - 10
+						|| firstMove == secondMove + 10
+						|| firstMove == secondMove + 20
+						|| firstMove == secondMove - 20
+						|| firstMove == secondMove + 30
+						|| firstMove == secondMove - 30) {
+					if (c == firstMove + 10 || c == firstMove + 20
+							|| c == firstMove + 30 || c == firstMove - 10
+							|| c == firstMove - 20 || c == firstMove - 30) {
+						previous = c;
+						Log.v(msg, "Returning true");
+						return true;
+					}
+				} else {
+					Log.v(msg, "Returning calculated false");
+					return false;
+				}
+			}
+			case 3:
+			case 4: {
+				if (firstMove == secondMove - 1 || firstMove == secondMove + 1
+						|| firstMove == secondMove + 2
+						|| firstMove == secondMove - 2) {
+					if (c == firstMove + 1 || c == firstMove + 2
+							|| c == firstMove - 1 || c == firstMove - 2) {
+						previous = c;
+						Log.v(msg, "Returning true");
+						return true;
+					}
+
+				} else if (firstMove == secondMove - 10
+						|| firstMove == secondMove + 10
+						|| firstMove == secondMove + 20
+						|| firstMove == secondMove - 20) {
+					if (c == firstMove + 10 || c == firstMove + 20
+							|| c == firstMove - 10 || c == firstMove - 20) {
+						previous = c;
+						Log.v(msg, "Returning true");
+						return true;
+					}
+				} else {
+					Log.v(msg, "Returning calculated false");
+					return false;
+				}
+			}
+			case 5: {
+				if (firstMove == secondMove - 1 || firstMove == secondMove + 1) {
+					if (c == firstMove + 1 || c == firstMove - 1) {
+						previous = c;
+						Log.v(msg, "Returning true");
+						return true;
+					}
+
+				} else if (firstMove == secondMove - 10
+						|| firstMove == secondMove + 10) {
+					if (c == firstMove + 10 || c == firstMove - 10) {
+						previous = c;
+						Log.v(msg, "Returning true");
+						return true;
+					}
+				} else {
+					Log.v(msg, "Returning calculated false");
+					return false;
+				}
+			}
+			}
+		}
+		return false;
+	}
+	
+	public void placeShips(String cellId, int cellNum, ImageButton b) {
+		boolean validSelection = false;
+		button = b;
+		String message = "";
+		int max = 0;
+		
+		switch (shipPlaced) {
+		case 1:
+			max = 4;
+			validSelection = createShip(cellId, cellNum, max, 0);
+
+			if (!validSelection) {
+				displayMsgInvalid();
+			}
+			
+			if (cellsOccupied > max)
+			{
+				message = "Please select 4 cells adjacent to one another horizontally or vertically"
+						+ " to set your submarine";
+				gm.displayMsg(this, message, "Place Your Ship");
+			}
+			break;
+
+		case 2:
+			max = 8;
+			validSelection = createShip(cellId, cellNum, max, 1);
+
+			if (!validSelection) {
+				displayMsgInvalid();
+			}
+
+			if (cellsOccupied > max)
+			{
+				message = "Please select 3 cells adjacent to one another horizontally or vertically"
+						+ " to set your battleship";
+				gm.displayMsg(this, message, "Place Your Ship");
+			}
+			
+			break;
+
+		case 3:
+			max = 11;
+			validSelection = createShip(cellId, cellNum, max, 2);
+
+			if (!validSelection) {
+				displayMsgInvalid();
+			}
+			
+			if (cellsOccupied > max)
+			{
+				message = "Please select 3 cells adjacent to one another horizontally or vertically"
+						+ " to set your destroyer";
+				gm.displayMsg(this, message, "Place Your Ship");
+			}
+
+			break;
+
+		case 4:
+			max = 14;
+			validSelection = createShip(cellId, cellNum, max, 3);
+
+			if (!validSelection) {
+				displayMsgInvalid();
+			}
+			
+			if (cellsOccupied > max)
+			{
+				message = "Please select 2 cells adjacent to one another horizontally or vertically"
+						+ " to set your pt boat";
+				gm.displayMsg(this, message, "Place Your Ship");
+			}
+
+			break;
+
+		case 5:
+			max = 16;
+			validSelection = createShip(cellId, cellNum, max, 4);
+
+			if (!validSelection) {
+				displayMsgInvalid();
+			}
+			
+			// All ships are placed
+			if (cellsOccupied > max)
+			{
+				gm.displayMsg(this, "All your ships have been placed.", "Ships placed");
+				// Switch to the Grid Screen
+					++shipPlaced;
+					Log.v(msg, "Incrementing shipPlaced.  shipPlaced = " + shipPlaced);
+					
+					Log.v(msg, "Changing intent to Grid Screen.");
+					
+					Intent intent = new Intent(this, BattleshipGridScreen.class);
+					startActivityForResult(intent, 1);
+			}
+
+			break;
+
+		}
+	}
+
+	/** User has selected a cell that is not adjacent to the previous while trying to create a ship; Display a message
+	 * to inform them of this and ask them to chose another cell.
+	 */
+	public void displayMsgInvalid(){
+		GameMessages gm = new GameMessages();
+		final Context context = this;
+		gm.displayMsg(context, "Move Not Available",
+				"Please select another cell.");
+	}
+	
+	/** This method will use the cellId to update the previousBtn and the cellNum to check if the cell selection is valid. It will
+	 * also determine if the cellsOccupied exceeds the provided max shipsPlaced will be incremented. The idx will be used
+	 * to determine which ship's shipArray to update with the current cell. False will be returned if the user needs to select 
+	 * another cell.
+	 * @param cellId
+	 * @param cellNum
+	 * @param max
+	 * @param idx
+	 * @return boolean
+	 */
+	public boolean createShip(String cellId, int cellNum, int max, int idx) {
+		
+		if (MainActivity.player == 1) {
+			btnSelected = checkSelection(previous, cellNum);
+			Log.v(msg,"Previous after return = " + previous);			
+			
+			if (btnSelected) {
+				player1ShipArray.getPlayerShipArray().add(cellId);
+				// Add the cellId to the ships array
+				ships[idx].getShipArray().add(cellId);
+				changeImage(button);
+				previousBtn = cellId;
+			}
+
+			// Not a valid selection
+			else
+			{
+				Log.v(msg, "Returning false)");
+				return false;
+			}
+
+		} else {
+			btnSelected = checkSelection(previous, cellNum);
+
+			if (btnSelected) {
+				player2ShipArray.getPlayerShipArray().add(cellId);
+				previousBtn = cellId;
+			}
+
+			// Not a valid selection
+			else {
+				return false;
+			}
+		}
+
+		cellsOccupied++;
+		Log.v(msg, "cellsOccupied = " + cellsOccupied);
+		
+		if (cellsOccupied > max)
+		{
+			++shipPlaced;
+			Log.v(msg, "Incrementing shipPlaced.  shipPlaced = " + shipPlaced);
+		}
+		return true;
+	}
+
+	
+	
+
+	private OnClickListener onPlacementClick = new OnClickListener()
+	{
+
+		public void onClick(View arg0)
+		{
+			switch(arg0.getId())
+			{
+				case R.id.placementA1:
+					placeShips("A1",1,placementA1);
+					break;
+		
+				case R.id.placementA2:
+					placeShips("A2",2,placementA2);
+					break;
+		
+				case R.id.placementA3:
+					placeShips("A3",3,placementA3);
+					break;
+		
+				case R.id.placementA4:
+					placeShips("A4",4,placementA4);
+					break;
+		
+				case R.id.placementA5:
+					placeShips("A5",5,placementA5);
+					break;
+		
+				case R.id.placementA6:
+					placeShips("A6",6,placementA6);
+					break;
+		
+				case R.id.placementA7:
+					placeShips("A7",7,placementA7);
+					break;
+		
+				case R.id.placementA8:
+					placeShips("A8",8,placementA8);
+					break;
+		
+				case R.id.placementA9:
+					placeShips("A9",9,placementA9);
+					break;
+		
+				case R.id.placementA10:
+					placeShips("A10",10,placementA10);
+					break;
+		
+				case R.id.placementB1:
+					placeShips("B1",11,placementB1);
+					break;
+		
+				case R.id.placementB2:
+					placeShips("B2",12,placementB2);
+					break;
+		
+				case R.id.placementB3:
+					placeShips("B3",13,placementB3);
+					break;
+		
+				case R.id.placementB4:
+					placeShips("B4",14,placementB4);
+					break;
+		
+				case R.id.placementB5:
+					placeShips("B5",15,placementB5);
+					break;
+		
+				case R.id.placementB6:
+					placeShips("B6",16,placementB6);
+					break;
+		
+				case R.id.placementB7:
+					placeShips("B7",17,placementB7);
+					break;
+		
+				case R.id.placementB8:
+					placeShips("B8",18,placementB8);
+					break;
+		
+				case R.id.placementB9:
+					placeShips("B9",19,placementB9);
+					break;
+		
+				case R.id.placementB10:
+					placeShips("B10",20,placementB10);
+					break;
+		
+				case R.id.placementC1:
+					placeShips("C1",21,placementC1);
+					break;
+		
+				case R.id.placementC2:
+					placeShips("C2",22,placementC2);
+					break;
+		
+				case R.id.placementC3:
+					placeShips("C3",23,placementC3);
+					break;
+		
+				case R.id.placementC4:
+					placeShips("C4",24,placementC4);
+					break;
+		
+				case R.id.placementC5:
+					placeShips("C5",25,placementC5);
+					break;
+		
+				case R.id.placementC6:
+					placeShips("C6",26,placementC6);
+					break;
+		
+				case R.id.placementC7:
+					placeShips("C7",27,placementC7);
+					break;
+		
+				case R.id.placementC8:
+					placeShips("C8",28,placementC8);
+					break;
+		
+				case R.id.placementC9:
+					placeShips("C9",29,placementC9);
+					break;
+		
+				case R.id.placementC10:
+					placeShips("C10",30,placementC10);
+					break;
+		
+				case R.id.placementD1:
+					placeShips("D1",31,placementD1);
+					break;
+		
+				case R.id.placementD2:
+					placeShips("D2",32,placementD2);
+					break;
+		
+				case R.id.placementD3:
+					placeShips("D3",33,placementD3);
+					break;
+		
+				case R.id.placementD4:
+					placeShips("D4",34,placementD4);
+					break;
+		
+				case R.id.placementD5:
+					placeShips("D5",35,placementD5);
+					break;
+		
+				case R.id.placementD6:
+					placeShips("D6",36,placementD6);
+					break;
+		
+				case R.id.placementD7:
+					placeShips("D7",37,placementD7);
+					break;
+		
+				case R.id.placementD8:
+					placeShips("D8",38,placementD8);
+					break;
+		
+				case R.id.placementD9:
+					placeShips("D9",39,placementD9);
+					break;
+		
+				case R.id.placementD10:
+					placeShips("D10",40,placementD10);
+					break;
+		
+				case R.id.placementE1:
+					placeShips("E1",41,placementE1);
+					break;
+		
+				case R.id.placementE2:
+					placeShips("E2",42,placementE2);
+					break;
+		
+				case R.id.placementE3:
+					placeShips("E3",43,placementE3);
+					break;
+		
+				case R.id.placementE4:
+					placeShips("E4",44,placementE4);
+					break;
+		
+				case R.id.placementE5:
+					placeShips("E5",45,placementE5);
+					break;
+		
+				case R.id.placementE6:
+					placeShips("E6",46,placementE6);
+					break;
+		
+				case R.id.placementE7:
+					placeShips("E7",47,placementE7);
+					break;
+		
+				case R.id.placementE8:
+					placeShips("E8",48,placementE8);
+					break;
+		
+				case R.id.placementE9:
+					placeShips("E9",49,placementE9);
+					break;
+		
+				case R.id.placementE10:
+					placeShips("E10",50,placementE10);
+					break;
+		
+				case R.id.placementF1:
+					placeShips("F1",51,placementF1);
+					break;
+		
+				case R.id.placementF2:
+					placeShips("F2",52,placementF2);
+					break;
+		
+				case R.id.placementF3:
+					placeShips("F3",53,placementF3);
+					break;
+		
+				case R.id.placementF4:
+					placeShips("F4",54,placementF4);
+					break;
+		
+				case R.id.placementF5:
+					placeShips("F5",55,placementF5);
+					break;
+		
+				case R.id.placementF6:
+					placeShips("F6",56,placementF6);
+					break;
+		
+				case R.id.placementF7:
+					placeShips("F7",57,placementF7);
+					break;
+		
+				case R.id.placementF8:
+					placeShips("F8",58,placementF8);
+					break;
+		
+				case R.id.placementF9:
+					placeShips("F9",59,placementF9);
+					break;
+		
+				case R.id.placementF10:
+					placeShips("F10",60,placementF10);
+					break;
+		
+				case R.id.placementG1:
+					placeShips("G1",61,placementG1);
+					break;
+		
+				case R.id.placementG2:
+					placeShips("G2",62,placementG2);
+					break;
+		
+				case R.id.placementG3:
+					placeShips("G3",63,placementG3);
+					break;
+		
+				case R.id.placementG4:
+					placeShips("G4",64,placementG4);
+					break;
+		
+				case R.id.placementG5:
+					placeShips("G5",65,placementG5);
+					break;
+		
+				case R.id.placementG6:
+					placeShips("G6",66,placementG6);
+					break;
+		
+				case R.id.placementG7:
+					placeShips("G7",67,placementG7);
+					break;
+		
+				case R.id.placementG8:
+					placeShips("G8",68,placementG8);
+					break;
+		
+				case R.id.placementG9:
+					placeShips("G9",69,placementG9);
+					break;
+		
+				case R.id.placementG10:
+					placeShips("G10",70,placementG10);
+					break;
+		
+				case R.id.placementH1:
+					placeShips("H1",71,placementH1);
+					break;
+		
+				case R.id.placementH2:
+					placeShips("H2",72,placementH2);
+					break;
+		
+				case R.id.placementH3:
+					placeShips("H3",73,placementH3);
+					break;
+		
+				case R.id.placementH4:
+					placeShips("H4",74,placementH4);
+					break;
+		
+				case R.id.placementH5:
+					placeShips("H5",75,placementH5);
+					break;
+		
+				case R.id.placementH6:
+					placeShips("H6",76,placementH6);
+					break;
+		
+				case R.id.placementH7:
+					placeShips("H7",77,placementH7);
+					break;
+		
+				case R.id.placementH8:
+					placeShips("H8",78,placementH8);
+					break;
+		
+				case R.id.placementH9:
+					placeShips("H9",79,placementH9);
+					break;
+		
+				case R.id.placementH10:
+					placeShips("H10",80,placementH10);
+					break;
+		
+				case R.id.placementI1:
+					placeShips("I1",81,placementI1);
+					break;
+		
+				case R.id.placementI2:
+					placeShips("I2",82,placementI2);
+					break;
+		
+				case R.id.placementI3:
+					placeShips("I3",83,placementI3);
+					break;
+		
+				case R.id.placementI4:
+					placeShips("I4",84,placementI4);
+					break;
+		
+				case R.id.placementI5:
+					placeShips("I5",85,placementI5);
+					break;
+		
+				case R.id.placementI6:
+					placeShips("I6",86,placementI6);
+					break;
+		
+				case R.id.placementI7:
+					placeShips("I7",87,placementI7);
+					break;
+		
+				case R.id.placementI8:
+					placeShips("I8",88,placementI8);
+					break;
+		
+				case R.id.placementI9:
+					placeShips("I9",89,placementI9);
+					break;
+		
+				case R.id.placementI10:
+					placeShips("I10",90,placementI10);
+					break;
+		
+				case R.id.placementJ1:
+					placeShips("J1",91,placementJ1);
+					break;
+		
+				case R.id.placementJ2:
+					placeShips("J2",92,placementJ2);
+					break;
+		
+				case R.id.placementJ3:
+					placeShips("J3",93,placementJ3);
+					break;
+		
+				case R.id.placementJ4:
+					placeShips("J4",94,placementJ4);
+					break;
+		
+				case R.id.placementJ5:
+					placeShips("J5",95,placementJ5);
+					break;
+		
+				case R.id.placementJ6:
+					placeShips("J6",96,placementJ6);
+					break;
+		
+				case R.id.placementJ7:
+					placeShips("J7",97,placementJ7);
+					break;
+		
+				case R.id.placementJ8:
+					placeShips("J8",98,placementJ8);
+					break;
+		
+				case R.id.placementJ9:
+					placeShips("J9",99,placementJ9);
+					break;
+		
+				case R.id.placementJ10:
+					placeShips("J10",100,placementJ10);
+					break;	
+					
+				default:
+					break;
+		
+			}
+		}
+		
+	};
+	
+	public void init()
+	{
+		// Create buttons
 		placementA1 = (ImageButton) findViewById(R.id.placementA1);
 		placementA2 = (ImageButton) findViewById(R.id.placementA2);
 		placementA3 = (ImageButton) findViewById(R.id.placementA3);
@@ -254,1071 +997,8 @@ public class BattleshipPlacementScreen extends Activity {
 		placementJ8 = (ImageButton) findViewById(R.id.placementJ8);
 		placementJ9 = (ImageButton) findViewById(R.id.placementJ9);
 		placementJ10 = (ImageButton) findViewById(R.id.placementJ10);
-
-		init();
-
-	}
-
-	private boolean checkSelection(int p, int c) {
-
-		if (counter == 0 || counter == 5 || counter == 9 || counter == 15) {
-			firstMove = c;
-			previous = c;
-
-			return true;
-
-		} else if (counter == 1 || counter == 6 || counter == 10
-				|| counter == 16) {
-			secondMove = c;
-			previous = c;
-
-			return true;
-		} else {
-			switch (shipPlaced) {
-			case 1: {
-				if (firstMove == secondMove - 1 || firstMove == secondMove + 1) {
-					if (c == firstMove + 1 || c == firstMove + 2
-							|| c == firstMove + 3 || c == firstMove + 4
-							|| c == firstMove - 1 || c == firstMove - 2
-							|| c == firstMove - 3 || c == firstMove - 4) {
-						previous = c;
-						Log.v(msg, "Returning true");
-						return true;
-					}
-
-				} else if (firstMove == secondMove - 10
-						|| firstMove == secondMove + 10) {
-					if (c == firstMove + 10 || c == firstMove + 20
-							|| c == firstMove + 30 || c == firstMove + 40
-							|| c == firstMove - 10 || c == firstMove - 20
-							|| c == firstMove - 30 || c == firstMove - 40) {
-						previous = c;
-						Log.v(msg, "Returning true");
-						return true;
-					}
-				} else {
-					Log.v(msg, "Returning calculated false");
-					return false;
-				}
-
-			}
-			case 2: 
-			{
-				if (firstMove == secondMove - 1 || firstMove == secondMove + 1) {
-					if (c == firstMove + 1 || c == firstMove + 2
-							|| c == firstMove + 3 
-							|| c == firstMove - 1 || c == firstMove - 2
-							|| c == firstMove - 3 ) {
-						previous = c;
-						Log.v(msg, "Returning true");
-						return true;
-					}
-
-				} else if (firstMove == secondMove - 10
-						|| firstMove == secondMove + 10) {
-					if (c == firstMove + 10 || c == firstMove + 20
-							|| c == firstMove + 30
-							|| c == firstMove - 10 || c == firstMove - 20
-							|| c == firstMove - 30 ) {
-						previous = c;
-						Log.v(msg, "Returning true");
-						return true;
-					}
-				} else {
-					Log.v(msg, "Returning calculated false");
-					return false;
-				}
-			}
-			case 3:
-			case 4: 
-			{
-				if (firstMove == secondMove - 1 || firstMove == secondMove + 1) {
-					if (c == firstMove + 1 || c == firstMove + 2
-							|| c == firstMove - 1 || c == firstMove - 2) {
-						previous = c;
-						Log.v(msg, "Returning true");
-						return true;
-					}
-
-				} else if (firstMove == secondMove - 10
-						|| firstMove == secondMove + 10) {
-					if (c == firstMove + 10 || c == firstMove + 20
-							|| c == firstMove - 10 || c == firstMove - 20 ) {
-						previous = c;
-						Log.v(msg, "Returning true");
-						return true;
-					}
-				} else {
-					Log.v(msg, "Returning calculated false");
-					return false;
-				}
-			}
-			case 5:
-			{
-				if (firstMove == secondMove - 1 || firstMove == secondMove + 1) {
-					if (c == firstMove + 1 || c == firstMove - 1 ) {
-						previous = c;
-						Log.v(msg, "Returning true");
-						return true;
-					}
-
-				} else if (firstMove == secondMove - 10
-						|| firstMove == secondMove + 10) {
-					if (c == firstMove + 10 || c == firstMove - 10 ) {
-						previous = c;
-						Log.v(msg, "Returning true");
-						return true;
-					}
-				} else {
-					Log.v(msg, "Returning calculated false");
-					return false;
-				}
-			}
-			}
-		}
 		
-		return false;
-	}
-
-	public void placeShips(String s, int i, ImageButton b) {
-
-		int x = 0;
-		button = b;
-
-		switch (shipPlaced) {
-		case 1:
-			x = carrier(s, i);
-			Log.v(msg, "x = " + x);
-			if (x == 999) {
-				GameMessages gm = new GameMessages();
-				final Context context = this;
-				gm.displayMsg(context, "Move Not Available",
-						"Please select another cell.");
-			}
-
-			if (x > 4) {
-				previous = 999;
-				s = "Please select 4 cells adjacent to one another horizontally or vertically"
-						+ " to set your submarine";
-				gm.displayMsg(this, s, "Place Your Ship");
-			}
-			break;
-
-		case 2:
-			x = submarine(s, i);
-
-			if (x == 999) {
-				GameMessages gm = new GameMessages();
-				final Context context = this;
-				gm.displayMsg(context, "Move Not Available",
-						"Please select another cell.");
-			}
-
-			if (x > 8) {
-				previous = 999;
-				s = "Please select 3 cells adjacent to one another horizontally or vertically"
-						+ " to set your battleship";
-				gm.displayMsg(this, s, "Place Your Ship");
-			}
-
-			break;
-
-		case 3:
-			x = battleship(s, i);
-
-			if (x == 999) {
-				GameMessages gm = new GameMessages();
-				final Context context = this;
-				gm.displayMsg(context, "Move Not Available",
-						"Please select another cell.");
-			}
-
-			if (x > 11) {
-				previous = 999;
-				s = "Please select 3 cells adjacent to one another horizontally or vertically"
-						+ " to set your destroyer";
-				gm.displayMsg(this, s, "Place Your Ship");
-			}
-
-			break;
-
-		case 4:
-			x = destroyer(s, i);
-
-			if (x == 999) {
-				GameMessages gm = new GameMessages();
-				final Context context = this;
-				gm.displayMsg(context, "Move Not Available",
-						"Please select another cell.");
-			}
-
-			if (x > 14) {
-				previous = 999;
-				s = "Please select 2 cells adjacent to one another horizontally or vertically"
-						+ " to set your pt boat";
-				gm.displayMsg(this, s, "Place Your Ship");
-			}
-
-			break;
-
-		case 5:
-			x = ptBoat(s, i);
-
-			if (x == 999) {
-				GameMessages gm = new GameMessages();
-				final Context context = this;
-				gm.displayMsg(context, "Move Not Available",
-						"Please select another cell.");
-			}
-
-			if (x > 16) {
-				previous = 999;
-				gm.displayMsg(this, "All your ships have been placed.",
-						"Ships placed");
-			}
-
-			break;
-
-		}
-	}
-
-	public int carrier(String s, int i) {
-
-		if (MainActivity.player == 1) {
-			btnSelected = checkSelection(previous, i);
-			Log.v(msg, "Previous after return = " + previous);
-
-			if (btnSelected) {
-				player1ShipArray.getPlayerShipArray().add(s);
-				changeImage(button);
-				previousBtn = s;
-			}
-
-			else {
-				Log.v(msg, "Returning 999)");
-				return 999;
-			}
-
-		} else {
-			btnSelected = checkSelection(previous, i);
-
-			if (btnSelected) {
-				player2ShipArray.getPlayerShipArray().add(s);
-				previousBtn = s;
-			}
-
-			else {
-				return 999;
-			}
-		}
-
-		counter++;
-		Log.v(msg, "Counter = " + counter);
-
-		if (counter > 4) {
-			++shipPlaced;
-			Log.v(msg, "Incrementing shipPlaced.  shipPlaced = " + shipPlaced);
-		}
-
-		return counter;
-	}
-
-	public int submarine(String s, int i) {
-
-		if (MainActivity.player == 1) {
-			btnSelected = checkSelection(previous, i);
-
-			if (btnSelected) {
-				player1ShipArray.getPlayerShipArray().add(s);
-				changeImage(button);
-				previousBtn = s;
-			}
-
-			else {
-				return 999;
-			}
-
-		} else {
-			btnSelected = checkSelection(previous, i);
-
-			if (btnSelected) {
-				player2ShipArray.getPlayerShipArray().add(s);
-				previousBtn = s;
-			}
-
-			else {
-				return 999;
-			}
-		}
-
-		counter++;
-		Log.v(msg, "Counter = " + counter);
-
-		if (counter > 8) {
-			++shipPlaced;
-			Log.v(msg, "Incrementing shipPlaced.  shipPlaced = " + shipPlaced);
-		}
-
-		return counter;
-	}
-
-	public int battleship(String s, int i) {
-
-		if (MainActivity.player == 1) {
-			btnSelected = checkSelection(previous, i);
-
-			if (btnSelected) {
-				player1ShipArray.getPlayerShipArray().add(s);
-				changeImage(button);
-				previousBtn = s;
-			}
-
-			else {
-				return 999;
-			}
-
-		} else {
-			btnSelected = checkSelection(previous, i);
-
-			if (btnSelected) {
-				player2ShipArray.getPlayerShipArray().add(s);
-				previousBtn = s;
-			}
-
-			else {
-				return 999;
-			}
-		}
-
-		counter++;
-		Log.v(msg, "Counter = " + counter);
-
-		if (counter > 11) {
-			++shipPlaced;
-			Log.v(msg, "Incrementing shipPlaced.  shipPlaced = " + shipPlaced);
-		}
-
-		return counter;
-
-	}
-
-	public int destroyer(String s, int i) {
-
-		if (MainActivity.player == 1) {
-			btnSelected = checkSelection(previous, i);
-
-			if (btnSelected) {
-				player1ShipArray.getPlayerShipArray().add(s);
-				changeImage(button);
-				previousBtn = s;
-			}
-
-			else {
-				return 999;
-			}
-
-		} else {
-			btnSelected = checkSelection(previous, i);
-
-			if (btnSelected) {
-				player2ShipArray.getPlayerShipArray().add(s);
-				previousBtn = s;
-			}
-
-			else {
-				return 999;
-			}
-		}
-
-		counter++;
-		Log.v(msg, "Counter = " + counter);
-
-		if (counter > 14) {
-			++shipPlaced;
-			Log.v(msg, "Incrementing shipPlaced.  shipPlaced = " + shipPlaced);
-		}
-
-		return counter;
-	}
-
-	public int ptBoat(String s, int i) {
-
-		if (MainActivity.player == 1) {
-			btnSelected = checkSelection(previous, i);
-
-			if (btnSelected) {
-				player1ShipArray.getPlayerShipArray().add(s);
-				changeImage(button);
-				previousBtn = s;
-			}
-
-			else {
-				return 999;
-			}
-
-		} else {
-			btnSelected = checkSelection(previous, i);
-
-			if (btnSelected) {
-				player2ShipArray.getPlayerShipArray().add(s);
-				previousBtn = s;
-			}
-
-			else {
-				return 999;
-			}
-		}
-
-		counter++;
-		Log.v(msg, "Counter = " + counter);
-
-		if (counter > 16) {
-			++shipPlaced;
-			Log.v(msg, "Incrementing shipPlaced.  shipPlaced = " + shipPlaced);
-
-			CPURandomizer();
-			Log.v(msg, "Changing intent to Grid Screen.");
-
-			Intent intent = new Intent(this, BattleshipGridScreen.class);
-			startActivityForResult(intent, 1);
-
-		}
-
-		return counter;
-	}
-
-	void CPURandomizer() {
-		result = randLow + (int) (Math.random() * (randHigh - randLow) + 0.5);
-		CPUPlacer(result);
-	}
-
-	void CPUPlacer(int r) {
-		switch (r) {
-		case 1:
-			// carrier
-			player2ShipArray.getPlayerShipArray().add("A1");
-			player2ShipArray.getPlayerShipArray().add("A2");
-			player2ShipArray.getPlayerShipArray().add("A3");
-			player2ShipArray.getPlayerShipArray().add("A4");
-			player2ShipArray.getPlayerShipArray().add("A5");
-
-			// submarine
-			player2ShipArray.getPlayerShipArray().add("A9");
-			player2ShipArray.getPlayerShipArray().add("B9");
-			player2ShipArray.getPlayerShipArray().add("C9");
-			player2ShipArray.getPlayerShipArray().add("D9");
-
-			// destroyer
-			player2ShipArray.getPlayerShipArray().add("C3");
-			player2ShipArray.getPlayerShipArray().add("C4");
-			player2ShipArray.getPlayerShipArray().add("C5");
-
-			// battleship
-			player2ShipArray.getPlayerShipArray().add("J4");
-			player2ShipArray.getPlayerShipArray().add("J5");
-			player2ShipArray.getPlayerShipArray().add("J7");
-
-			// PT Boat
-			player2ShipArray.getPlayerShipArray().add("G1");
-			player2ShipArray.getPlayerShipArray().add("H1");
-
-			for (int i = 0; i < player2ShipArray.getPlayerShipArray().size(); i++) {
-				Log.v(msg, "player2ShipArray[" + i + "] = "
-						+ player2ShipArray.getPlayerShipArray().get(i));
-			}
-
-			break;
-
-		case 2:
-			// carrier
-			player2ShipArray.getPlayerShipArray().add("A1");
-			player2ShipArray.getPlayerShipArray().add("B1");
-			player2ShipArray.getPlayerShipArray().add("C1");
-			player2ShipArray.getPlayerShipArray().add("D1");
-			player2ShipArray.getPlayerShipArray().add("E1");
-
-			// submarine
-			player2ShipArray.getPlayerShipArray().add("B7");
-			player2ShipArray.getPlayerShipArray().add("C7");
-			player2ShipArray.getPlayerShipArray().add("D7");
-			player2ShipArray.getPlayerShipArray().add("E7");
-
-			// destroyer
-			player2ShipArray.getPlayerShipArray().add("H1");
-			player2ShipArray.getPlayerShipArray().add("H2");
-			player2ShipArray.getPlayerShipArray().add("H3");
-
-			// battleship
-			player2ShipArray.getPlayerShipArray().add("H10");
-			player2ShipArray.getPlayerShipArray().add("I10");
-			player2ShipArray.getPlayerShipArray().add("J10");
-
-			// PT Boat
-			player2ShipArray.getPlayerShipArray().add("D4");
-			player2ShipArray.getPlayerShipArray().add("D5");
-
-			for (int i = 0; i < player2ShipArray.getPlayerShipArray().size(); i++) {
-				Log.v(msg, "player2ShipArray[" + i + "] = "
-						+ player2ShipArray.getPlayerShipArray().get(i));
-			}
-
-			break;
-
-		case 3:
-			// carrier
-			player2ShipArray.getPlayerShipArray().add("E5");
-			player2ShipArray.getPlayerShipArray().add("E6");
-			player2ShipArray.getPlayerShipArray().add("E7");
-			player2ShipArray.getPlayerShipArray().add("E8");
-			player2ShipArray.getPlayerShipArray().add("E9");
-
-			// submarine
-			player2ShipArray.getPlayerShipArray().add("J3");
-			player2ShipArray.getPlayerShipArray().add("I3");
-			player2ShipArray.getPlayerShipArray().add("H3");
-			player2ShipArray.getPlayerShipArray().add("G3");
-
-			// destroyer
-			player2ShipArray.getPlayerShipArray().add("A8");
-			player2ShipArray.getPlayerShipArray().add("A9");
-			player2ShipArray.getPlayerShipArray().add("A10");
-
-			// battleship
-			player2ShipArray.getPlayerShipArray().add("C7");
-			player2ShipArray.getPlayerShipArray().add("D7");
-			player2ShipArray.getPlayerShipArray().add("E7");
-
-			// PT Boat
-			player2ShipArray.getPlayerShipArray().add("F3");
-			player2ShipArray.getPlayerShipArray().add("F4");
-
-			for (int i = 0; i < player2ShipArray.getPlayerShipArray().size(); i++) {
-				Log.v(msg, "player2ShipArray[" + i + "] = "
-						+ player2ShipArray.getPlayerShipArray().get(i));
-			}
-
-			break;
-
-		case 4:
-			// carrier
-			player2ShipArray.getPlayerShipArray().add("J10");
-			player2ShipArray.getPlayerShipArray().add("J9");
-			player2ShipArray.getPlayerShipArray().add("J8");
-			player2ShipArray.getPlayerShipArray().add("J7");
-			player2ShipArray.getPlayerShipArray().add("J6");
-
-			// submarine
-			player2ShipArray.getPlayerShipArray().add("J1");
-			player2ShipArray.getPlayerShipArray().add("J2");
-			player2ShipArray.getPlayerShipArray().add("J3");
-			player2ShipArray.getPlayerShipArray().add("J4");
-
-			// destroyer
-			player2ShipArray.getPlayerShipArray().add("H1");
-			player2ShipArray.getPlayerShipArray().add("G1");
-			player2ShipArray.getPlayerShipArray().add("F1");
-
-			// battleship
-			player2ShipArray.getPlayerShipArray().add("B2");
-			player2ShipArray.getPlayerShipArray().add("B3");
-			player2ShipArray.getPlayerShipArray().add("B4");
-
-			// PT Boat
-			player2ShipArray.getPlayerShipArray().add("D10");
-			player2ShipArray.getPlayerShipArray().add("E10");
-
-			for (int i = 0; i < player2ShipArray.getPlayerShipArray().size(); i++) {
-				Log.v(msg, "player2ShipArray[" + i + "] = "
-						+ player2ShipArray.getPlayerShipArray().get(i));
-			}
-
-			break;
-
-		case 5:
-			// carrier
-			player2ShipArray.getPlayerShipArray().add("I3");
-			player2ShipArray.getPlayerShipArray().add("I4");
-			player2ShipArray.getPlayerShipArray().add("I5");
-			player2ShipArray.getPlayerShipArray().add("I6");
-			player2ShipArray.getPlayerShipArray().add("I7");
-
-			// submarine
-			player2ShipArray.getPlayerShipArray().add("A10");
-			player2ShipArray.getPlayerShipArray().add("A9");
-			player2ShipArray.getPlayerShipArray().add("A8");
-			player2ShipArray.getPlayerShipArray().add("A7");
-
-			// destroyer
-			player2ShipArray.getPlayerShipArray().add("J5");
-			player2ShipArray.getPlayerShipArray().add("I5");
-			player2ShipArray.getPlayerShipArray().add("H5");
-
-			// battleship
-			player2ShipArray.getPlayerShipArray().add("E7");
-			player2ShipArray.getPlayerShipArray().add("F7");
-			player2ShipArray.getPlayerShipArray().add("G7");
-
-			// PT Boat
-			player2ShipArray.getPlayerShipArray().add("B1");
-			player2ShipArray.getPlayerShipArray().add("C1");
-
-			for (int i = 0; i < player2ShipArray.getPlayerShipArray().size(); i++) {
-				Log.v(msg, "player2ShipArray[" + i + "] = "
-						+ player2ShipArray.getPlayerShipArray().get(i));
-			}
-
-			break;
-
-		default:
-			// carrier
-			player2ShipArray.getPlayerShipArray().add("F10");
-			player2ShipArray.getPlayerShipArray().add("G10");
-			player2ShipArray.getPlayerShipArray().add("H10");
-			player2ShipArray.getPlayerShipArray().add("I10");
-			player2ShipArray.getPlayerShipArray().add("J10");
-
-			// submarine
-			player2ShipArray.getPlayerShipArray().add("D5");
-			player2ShipArray.getPlayerShipArray().add("D4");
-			player2ShipArray.getPlayerShipArray().add("D3");
-			player2ShipArray.getPlayerShipArray().add("D2");
-
-			// destroyer
-			player2ShipArray.getPlayerShipArray().add("B7");
-			player2ShipArray.getPlayerShipArray().add("C7");
-			player2ShipArray.getPlayerShipArray().add("D7");
-
-			// battleship
-			player2ShipArray.getPlayerShipArray().add("I1");
-			player2ShipArray.getPlayerShipArray().add("I2");
-			player2ShipArray.getPlayerShipArray().add("I3");
-
-			// PT Boat
-			player2ShipArray.getPlayerShipArray().add("A4");
-			player2ShipArray.getPlayerShipArray().add("B4");
-
-			for (int i = 0; i < player2ShipArray.getPlayerShipArray().size(); i++) {
-				Log.v(msg, "player2ShipArray[" + i + "] = "
-						+ player2ShipArray.getPlayerShipArray().get(i));
-			}
-
-			break;
-		}
-	}
-
-	private OnClickListener onPlacementClick = new OnClickListener() {
-
-		public void onClick(View arg0) {
-			switch (arg0.getId()) {
-			case R.id.placementA1:
-				placeShips("A1", 1, placementA1);
-				break;
-
-			case R.id.placementA2:
-				placeShips("A2", 2, placementA2);
-				break;
-
-			case R.id.placementA3:
-				placeShips("A3", 3, placementA3);
-				break;
-
-			case R.id.placementA4:
-				placeShips("A4", 4, placementA4);
-				break;
-
-			case R.id.placementA5:
-				placeShips("A5", 5, placementA5);
-				break;
-
-			case R.id.placementA6:
-				placeShips("A6", 6, placementA6);
-				break;
-
-			case R.id.placementA7:
-				placeShips("A7", 7, placementA7);
-				break;
-
-			case R.id.placementA8:
-				placeShips("A8", 8, placementA8);
-				break;
-
-			case R.id.placementA9:
-				placeShips("A9", 9, placementA9);
-				break;
-
-			case R.id.placementA10:
-				placeShips("A10", 10, placementA10);
-				break;
-
-			case R.id.placementB1:
-				placeShips("B1", 11, placementB1);
-				break;
-
-			case R.id.placementB2:
-				placeShips("B2", 12, placementB2);
-				break;
-
-			case R.id.placementB3:
-				placeShips("B3", 13, placementB3);
-				break;
-
-			case R.id.placementB4:
-				placeShips("B4", 14, placementB4);
-				break;
-
-			case R.id.placementB5:
-				placeShips("B5", 15, placementB5);
-				break;
-
-			case R.id.placementB6:
-				placeShips("B6", 16, placementB6);
-				break;
-
-			case R.id.placementB7:
-				placeShips("B7", 17, placementB7);
-				break;
-
-			case R.id.placementB8:
-				placeShips("B8", 18, placementB8);
-				break;
-
-			case R.id.placementB9:
-				placeShips("B9", 19, placementB9);
-				break;
-
-			case R.id.placementB10:
-				placeShips("B10", 20, placementB10);
-				break;
-
-			case R.id.placementC1:
-				placeShips("C1", 21, placementC1);
-				break;
-
-			case R.id.placementC2:
-				placeShips("C2", 22, placementC2);
-				break;
-
-			case R.id.placementC3:
-				placeShips("C3", 23, placementC3);
-				break;
-
-			case R.id.placementC4:
-				placeShips("C4", 24, placementC4);
-				break;
-
-			case R.id.placementC5:
-				placeShips("C5", 25, placementC5);
-				break;
-
-			case R.id.placementC6:
-				placeShips("C6", 26, placementC6);
-				break;
-
-			case R.id.placementC7:
-				placeShips("C7", 27, placementC7);
-				break;
-
-			case R.id.placementC8:
-				placeShips("C8", 28, placementC8);
-				break;
-
-			case R.id.placementC9:
-				placeShips("C9", 29, placementC9);
-				break;
-
-			case R.id.placementC10:
-				placeShips("C10", 30, placementC10);
-				break;
-
-			case R.id.placementD1:
-				placeShips("D1", 31, placementD1);
-				break;
-
-			case R.id.placementD2:
-				placeShips("D2", 32, placementD2);
-				break;
-
-			case R.id.placementD3:
-				placeShips("D3", 33, placementD3);
-				break;
-
-			case R.id.placementD4:
-				placeShips("D4", 34, placementD4);
-				break;
-
-			case R.id.placementD5:
-				placeShips("D5", 35, placementD5);
-				break;
-
-			case R.id.placementD6:
-				placeShips("D6", 36, placementD6);
-				break;
-
-			case R.id.placementD7:
-				placeShips("D7", 37, placementD7);
-				break;
-
-			case R.id.placementD8:
-				placeShips("D8", 38, placementD8);
-				break;
-
-			case R.id.placementD9:
-				placeShips("D9", 39, placementD9);
-				break;
-
-			case R.id.placementD10:
-				placeShips("D10", 40, placementD10);
-				break;
-
-			case R.id.placementE1:
-				placeShips("E1", 41, placementE1);
-				break;
-
-			case R.id.placementE2:
-				placeShips("E2", 42, placementE2);
-				break;
-
-			case R.id.placementE3:
-				placeShips("E3", 43, placementE3);
-				break;
-
-			case R.id.placementE4:
-				placeShips("E4", 44, placementE4);
-				break;
-
-			case R.id.placementE5:
-				placeShips("E5", 45, placementE5);
-				break;
-
-			case R.id.placementE6:
-				placeShips("E6", 46, placementE6);
-				break;
-
-			case R.id.placementE7:
-				placeShips("E7", 47, placementE7);
-				break;
-
-			case R.id.placementE8:
-				placeShips("E8", 48, placementE8);
-				break;
-
-			case R.id.placementE9:
-				placeShips("E9", 49, placementE9);
-				break;
-
-			case R.id.placementE10:
-				placeShips("E10", 50, placementE10);
-				break;
-
-			case R.id.placementF1:
-				placeShips("F1", 51, placementF1);
-				break;
-
-			case R.id.placementF2:
-				placeShips("F2", 52, placementF2);
-				break;
-
-			case R.id.placementF3:
-				placeShips("F3", 53, placementF3);
-				break;
-
-			case R.id.placementF4:
-				placeShips("F4", 54, placementF4);
-				break;
-
-			case R.id.placementF5:
-				placeShips("F5", 55, placementF5);
-				break;
-
-			case R.id.placementF6:
-				placeShips("F6", 56, placementF6);
-				break;
-
-			case R.id.placementF7:
-				placeShips("F7", 57, placementF7);
-				break;
-
-			case R.id.placementF8:
-				placeShips("F8", 58, placementF8);
-				break;
-
-			case R.id.placementF9:
-				placeShips("F9", 59, placementF9);
-				break;
-
-			case R.id.placementF10:
-				placeShips("F10", 60, placementF10);
-				break;
-
-			case R.id.placementG1:
-				placeShips("G1", 61, placementG1);
-				break;
-
-			case R.id.placementG2:
-				placeShips("G2", 62, placementG2);
-				break;
-
-			case R.id.placementG3:
-				placeShips("G3", 63, placementG3);
-				break;
-
-			case R.id.placementG4:
-				placeShips("G4", 64, placementG4);
-				break;
-
-			case R.id.placementG5:
-				placeShips("G5", 65, placementG5);
-				break;
-
-			case R.id.placementG6:
-				placeShips("G6", 66, placementG6);
-				break;
-
-			case R.id.placementG7:
-				placeShips("G7", 67, placementG7);
-				break;
-
-			case R.id.placementG8:
-				placeShips("G8", 68, placementG8);
-				break;
-
-			case R.id.placementG9:
-				placeShips("G9", 69, placementG9);
-				break;
-
-			case R.id.placementG10:
-				placeShips("G10", 70, placementG10);
-				break;
-
-			case R.id.placementH1:
-				placeShips("H1", 71, placementH1);
-				break;
-
-			case R.id.placementH2:
-				placeShips("H2", 72, placementH2);
-				break;
-
-			case R.id.placementH3:
-				placeShips("H3", 73, placementH3);
-				break;
-
-			case R.id.placementH4:
-				placeShips("H4", 74, placementH4);
-				break;
-
-			case R.id.placementH5:
-				placeShips("H5", 75, placementH5);
-				break;
-
-			case R.id.placementH6:
-				placeShips("H6", 76, placementH6);
-				break;
-
-			case R.id.placementH7:
-				placeShips("H7", 77, placementH7);
-				break;
-
-			case R.id.placementH8:
-				placeShips("H8", 78, placementH8);
-				break;
-
-			case R.id.placementH9:
-				placeShips("H9", 79, placementH9);
-				break;
-
-			case R.id.placementH10:
-				placeShips("H10", 80, placementH10);
-				break;
-
-			case R.id.placementI1:
-				placeShips("I1", 81, placementI1);
-				break;
-
-			case R.id.placementI2:
-				placeShips("I2", 82, placementI2);
-				break;
-
-			case R.id.placementI3:
-				placeShips("I3", 83, placementI3);
-				break;
-
-			case R.id.placementI4:
-				placeShips("I4", 84, placementI4);
-				break;
-
-			case R.id.placementI5:
-				placeShips("I5", 85, placementI5);
-				break;
-
-			case R.id.placementI6:
-				placeShips("I6", 86, placementI6);
-				break;
-
-			case R.id.placementI7:
-				placeShips("I7", 87, placementI7);
-				break;
-
-			case R.id.placementI8:
-				placeShips("I8", 88, placementI8);
-				break;
-
-			case R.id.placementI9:
-				placeShips("I9", 89, placementI9);
-				break;
-
-			case R.id.placementI10:
-				placeShips("I10", 90, placementI10);
-				break;
-
-			case R.id.placementJ1:
-				placeShips("J1", 91, placementJ1);
-				break;
-
-			case R.id.placementJ2:
-				placeShips("J2", 92, placementJ2);
-				break;
-
-			case R.id.placementJ3:
-				placeShips("J3", 93, placementJ3);
-				break;
-
-			case R.id.placementJ4:
-				placeShips("J4", 94, placementJ4);
-				break;
-
-			case R.id.placementJ5:
-				placeShips("J5", 95, placementJ5);
-				break;
-
-			case R.id.placementJ6:
-				placeShips("J6", 96, placementJ6);
-				break;
-
-			case R.id.placementJ7:
-				placeShips("J7", 97, placementJ7);
-				break;
-
-			case R.id.placementJ8:
-				placeShips("J8", 98, placementJ8);
-				break;
-
-			case R.id.placementJ9:
-				placeShips("J9", 99, placementJ9);
-				break;
-
-			case R.id.placementJ10:
-				placeShips("J10", 100, placementJ10);
-				break;
-
-			default:
-				break;
-
-			}
-		}
-
-	};
-
-	public void init() {
+		// Set onClick() listeners
 		placementA1.setOnClickListener(onPlacementClick);
 		placementA2.setOnClickListener(onPlacementClick);
 		placementA3.setOnClickListener(onPlacementClick);
