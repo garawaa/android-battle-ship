@@ -165,20 +165,24 @@ public class BattleshipPlacementScreen extends Activity {
 	
 	private boolean checkSelection(int p, int c) {
 
-		if (counter == 0 || counter == 5 || counter == 9 || counter == 15) {
+		Log.v(msg, "Counter = " + counter);
+		if (counter == 0 || counter == 5 || counter == 9 || counter == 12 || counter == 15) {
 			firstMove = c;
+			secondMove = firstMove;
 			previous = c;
-
+			counter++;
 			return true;
 
-		} else if (counter == 1 || counter == 6 || counter == 10
+		} else if (counter == 1 || counter == 6 || counter == 10 || counter == 13
 				|| counter == 16) {
-			if (firstMove == secondMove - 1 || firstMove == secondMove + 1
-					|| firstMove == secondMove + 10
-					|| firstMove == secondMove - 10)
+			Log.v(msg, "firstMove = " + firstMove);
+			Log.v(msg, "secondMove = " + secondMove);
+			Log.v(msg, "currentMove = " + c);
+			if (c == firstMove + 1 || c == firstMove - 1 || c == firstMove + 10 || c == firstMove -10)
 			{
 				secondMove = c;
 				previous = c;
+				counter++;
 				return true;
 			}
 			
@@ -186,109 +190,124 @@ public class BattleshipPlacementScreen extends Activity {
 
 		} else {
 			switch (shipPlaced) {
-			case 1: {
-				if (firstMove == secondMove - 1 || firstMove == secondMove + 1
-						|| firstMove == secondMove + 2
-						|| firstMove == secondMove - 2
-						|| firstMove == secondMove + 3
-						|| firstMove == secondMove - 3
-						|| firstMove == secondMove + 4
-						|| firstMove == secondMove - 4) {
+			case 1: 
+				if (firstMove == secondMove - 1 || firstMove == secondMove + 1) {
 					if (c == firstMove + 1 || c == firstMove + 2
 							|| c == firstMove + 3 || c == firstMove + 4
 							|| c == firstMove - 1 || c == firstMove - 2
 							|| c == firstMove - 3 || c == firstMove - 4) {
 						previous = c;
 						Log.v(msg, "Returning true");
+						counter++;
 						return true;
 					}
 
-				} else if (firstMove == secondMove - 10
-						|| firstMove == secondMove + 10
-						|| firstMove == secondMove + 20
-						|| firstMove == secondMove - 20
-						|| firstMove == secondMove + 30
-						|| firstMove == secondMove - 30
-						|| firstMove == secondMove + 40
-						|| firstMove == secondMove - 40) {
+				} else if (firstMove == secondMove - 10 || firstMove == secondMove + 10) {
 					if (c == firstMove + 10 || c == firstMove + 20
 							|| c == firstMove + 30 || c == firstMove + 40
 							|| c == firstMove - 10 || c == firstMove - 20
 							|| c == firstMove - 30 || c == firstMove - 40) {
 						previous = c;
 						Log.v(msg, "Returning true");
+						counter++;
 						return true;
 					}
 				} else {
 					Log.v(msg, "Returning calculated false");
 					return false;
 				}
-
-			}
-			case 2: {
-				if (firstMove == secondMove - 1 || firstMove == secondMove + 1
-						|| firstMove == secondMove + 2
-						|| firstMove == secondMove - 2
-						|| firstMove == secondMove + 3
-						|| firstMove == secondMove - 3) {
+			
+				break;
+			
+			case 2: 
+				if (firstMove == secondMove - 1 || firstMove == secondMove + 1) {
 					if (c == firstMove + 1 || c == firstMove + 2
 							|| c == firstMove + 3 || c == firstMove - 1
 							|| c == firstMove - 2 || c == firstMove - 3) {
 						previous = c;
 						Log.v(msg, "Returning true");
+						counter++;
 						return true;
 					}
 
 				} else if (firstMove == secondMove - 10
-						|| firstMove == secondMove + 10
-						|| firstMove == secondMove + 20
-						|| firstMove == secondMove - 20
-						|| firstMove == secondMove + 30
-						|| firstMove == secondMove - 30) {
+						|| firstMove == secondMove + 10) {
 					if (c == firstMove + 10 || c == firstMove + 20
 							|| c == firstMove + 30 || c == firstMove - 10
 							|| c == firstMove - 20 || c == firstMove - 30) {
 						previous = c;
 						Log.v(msg, "Returning true");
+						counter++;
 						return true;
 					}
 				} else {
 					Log.v(msg, "Returning calculated false");
 					return false;
 				}
-			}
-			case 3:
-			case 4: {
-				if (firstMove == secondMove - 1 || firstMove == secondMove + 1
-						|| firstMove == secondMove + 2
-						|| firstMove == secondMove - 2) {
+			
+			
+				break;
+				
+			case 3:	
+				if (firstMove == secondMove - 1 || firstMove == secondMove + 1) {
 					if (c == firstMove + 1 || c == firstMove + 2
 							|| c == firstMove - 1 || c == firstMove - 2) {
 						previous = c;
 						Log.v(msg, "Returning true");
+						counter++;
 						return true;
 					}
 
 				} else if (firstMove == secondMove - 10
-						|| firstMove == secondMove + 10
-						|| firstMove == secondMove + 20
-						|| firstMove == secondMove - 20) {
+						|| firstMove == secondMove + 10) {
 					if (c == firstMove + 10 || c == firstMove + 20
 							|| c == firstMove - 10 || c == firstMove - 20) {
 						previous = c;
 						Log.v(msg, "Returning true");
+						counter++;
 						return true;
 					}
 				} else {
 					Log.v(msg, "Returning calculated false");
 					return false;
+					}
+			
+				break;
+				
+			case 4: 
+				if (firstMove == secondMove - 1 || firstMove == secondMove + 1) {
+					if (c == firstMove + 1 || c == firstMove + 2
+							|| c == firstMove - 1 || c == firstMove - 2) {
+						previous = c;
+						Log.v(msg, "Returning true");
+						counter++;
+						return true;
+					}
+
+				} else if (firstMove == secondMove - 10
+						|| firstMove == secondMove + 10) {
+					if (c == firstMove + 10 || c == firstMove + 20
+							|| c == firstMove - 10 || c == firstMove - 20) {
+						previous = c;
+						Log.v(msg, "Returning true");
+						counter++;
+						return true;
+					}
+				 else {
+					 	Log.v(msg, "Returning calculated false");
+					 	return false;
+				 	}
+					
 				}
-			}
-			case 5: {
+			
+				break;
+			
+			case 5: 
 				if (firstMove == secondMove - 1 || firstMove == secondMove + 1) {
 					if (c == firstMove + 1 || c == firstMove - 1) {
 						previous = c;
 						Log.v(msg, "Returning true");
+						counter++;
 						return true;
 					}
 
@@ -297,13 +316,22 @@ public class BattleshipPlacementScreen extends Activity {
 					if (c == firstMove + 10 || c == firstMove - 10) {
 						previous = c;
 						Log.v(msg, "Returning true");
+						counter++;
 						return true;
 					}
 				} else {
 					Log.v(msg, "Returning calculated false");
 					return false;
 				}
-			}
+				
+				break;
+			
+			
+			default:
+				
+				break;
+			
+			
 			}
 		}
 		return false;
@@ -471,6 +499,7 @@ public class BattleshipPlacementScreen extends Activity {
 		if (cellsOccupied > max)
 		{
 			++shipPlaced;
+			previous = 999;
 			Log.v(msg, "Incrementing shipPlaced.  shipPlaced = " + shipPlaced);
 		}
 		return true;
