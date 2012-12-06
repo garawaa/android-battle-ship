@@ -23,12 +23,12 @@ import com.android.battleship.objects.Ship;
  */
 public class BattleshipPlacementScreen extends Activity {
 	
+	int counter = 0;
+	int firstMove = 0;
+	int secondMove = 0;
 	int cellsOccupied = 0;
 	int shipPlaced = 1;
 	int previous = 999;
-	int randHigh = 6;
-	int randLow = 0;
-	int result = 0;
 	ImageButton button;
 	String msg;
 	GameMessages gm = new GameMessages();
@@ -164,30 +164,149 @@ public class BattleshipPlacementScreen extends Activity {
 	}
 	
 	private boolean checkSelection(int p, int c) {
-			
-			Log.v(msg,"previous = " + previous);
-			Log.v(msg,"current = " + c);
-			if (c == p + 1 || c == p - 1 || c == p + 10 || c == p - 10)
-			{
-				previous = c;
-				Log.v(msg, "Returning true");
-				return true;
-			}
-			
-			else if (p == 999)
-			{
-				previous = c;
-				Log.v(msg, "Previous after previous = current: " + previous);
-				Log.v(msg, "Returning true for 999 clause");
-				return true;
-			}
-			
-			else
-			{
-				Log.v(msg,"Returning calculated false");
-				return false;
-			}
 
+		if (counter == 0 || counter == 5 || counter == 9 || counter == 15) {
+			firstMove = c;
+			previous = c;
+
+			return true;
+
+		} else if (counter == 1 || counter == 6 || counter == 10
+				|| counter == 16) {
+			if (firstMove == secondMove - 1 || firstMove == secondMove + 1
+					|| firstMove == secondMove + 10
+					|| firstMove == secondMove - 10)
+			{
+				secondMove = c;
+				previous = c;
+				return true;
+			}
+			
+			return false;
+
+		} else {
+			switch (shipPlaced) {
+			case 1: {
+				if (firstMove == secondMove - 1 || firstMove == secondMove + 1
+						|| firstMove == secondMove + 2
+						|| firstMove == secondMove - 2
+						|| firstMove == secondMove + 3
+						|| firstMove == secondMove - 3
+						|| firstMove == secondMove + 4
+						|| firstMove == secondMove - 4) {
+					if (c == firstMove + 1 || c == firstMove + 2
+							|| c == firstMove + 3 || c == firstMove + 4
+							|| c == firstMove - 1 || c == firstMove - 2
+							|| c == firstMove - 3 || c == firstMove - 4) {
+						previous = c;
+						Log.v(msg, "Returning true");
+						return true;
+					}
+
+				} else if (firstMove == secondMove - 10
+						|| firstMove == secondMove + 10
+						|| firstMove == secondMove + 20
+						|| firstMove == secondMove - 20
+						|| firstMove == secondMove + 30
+						|| firstMove == secondMove - 30
+						|| firstMove == secondMove + 40
+						|| firstMove == secondMove - 40) {
+					if (c == firstMove + 10 || c == firstMove + 20
+							|| c == firstMove + 30 || c == firstMove + 40
+							|| c == firstMove - 10 || c == firstMove - 20
+							|| c == firstMove - 30 || c == firstMove - 40) {
+						previous = c;
+						Log.v(msg, "Returning true");
+						return true;
+					}
+				} else {
+					Log.v(msg, "Returning calculated false");
+					return false;
+				}
+
+			}
+			case 2: {
+				if (firstMove == secondMove - 1 || firstMove == secondMove + 1
+						|| firstMove == secondMove + 2
+						|| firstMove == secondMove - 2
+						|| firstMove == secondMove + 3
+						|| firstMove == secondMove - 3) {
+					if (c == firstMove + 1 || c == firstMove + 2
+							|| c == firstMove + 3 || c == firstMove - 1
+							|| c == firstMove - 2 || c == firstMove - 3) {
+						previous = c;
+						Log.v(msg, "Returning true");
+						return true;
+					}
+
+				} else if (firstMove == secondMove - 10
+						|| firstMove == secondMove + 10
+						|| firstMove == secondMove + 20
+						|| firstMove == secondMove - 20
+						|| firstMove == secondMove + 30
+						|| firstMove == secondMove - 30) {
+					if (c == firstMove + 10 || c == firstMove + 20
+							|| c == firstMove + 30 || c == firstMove - 10
+							|| c == firstMove - 20 || c == firstMove - 30) {
+						previous = c;
+						Log.v(msg, "Returning true");
+						return true;
+					}
+				} else {
+					Log.v(msg, "Returning calculated false");
+					return false;
+				}
+			}
+			case 3:
+			case 4: {
+				if (firstMove == secondMove - 1 || firstMove == secondMove + 1
+						|| firstMove == secondMove + 2
+						|| firstMove == secondMove - 2) {
+					if (c == firstMove + 1 || c == firstMove + 2
+							|| c == firstMove - 1 || c == firstMove - 2) {
+						previous = c;
+						Log.v(msg, "Returning true");
+						return true;
+					}
+
+				} else if (firstMove == secondMove - 10
+						|| firstMove == secondMove + 10
+						|| firstMove == secondMove + 20
+						|| firstMove == secondMove - 20) {
+					if (c == firstMove + 10 || c == firstMove + 20
+							|| c == firstMove - 10 || c == firstMove - 20) {
+						previous = c;
+						Log.v(msg, "Returning true");
+						return true;
+					}
+				} else {
+					Log.v(msg, "Returning calculated false");
+					return false;
+				}
+			}
+			case 5: {
+				if (firstMove == secondMove - 1 || firstMove == secondMove + 1) {
+					if (c == firstMove + 1 || c == firstMove - 1) {
+						previous = c;
+						Log.v(msg, "Returning true");
+						return true;
+					}
+
+				} else if (firstMove == secondMove - 10
+						|| firstMove == secondMove + 10) {
+					if (c == firstMove + 10 || c == firstMove - 10) {
+						previous = c;
+						Log.v(msg, "Returning true");
+						return true;
+					}
+				} else {
+					Log.v(msg, "Returning calculated false");
+					return false;
+				}
+			}
+			}
+		}
+		return false;
 	}
 	
 	public void placeShips(String cellId, int cellNum, ImageButton b) {
@@ -280,7 +399,6 @@ public class BattleshipPlacementScreen extends Activity {
 					++shipPlaced;
 					Log.v(msg, "Incrementing shipPlaced.  shipPlaced = " + shipPlaced);
 					
-					CPURandomizer();
 					Log.v(msg, "Changing intent to Grid Screen.");
 					
 					Intent intent = new Intent(this, BattleshipGridScreen.class);
@@ -358,227 +476,7 @@ public class BattleshipPlacementScreen extends Activity {
 		return true;
 	}
 
-	void CPURandomizer()
-	{
-		result = randLow + (int) (Math.random() * (randHigh - randLow) + 0.5);
-		CPUPlacer(result);
-	}
 	
-	void CPUPlacer(int r)
-	{
-			switch (r)
-			{
-				case 1:
-					//carrier
-					player2ShipArray.getPlayerShipArray().add("A1");
-					player2ShipArray.getPlayerShipArray().add("A2");
-					player2ShipArray.getPlayerShipArray().add("A3");
-					player2ShipArray.getPlayerShipArray().add("A4");
-					player2ShipArray.getPlayerShipArray().add("A5");
-					
-					//submarine
-					player2ShipArray.getPlayerShipArray().add("A9");
-					player2ShipArray.getPlayerShipArray().add("B9");
-					player2ShipArray.getPlayerShipArray().add("C9");
-					player2ShipArray.getPlayerShipArray().add("D9");
-					
-					//destroyer
-					player2ShipArray.getPlayerShipArray().add("C3");
-					player2ShipArray.getPlayerShipArray().add("C4");
-					player2ShipArray.getPlayerShipArray().add("C5");
-					
-					//battleship
-					player2ShipArray.getPlayerShipArray().add("J4");
-					player2ShipArray.getPlayerShipArray().add("J5");
-					player2ShipArray.getPlayerShipArray().add("J7");
-					
-					//PT Boat
-					player2ShipArray.getPlayerShipArray().add("G1");
-					player2ShipArray.getPlayerShipArray().add("H1");
-					
-					for (int i = 0; i < player2ShipArray.getPlayerShipArray().size(); i++)
-					{
-						Log.v(msg, "player2ShipArray[" + i + "] = " + player2ShipArray.getPlayerShipArray().get(i));
-					}
-					
-					break;
-					
-				case 2:
-					//carrier
-					player2ShipArray.getPlayerShipArray().add("A1");
-					player2ShipArray.getPlayerShipArray().add("B1");
-					player2ShipArray.getPlayerShipArray().add("C1");
-					player2ShipArray.getPlayerShipArray().add("D1");
-					player2ShipArray.getPlayerShipArray().add("E1");
-					
-					//submarine
-					player2ShipArray.getPlayerShipArray().add("B7");
-					player2ShipArray.getPlayerShipArray().add("C7");
-					player2ShipArray.getPlayerShipArray().add("D7");
-					player2ShipArray.getPlayerShipArray().add("E7");
-					
-					//destroyer
-					player2ShipArray.getPlayerShipArray().add("H1");
-					player2ShipArray.getPlayerShipArray().add("H2");
-					player2ShipArray.getPlayerShipArray().add("H3");
-					
-					//battleship
-					player2ShipArray.getPlayerShipArray().add("H10");
-					player2ShipArray.getPlayerShipArray().add("I10");
-					player2ShipArray.getPlayerShipArray().add("J10");
-					
-					//PT Boat
-					player2ShipArray.getPlayerShipArray().add("D4");
-					player2ShipArray.getPlayerShipArray().add("D5");
-					
-					for (int i = 0; i < player2ShipArray.getPlayerShipArray().size(); i++)
-					{
-						Log.v(msg, "player2ShipArray[" + i + "] = " + player2ShipArray.getPlayerShipArray().get(i));
-					}
-					
-					break;
-					
-				case 3:
-					//carrier
-					player2ShipArray.getPlayerShipArray().add("E5");
-					player2ShipArray.getPlayerShipArray().add("E6");
-					player2ShipArray.getPlayerShipArray().add("E7");
-					player2ShipArray.getPlayerShipArray().add("E8");
-					player2ShipArray.getPlayerShipArray().add("E9");
-					
-					//submarine
-					player2ShipArray.getPlayerShipArray().add("J3");
-					player2ShipArray.getPlayerShipArray().add("I3");
-					player2ShipArray.getPlayerShipArray().add("H3");
-					player2ShipArray.getPlayerShipArray().add("G3");
-					
-					//destroyer
-					player2ShipArray.getPlayerShipArray().add("A8");
-					player2ShipArray.getPlayerShipArray().add("A9");
-					player2ShipArray.getPlayerShipArray().add("A10");
-					
-					//battleship
-					player2ShipArray.getPlayerShipArray().add("C7");
-					player2ShipArray.getPlayerShipArray().add("D7");
-					player2ShipArray.getPlayerShipArray().add("E7");
-					
-					//PT Boat
-					player2ShipArray.getPlayerShipArray().add("F3");
-					player2ShipArray.getPlayerShipArray().add("F4");
-					
-					for (int i = 0; i < player2ShipArray.getPlayerShipArray().size(); i++)
-					{
-						Log.v(msg, "player2ShipArray[" + i + "] = " + player2ShipArray.getPlayerShipArray().get(i));
-					}
-					
-					break;
-					
-				case 4:
-					//carrier
-					player2ShipArray.getPlayerShipArray().add("J10");
-					player2ShipArray.getPlayerShipArray().add("J9");
-					player2ShipArray.getPlayerShipArray().add("J8");
-					player2ShipArray.getPlayerShipArray().add("J7");
-					player2ShipArray.getPlayerShipArray().add("J6");
-					
-					//submarine
-					player2ShipArray.getPlayerShipArray().add("J1");
-					player2ShipArray.getPlayerShipArray().add("J2");
-					player2ShipArray.getPlayerShipArray().add("J3");
-					player2ShipArray.getPlayerShipArray().add("J4");
-					
-					//destroyer
-					player2ShipArray.getPlayerShipArray().add("H1");
-					player2ShipArray.getPlayerShipArray().add("G1");
-					player2ShipArray.getPlayerShipArray().add("F1");
-					
-					//battleship
-					player2ShipArray.getPlayerShipArray().add("B2");
-					player2ShipArray.getPlayerShipArray().add("B3");
-					player2ShipArray.getPlayerShipArray().add("B4");
-					
-					//PT Boat
-					player2ShipArray.getPlayerShipArray().add("D10");
-					player2ShipArray.getPlayerShipArray().add("E10");
-					
-					for (int i = 0; i < player2ShipArray.getPlayerShipArray().size(); i++)
-					{
-						Log.v(msg, "player2ShipArray[" + i + "] = " + player2ShipArray.getPlayerShipArray().get(i));
-					}
-					
-					break;
-					
-				case 5:
-					//carrier
-					player2ShipArray.getPlayerShipArray().add("I3");
-					player2ShipArray.getPlayerShipArray().add("I4");
-					player2ShipArray.getPlayerShipArray().add("I5");
-					player2ShipArray.getPlayerShipArray().add("I6");
-					player2ShipArray.getPlayerShipArray().add("I7");
-					
-					//submarine
-					player2ShipArray.getPlayerShipArray().add("A10");
-					player2ShipArray.getPlayerShipArray().add("A9");
-					player2ShipArray.getPlayerShipArray().add("A8");
-					player2ShipArray.getPlayerShipArray().add("A7");
-					
-					//destroyer
-					player2ShipArray.getPlayerShipArray().add("J5");
-					player2ShipArray.getPlayerShipArray().add("I5");
-					player2ShipArray.getPlayerShipArray().add("H5");
-					
-					//battleship
-					player2ShipArray.getPlayerShipArray().add("E7");
-					player2ShipArray.getPlayerShipArray().add("F7");
-					player2ShipArray.getPlayerShipArray().add("G7");
-					
-					//PT Boat
-					player2ShipArray.getPlayerShipArray().add("B1");
-					player2ShipArray.getPlayerShipArray().add("C1");
-					
-					for (int i = 0; i < player2ShipArray.getPlayerShipArray().size(); i++)
-					{
-						Log.v(msg, "player2ShipArray[" + i + "] = " + player2ShipArray.getPlayerShipArray().get(i));
-					}
-					
-					break;
-			
-				default:
-					//carrier
-					player2ShipArray.getPlayerShipArray().add("F10");
-					player2ShipArray.getPlayerShipArray().add("G10");
-					player2ShipArray.getPlayerShipArray().add("H10");
-					player2ShipArray.getPlayerShipArray().add("I10");
-					player2ShipArray.getPlayerShipArray().add("J10");
-					
-					//submarine
-					player2ShipArray.getPlayerShipArray().add("D5");
-					player2ShipArray.getPlayerShipArray().add("D4");
-					player2ShipArray.getPlayerShipArray().add("D3");
-					player2ShipArray.getPlayerShipArray().add("D2");
-					
-					//destroyer
-					player2ShipArray.getPlayerShipArray().add("B7");
-					player2ShipArray.getPlayerShipArray().add("C7");
-					player2ShipArray.getPlayerShipArray().add("D7");
-					
-					//battleship
-					player2ShipArray.getPlayerShipArray().add("I1");
-					player2ShipArray.getPlayerShipArray().add("I2");
-					player2ShipArray.getPlayerShipArray().add("I3");
-					
-					//PT Boat
-					player2ShipArray.getPlayerShipArray().add("A4");
-					player2ShipArray.getPlayerShipArray().add("B4");
-					
-					for (int i = 0; i < player2ShipArray.getPlayerShipArray().size(); i++)
-					{
-						Log.v(msg, "player2ShipArray[" + i + "] = " + player2ShipArray.getPlayerShipArray().get(i));
-					}
-					
-					break;
-			}
-	}
 	
 
 	private OnClickListener onPlacementClick = new OnClickListener()
