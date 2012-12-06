@@ -28,6 +28,8 @@ public class CPUPlayer extends Activity {
 	private int x, y, lastX, lastY, firstHitX, firstHitY, direction;
 	private int[] hitGuesses = new int[] { 0, 0, 0, 0 };
 	private boolean attackSuccess;
+	boolean hitSuccess;
+	boolean won;
 	final int random = 0;
 	final int directionFind = 1;
 	final int directionFollow = 2;
@@ -37,14 +39,15 @@ public class CPUPlayer extends Activity {
 	final int south = 2;
 	final int west = 3;
 	private int strategyState = 0;
+	BattleshipHitsAndMissesScreen hit = new BattleshipHitsAndMissesScreen();
 	// Initialize the ships array
 	private Ship[] ships = new Ship[5];
 	{
-		ships[0] = new Ship("Carrier"); // Add a carrier
-		ships[1] = new Ship("Submarine"); // Add a submarine
-		ships[2] = new Ship("Battleship"); // Add a battleship
-		ships[3] = new Ship("Destroyer"); // Add a destroyer
-		ships[4] = new Ship("PT Boat"); // Add a PT boat
+		ships[0] = new Ship("Carrier", 5); // Add a carrier
+		ships[1] = new Ship("Submarine", 4); // Add a submarine
+		ships[2] = new Ship("Battleship", 3); // Add a battleship
+		ships[3] = new Ship("Destroyer", 3); // Add a destroyer
+		ships[4] = new Ship("PT Boat", 2); // Add a PT boat
 	}
 
 	public CPUPlayer() {
@@ -95,7 +98,15 @@ public class CPUPlayer extends Activity {
 		}
 
 		String move = getMove(x, y);
-		boolean hitSuccess = checkForHit(MainActivity.player1ShipArray, move);
+		hitSuccess = hit.checkForHit(BattleshipPlacementScreen.ships, move);
+		if(hitSuccess){
+			Log.v("","The CPU hit one of your ships! " + move);
+			// Check to see if the CPU has taken down all ships
+			if(hit.checkForWin(MainActivity.cpu.getShipArray())){
+				won = true;
+				Log.v("", "CPU WINS!!");
+			}
+		}
 		strategyAssign(hitSuccess, strategyState);
 	}
 
@@ -509,8 +520,8 @@ public class CPUPlayer extends Activity {
 			ships[1].getShipArray().add("A7");
 
 			// destroyer
-			ships[2].getShipArray().add("J5");
-			ships[2].getShipArray().add("I5");
+			ships[2].getShipArray().add("F5");
+			ships[2].getShipArray().add("G5");
 			ships[2].getShipArray().add("H5");
 
 			// battleship
