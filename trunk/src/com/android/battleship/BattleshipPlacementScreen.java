@@ -40,11 +40,11 @@ public class BattleshipPlacementScreen extends Activity {
 	PlayerShipArrays player2ShipArray = new PlayerShipArrays();
 	// Initialize the ships array
 	static Ship[] ships = new Ship[5];{
-		ships[0] = new Ship("Carrier"); // Add a carrier
-		ships[1] = new Ship("Submarine"); // Add a submarine
-		ships[2] = new Ship("Battleship"); // Add a battleship
-		ships[3] = new Ship("Destroyer"); // Add a destroyer
-		ships[4] = new Ship("PT Boat"); // Add a PT boat
+		ships[0] = new Ship("Carrier", 5); // Add a carrier
+		ships[1] = new Ship("Submarine", 4); // Add a submarine
+		ships[2] = new Ship("Battleship", 3); // Add a battleship
+		ships[3] = new Ship("Destroyer", 3); // Add a destroyer
+		ships[4] = new Ship("PT Boat", 2); // Add a PT boat
 	}
 	
 	ImageButton placementA1;

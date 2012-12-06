@@ -140,6 +140,7 @@ public class BattleshipGridScreen extends Activity{
 	{
 		String tag ="";
 		boolean hitt = false;
+		boolean won = false;
 		ImageButton b = null;
 		public void onClick(View v)
 		{
@@ -148,28 +149,15 @@ public class BattleshipGridScreen extends Activity{
 			tag = (String)v.getTag();
 			Log.v(msg,"Tag = " + tag);
 			
-			// TODO: FIX PROBLEM
-			if (MainActivity.player == 1)
-			{
-				hitt = hit.CheckForHit(MainActivity.cpu.getShipArray(), tag);
-				MainActivity.player = 2;
-			}
-
-			else
-			{
-				hitt = hit.CheckForHit(BattleshipPlacementScreen.ships, tag);
-				MainActivity.player = 1;
-			}
+			hitt = hit.checkForHit(MainActivity.cpu.getShipArray(), tag);
 			
 			if(hitt){
-				if(MainActivity.player == 1){
-					Log.v(msg,"You hit one of the opponent's ships!");
-				}
-				else{
-					Log.v(msg,"The CPU hit one of your ships!");
-				}
-
+				Log.v(msg,"You hit one of the opponent's ships!");
 				b.setImageResource(R.drawable.spear);
+				if(hit.checkForWin(MainActivity.cpu.getShipArray())){
+					won = true;
+					Log.v(msg, " YOU WIN!!");
+				}
 			}
 			else{
 				b.setImageResource(R.drawable.gray);
