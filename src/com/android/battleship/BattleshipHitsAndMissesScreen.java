@@ -17,22 +17,6 @@ public class BattleshipHitsAndMissesScreen extends Activity{
 
 	String msg;
 	
-	boolean CheckForHit (ArrayList<String> Array, String move)
-	{
-				
-		for (int i = 0; i < Array.size(); ++i)
-		{
-			Log.v(msg, "move = ");
-			if (move.equals(Array.get(i)))
-			{
-				return true;
-			}
-		}
-		
-		return false;		
-		
-	}
-	
 	boolean CheckForHit(Ship[] ships, String move){
 		
 		// Loop through ships
@@ -42,6 +26,7 @@ public class BattleshipHitsAndMissesScreen extends Activity{
 			{
 				if (move.equals(ships[i].getShipArray().get(j)))
 				{
+					Log.v(" ", "Looping through ship cells: ship[" + i + "].getShipArray().get(" + j + ") : " + ships[i].getShipArray().get(j));
 					Log.v(msg, "Move matched one of the elements in the shipArray");
 					return true;
 				}

@@ -148,6 +148,7 @@ public class BattleshipGridScreen extends Activity{
 			tag = (String)v.getTag();
 			Log.v(msg,"Tag = " + tag);
 			
+			// TODO: FIX PROBLEM
 			if (MainActivity.player == 1)
 			{
 				hitt = hit.CheckForHit(MainActivity.cpu.getShipArray(), tag);

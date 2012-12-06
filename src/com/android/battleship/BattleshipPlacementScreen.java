@@ -476,9 +476,6 @@ public class BattleshipPlacementScreen extends Activity {
 		return true;
 	}
 
-	
-	
-
 	private OnClickListener onPlacementClick = new OnClickListener()
 	{
 
