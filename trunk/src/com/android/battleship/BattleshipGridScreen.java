@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 /**
  * This will be the main screen with a grid of buttons.
@@ -152,6 +153,7 @@ public class BattleshipGridScreen extends Activity{
 			hitt = hit.checkForHit(MainActivity.cpu.getShipArray(), tag);
 			
 			if(hitt){
+				Toast.makeText(BattleshipGridScreen.this, "You hit one of the opponent's ships!", Toast.LENGTH_SHORT).show(); 
 				Log.v(msg,"You hit one of the opponent's ships!");
 				b.setImageResource(R.drawable.spear);
 				if(hit.checkForWin(MainActivity.cpu.getShipArray())){
