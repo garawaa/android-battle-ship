@@ -24,7 +24,7 @@ public class BattleshipHitsAndMissesScreen extends Activity{
 	 * @param move
 	 * @return boolean
 	 */
-	boolean checkForHit(Ship[] ships, String move){
+	protected boolean checkForHit(Ship[] ships, String move){
 		
 		// Loop through ships
 		for(int i = 0; i < ships.length; i++){
@@ -55,7 +55,7 @@ public class BattleshipHitsAndMissesScreen extends Activity{
 	 * opponents ships have been sunk.
 	 * @return
 	 */
-	boolean checkForWin(Ship[] ships){
+	protected boolean checkForWin(Ship[] ships){
 		
 		// If there is a ship that is not sunk, return false
 		for(int i = 0; i < ships.length; i++){
@@ -65,5 +65,21 @@ public class BattleshipHitsAndMissesScreen extends Activity{
 		}
 		// No ship found that has not been sunk
 		return true;
+	}
+	
+	/** This method will be use primarily for the CPU; The CPU needs to be able to detect when a ship has sunk so that
+	 * it can adjust its strategy appropriately.
+	 * @param ships
+	 * @return numSunk
+	 */
+	protected int getNumShipsSunk(Ship[] ships){
+		int numSunk = 0;
+		// Loop through array of ships and check how many are sunk
+		for(int i = 0; i < ships.length; i++){
+			if(ships[i].isSunk){
+				numSunk += 1;
+			}
+		}
+		return numSunk;
 	}
 }
