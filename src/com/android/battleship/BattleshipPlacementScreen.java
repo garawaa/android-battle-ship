@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.android.battleship.objects.PlayerShipArrays;
 import com.android.battleship.objects.Ship;
@@ -17,9 +18,6 @@ import com.android.battleship.objects.Ship;
  * onClick screen will be opened from an onClickListener in the GridScreen. From
  * onClick screen we will decide what ship to place and the orientation
  * (horizontal|vertical) to place it.
- * 
- * @author DPrinslow
- * 
  */
 public class BattleshipPlacementScreen extends Activity {
 	
@@ -31,7 +29,6 @@ public class BattleshipPlacementScreen extends Activity {
 	int previous = 999;
 	ImageButton button;
 	String msg;
-	GameMessages gm = new GameMessages();
 	boolean btnSelected = false;
 	String firstBtn;
 	String previousBtn;
@@ -160,7 +157,7 @@ public class BattleshipPlacementScreen extends Activity {
 		
 		String carrier = "Please select 5 cells adjacent to one another horizontally or vertically"
 				+ " to set your carrier";
-		gm.displayMsg(this, carrier, "Place Your Ship");
+		Toast.makeText(this, carrier, Toast.LENGTH_SHORT).show(); 
 	}
 	
 	private boolean checkSelection(int p, int c) {
@@ -356,7 +353,7 @@ public class BattleshipPlacementScreen extends Activity {
 			{
 				message = "Please select 4 cells adjacent to one another horizontally or vertically"
 						+ " to set your submarine";
-				gm.displayMsg(this, message, "Place Your Ship");
+				Toast.makeText(this, message, Toast.LENGTH_SHORT).show(); 
 			}
 			break;
 
@@ -372,7 +369,7 @@ public class BattleshipPlacementScreen extends Activity {
 			{
 				message = "Please select 3 cells adjacent to one another horizontally or vertically"
 						+ " to set your battleship";
-				gm.displayMsg(this, message, "Place Your Ship");
+				Toast.makeText(this, message, Toast.LENGTH_SHORT).show(); 
 			}
 			
 			break;
@@ -389,7 +386,7 @@ public class BattleshipPlacementScreen extends Activity {
 			{
 				message = "Please select 3 cells adjacent to one another horizontally or vertically"
 						+ " to set your destroyer";
-				gm.displayMsg(this, message, "Place Your Ship");
+				Toast.makeText(this, message, Toast.LENGTH_SHORT).show(); 
 			}
 
 			break;
@@ -406,7 +403,7 @@ public class BattleshipPlacementScreen extends Activity {
 			{
 				message = "Please select 2 cells adjacent to one another horizontally or vertically"
 						+ " to set your pt boat";
-				gm.displayMsg(this, message, "Place Your Ship");
+				Toast.makeText(this, message, Toast.LENGTH_SHORT).show(); 
 			}
 
 			break;
@@ -422,7 +419,6 @@ public class BattleshipPlacementScreen extends Activity {
 			// All ships are placed
 			if (cellsOccupied > max)
 			{
-				gm.displayMsg(this, "All your ships have been placed.", "Ships placed");
 				// Switch to the Grid Screen
 					++shipPlaced;
 					Log.v(msg, "Incrementing shipPlaced.  shipPlaced = " + shipPlaced);
@@ -442,10 +438,7 @@ public class BattleshipPlacementScreen extends Activity {
 	 * to inform them of this and ask them to chose another cell.
 	 */
 	public void displayMsgInvalid(){
-		GameMessages gm = new GameMessages();
-		final Context context = this;
-		gm.displayMsg(context, "Move Not Available",
-				"Please select another cell.");
+		Toast.makeText(this, "Move Not Available.  Please select another cell.", Toast.LENGTH_SHORT).show(); 
 	}
 	
 	/** This method will use the cellId to update the previousBtn and the cellNum to check if the cell selection is valid. It will

@@ -2,6 +2,7 @@ package com.android.battleship;
 
 import java.util.ArrayList;
 
+
 import com.android.battleship.objects.Ship;
 
 import android.app.Activity;
@@ -40,6 +41,7 @@ public class BattleshipHitsAndMissesScreen extends Activity{
 					if(ships[i].getCurrHits() >= ships[i].maxHits){
 						ships[i].isSunk = true;
 						Log.v(msg, ships[i].name + " was sunk!!");
+						
 					}
 					return true;
 				}

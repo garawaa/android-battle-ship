@@ -9,14 +9,12 @@
  */
 
 package com.android.battleship;
-
 import java.util.ArrayList;
 import java.util.Random;
-
 import com.android.battleship.objects.Ship;
-
 import android.app.Activity;
 import android.util.Log;
+import android.widget.Toast;
 
 public class CPUPlayer extends Activity {
 
@@ -94,10 +92,16 @@ public class CPUPlayer extends Activity {
 		case directionChange:
 			changeAttackDirection();
 			computerMove(0);
+			break;
+			
+		default:
+			getCpuRandomMove();
+			break;
 
 		}
 
 		String move = getMove(x, y);
+		Log.v("", "CPU Move = " + move);
 		hitSuccess = hit.checkForHit(BattleshipPlacementScreen.ships, move);
 		if(hitSuccess){
 			Log.v("","The CPU hit one of your ships! " + move);
@@ -105,6 +109,7 @@ public class CPUPlayer extends Activity {
 			if(hit.checkForWin(MainActivity.cpu.getShipArray())){
 				won = true;
 				Log.v("", "CPU WINS!!");
+				Toast.makeText(this, "The computer beat you!", Toast.LENGTH_SHORT).show(); 
 			}
 		}
 		strategyAssign(hitSuccess, strategyState);
@@ -199,9 +204,11 @@ public class CPUPlayer extends Activity {
 	}
 
 	private void getCpuRandomMove() {
-
+		
 		x = generator.nextInt(10);
 		y = generator.nextInt(10) + 1;
+		//x = 0 + (int) (Math.random() * (11 - 0) + 0.5);
+		//y = 0 + (int) (Math.random() * (11 - 0) + 0.5);
 
 	}
 
@@ -240,10 +247,15 @@ public class CPUPlayer extends Activity {
 			id = "J";
 			break;
 		default:
+			id = "A";
 			break;
 		}
+		
 
-		return id += Integer.toString(y);
+
+		id += Integer.toString(y);
+		Log.v("", "CPU Move ID = " + id);
+		return id;
 	}
 
 	private boolean checkForHit(ArrayList<String> Array, String move) {

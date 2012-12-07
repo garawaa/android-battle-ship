@@ -7,9 +7,6 @@ import android.graphics.drawable.Drawable;
 /**
  * This will be the ship object we will use to track the type of ship and orientation of the ship.
  * Each ship will have its own array to store the cells it occupies.
- * 
- * @author DPrinslow
- *
  */
 public class Ship {
 
