@@ -9,7 +9,6 @@
  */
 
 package com.android.battleship;
-import java.util.ArrayList;
 import java.util.Random;
 import com.android.battleship.objects.Ship;
 import android.app.Activity;
@@ -20,14 +19,14 @@ public class CPUPlayer extends Activity {
 
 	int randHigh = 6;
 	int randLow = 0;
-	int result = 0;
-
+	private int result = 0;
 	private Random generator = new Random(10);
+	private Random generator2;
 	private int x, y, lastX, lastY, firstHitX, firstHitY, direction;
-	private int[] hitGuesses = new int[] { 0, 0, 0, 0 };
 	private boolean attackSuccess;
 	boolean hitSuccess;
 	boolean won;
+	int shipSunk = 1;
 	final int random = 0;
 	final int directionFind = 1;
 	final int directionFollow = 2;
@@ -38,6 +37,9 @@ public class CPUPlayer extends Activity {
 	final int west = 3;
 	private int strategyState = 0;
 	BattleshipHitsAndMissesScreen hit = new BattleshipHitsAndMissesScreen();
+	String[] guesses = new String[100];
+	private int numSunk = 0;
+	private int numSunkCurr = 0;
 	// Initialize the ships array
 	private Ship[] ships = new Ship[5];
 	{
@@ -57,66 +59,76 @@ public class CPUPlayer extends Activity {
 		return ships;
 	}
 
-	// TODO: Randomize CPU ships
-
 	private void initShips() {
-
 		CPURandomizer();
-
+		CPUPlacer(result);
 	}
 
 	/** This is the "main" function to facilitate CPU logic needs to be passed an int: 0 for ship not
 	 *  sunk, 1 for ship sunk
 	 */
-
 	public void computerMove(int shipSunk) { 
-		if (shipSunk == 1) { // this will reset the CPU state to random guess
-
+		
+		if (shipSunk == 1) { // This will reset the CPU state to random guess
+			shipSunk = 0; // Reset 
 			strategyState = random;
 		}
 
 		switch (strategyState) {
-		case random:
-			getCpuRandomMove();
-			break;
-
-		case directionFind:
-			setCpuDirection();
-
-			break;
-
-		case directionFollow:
-			continueAttack();
-
-			break;
-		case directionChange:
-			changeAttackDirection();
-			computerMove(0);
-			break;
-			
-		default:
-			getCpuRandomMove();
-			break;
-
+			case random:
+				Log.v("", "computerMove(): case random, calling getCpuRandomMove()");
+				getCpuRandomMove();
+				break;
+			case directionFind:
+				Log.v("", "computerMove(): case directionFind, calling setCpuDirection()");
+				setCpuDirection();
+				break;
+			case directionFollow:
+				Log.v("", "computerMove(): case directionFollow, calling continueAttack()");
+				continueAttack();
+				break;
+			case directionChange:
+				Log.v("", "computerMove(): case directionChange, calling changeAttackDirection()");
+				changeAttackDirection();
+				computerMove(0);
+				break;
+			default:
+				Log.v("", "computerMove(): case default, calling getCpuRandomMove()");
+				getCpuRandomMove();
+				break;
 		}
 
+		Log.v("", "getMove called on line 95");
 		String move = getMove(x, y);
-		Log.v("", "CPU Move = " + move);
+
+		
+		/* Check for a move & check for CPU win */
 		hitSuccess = hit.checkForHit(BattleshipPlacementScreen.ships, move);
 		if(hitSuccess){
-			Log.v("","The CPU hit one of your ships! " + move);
+			// TODO: toast
+			//Toast.makeText(this, "You have been hit! :" + move, Toast.LENGTH_SHORT).show(); 
+			Log.v("", "CPU hit your ship: " + move);
+			// After a hit, get a new strategy
+			strategyAssign(hitSuccess, strategyState); 
+			
+			/* If the CPU just sunk a ship we want strategy to reset to random*/
+			numSunkCurr = hit.getNumShipsSunk(BattleshipPlacementScreen.ships);
+			Log.v("","numSunkCurr: " + numSunkCurr);
+			if(numSunkCurr > numSunk){
+				numSunk +=1; // Keep track of current number of ships sunk
+				shipSunk = 1; // This will handle resetting the logic to random
+			}
+			
 			// Check to see if the CPU has taken down all ships
 			if(hit.checkForWin(MainActivity.cpu.getShipArray())){
 				won = true;
-				Log.v("", "CPU WINS!!");
 				Toast.makeText(this, "The computer beat you!", Toast.LENGTH_SHORT).show(); 
 			}
 		}
-		strategyAssign(hitSuccess, strategyState);
 	}
 
 	private void changeAttackDirection() {
-
+		
 		lastX = firstHitX;
 		lastY = firstHitY;
 		switch (direction) {
@@ -139,44 +151,37 @@ public class CPUPlayer extends Activity {
 	}
 
 	private void continueAttack() {
+		
 		switch (direction) {
 		case north:
-
 			attackSuccess = attack(north);
 			if (attackSuccess == false) {
 				changeAttackDirection();
 			}
 			break;
-
 		case east:
-
 			attackSuccess = attack(east);
 			if (attackSuccess == false) {
 				changeAttackDirection();
 			}
 			break;
-
 		case south:
-
 			attackSuccess = attack(south);
 			if (attackSuccess == false) {
 				changeAttackDirection();
 			}
 			break;
-
 		case west:
-
 			attackSuccess = attack(west);
 			if (attackSuccess == false) {
 				changeAttackDirection();
 			}
 			break;
 		}
-
 	}
 
 	private void strategyAssign(boolean hitSuccess, int strategyState2) {
-
+		
 		switch (strategyState) {
 		case random:
 			if (hitSuccess = true) {
@@ -188,7 +193,6 @@ public class CPUPlayer extends Activity {
 			if (hitSuccess = true) {
 				strategyState = directionFollow;
 			}
-
 			break;
 		/*
 		 * THIS SWITCH HANDLED IN CONTINUE ATTACK METHOD case directionFollow:
@@ -205,15 +209,17 @@ public class CPUPlayer extends Activity {
 
 	private void getCpuRandomMove() {
 		
-		x = generator.nextInt(10);
-		y = generator.nextInt(10) + 1;
-		//x = 0 + (int) (Math.random() * (11 - 0) + 0.5);
-		//y = 0 + (int) (Math.random() * (11 - 0) + 0.5);
-
+		Log.v("", "Getting CpuRandomMove");
+		x = randLow + (int) (Math.random() * (10) + 0.5) + 1;
+		y = randLow + (int) (Math.random() * (10) + 0.5) + 1;
+		Log.v("", "x & y: " + x + " " + y);
+		lastX = x;
+		lastY = y;
 	}
 
 	private String getMove(int x, int y) {
-
+		
+		Log.v("", "getMove() was called");
 		String id = null;
 		switch (x) {
 		case 0:
@@ -250,91 +256,73 @@ public class CPUPlayer extends Activity {
 			id = "A";
 			break;
 		}
-		
-
 
 		id += Integer.toString(y);
 		Log.v("", "CPU Move ID = " + id);
-		return id;
-	}
-
-	private boolean checkForHit(ArrayList<String> Array, String move) {
-
-		for (int i = 0; i < Array.size(); ++i) {
-			// TODO: pass in msg variable
-			Log.v("msg", "move = ");
-			if (move.equals(Array.get(i))) {
-				firstHitX = x;
-				firstHitY = y;
-				lastX = x;
-				lastY = y;
-				return true;
+		for(int i = 0; i < guesses.length; i++){
+			// The ID has already been tried, get new X & Y
+			if(guesses[i] == id){
+				Log.v("", "CPU Move ID was not unique, getting a new one. ID was: " + id);
+				getCpuRandomMove();
+				getMove(x, y);
 			}
 		}
-
-		return false;
-
+		return id;
 	}
 
 	private void setCpuDirection() {
 
-		Random generator2 = new Random(100);
-		int guess = generator2.nextInt(4);
-
-		if (hitGuesses[guess] == 1) { // if the random guess has already been
-										// tried, gets new random number
+		/* This kept producing the same int, looping out of control, and causing a stackOverflowException */
+		/*generator2 = new Random(100);
+		 int guess = generator2.nextInt(3) + 1; // 1 - 4
+		if (hitGuesses[guess] == 1) { // if the random guess has already been guessed, get new
 			setCpuDirection();
-		}
-
-		else {
-			hitGuesses[guess] = 1; // modifies array to show that the try was
-									// attempted.
+			Log.v("", "setCpuDirection, hit guess already tried: " + guess);
+		} */
+		
+		int guess = 1; // Let's just start with one and increment from there
+		Log.v("", "setCpuDirection, guess: " + guess);
 
 			switch (guess) {
-			case north: // test top adjacent space
-
+			case 1: // test top adjacent space NORTH
+				guess = 2;
 				attackSuccess = attack(north);
 				if (attackSuccess == false) {
-					setCpuDirection();
 				}
 				break;
-
-			case east: // test right adjacent space
-
+			case 2: // test right adjacent space EAST
+				guess = 3;
 				attackSuccess = attack(east);
 				if (attackSuccess == false) {
-					setCpuDirection();
 				}
 				break;
-
-			case south: // test bottom adjacent space
-
+			case 3: // test bottom adjacent space SOUTH
+				guess = 4;
 				attackSuccess = attack(south);
 				if (attackSuccess == false) {
-					setCpuDirection();
 				}
 				break;
-
-			case west: // test left adjacent space
-
+			case 4: // test left adjacent space WEST
+				guess = 1; // Restart with 0
 				attackSuccess = attack(west);
 				if (attackSuccess == false) {
-					setCpuDirection();
 				}
+				break;
+			default:
 				break;
 			}
 
+			//setCpuDirection(); // ?? Why was this being called again?
 			direction = guess;
-		}
 	}
 
 	private boolean attack(int direction) {
 		boolean attackCompleted = false;
 		switch (direction) {
 		case north: // test top adjacent space
-
 			y = lastY - 1;
 			if (y >= 0) {
+				Log.v("", "getMove called on line 306");
 				getMove(x, y);
 				lastX = x;
 				lastY = y;
@@ -343,11 +331,11 @@ public class CPUPlayer extends Activity {
 			} else {
 				attackCompleted = false;
 			}
-
+			break;
 		case east: // test right adjacent space
-
 			x = lastX + 1;
 			if (x <= 10) {
+				Log.v("", "getMove called on line 318");
 				getMove(x, y);
 				lastX = x;
 				lastY = y;
@@ -356,11 +344,11 @@ public class CPUPlayer extends Activity {
 			} else {
 				attackCompleted = false;
 			}
-
+			break;
 		case south: // test bottom adjacent space
-
 			y = lastY + 1;
 			if (y <= 10) {
+				Log.v("", "getMove called on line 329");
 				getMove(x, y);
 				lastX = x;
 				lastY = y;
@@ -369,33 +357,35 @@ public class CPUPlayer extends Activity {
 			} else {
 				attackCompleted = false;
 			}
-
+			break;
 		case west: // test left adjacent space
-
 			x = lastX - 1;
 			if (x >= 0) {
+				Log.v("", "getMove called on line 341");
 				getMove(x, y);
 				lastX = x;
 				lastY = y;
 				attackCompleted = true;
-
 			} else {
 				attackCompleted = false;
 			}
+			break;
 		}
 		return attackCompleted;
 	}
 
-	void CPURandomizer() {
+	/** Randomizes a number for use in placing the CPU ships 
+	 * 
+	 */
+	public void CPURandomizer() {
 		result = randLow + (int) (Math.random() * (randHigh - randLow) + 0.5);
-		CPUPlacer(result);
 	}
 
 	/** Use a random generated number from 1-5 to determine where to place ships
 	 * 
 	 * @param rand
 	 */
-	void CPUPlacer(int rand) {
+	public void CPUPlacer(int rand) {
 		switch (rand) {
 		case 1:
 			// carrier
@@ -426,7 +416,7 @@ public class CPUPlayer extends Activity {
 			ships[4].getShipArray().add("H1");
 
 			break;
-
+			
 		case 2:
 			// carrier
 			ships[0].getShipArray().add("A1");
