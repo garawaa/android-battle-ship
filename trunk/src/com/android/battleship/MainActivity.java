@@ -31,12 +31,9 @@ public class MainActivity extends Activity {
 	GameMessages gm = new GameMessages();	
 	BattleshipPlacementScreen shipPlacement;
 	static CPUPlayer cpu = null; // For use in the 1-player game
-	
 	String msg;
-	
 	Button b1;
 	Button b2;
-	
 	static int player = 1;
 	
 	static ArrayList<String> player1ShipArray = new ArrayList<String>(1);

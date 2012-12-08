@@ -11,7 +11,11 @@
 package com.android.battleship;
 import java.util.Random;
 import com.android.battleship.objects.Ship;
+
+import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -40,6 +44,10 @@ public class CPUPlayer extends Activity {
 	String[] guesses = new String[100];
 	private int numSunk = 0;
 	private int numSunkCurr = 0;
+	// Initialize variables for a toast
+	CharSequence toastText = "Hello toast!";
+	int duration = Toast.LENGTH_SHORT;
+	Context context;
 	// Initialize the ships array
 	private Ship[] ships = new Ship[5];
 	{
@@ -49,11 +57,15 @@ public class CPUPlayer extends Activity {
 		ships[3] = new Ship("Destroyer", 3); // Add a destroyer
 		ships[4] = new Ship("PT Boat", 2); // Add a PT boat
 	}
-
+	
 	public CPUPlayer() {
 		initShips();
 	}
 
+	public void setContext(Context ctext){
+		this.context = ctext;
+	}
+	
 	/** Use this to access the CPUs ships array from other classes */
 	protected Ship[] getShipArray() {
 		return ships;
@@ -106,7 +118,10 @@ public class CPUPlayer extends Activity {
 		hitSuccess = hit.checkForHit(BattleshipPlacementScreen.ships, move);
 		if(hitSuccess){
 			// TODO: toast
-			//Toast.makeText(this, "You have been hit! :" + move, Toast.LENGTH_SHORT).show(); 
+			toastText = "The CPU hit one of your ships!";
+			Toast toast = Toast.makeText(context, toastText, duration);
+			toast.show();
+			
 			Log.v("", "CPU hit your ship: " + move);
 			// After a hit, get a new strategy
 			strategyAssign(hitSuccess, strategyState); 
@@ -122,7 +137,7 @@ public class CPUPlayer extends Activity {
 			// Check to see if the CPU has taken down all ships
 			if(hit.checkForWin(MainActivity.cpu.getShipArray())){
 				won = true;
-				Toast.makeText(this, "The computer beat you!", Toast.LENGTH_SHORT).show(); 
+				//Toast.makeText(this, "The computer beat you!", Toast.LENGTH_SHORT).show(); 
 			}
 		}
 	}
