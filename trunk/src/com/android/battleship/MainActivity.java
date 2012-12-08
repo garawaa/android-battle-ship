@@ -62,7 +62,8 @@ public class MainActivity extends Activity {
 		ActionBar bar = getActionBar();
 		bar.setBackgroundDrawable(getResources().getDrawable(R.drawable.garnet));
 
-		btTest.setOnClickListener(new View.OnClickListener() 
+		/* NOT IMPLEMENTED
+		 * btTest.setOnClickListener(new View.OnClickListener() 
 		{
 			public void onClick(View v) 
 			{
@@ -70,7 +71,7 @@ public class MainActivity extends Activity {
 				//expects a return from the bluetooth screen, 1 for sucess, 0 for failure
 				startActivityForResult(intent, 1);
 			}
-		});
+		}); */
 		
 
 		b1 = (Button) findViewById(R.id.gameButton1);
@@ -89,7 +90,7 @@ public class MainActivity extends Activity {
 	void init()
 	{
 		b1.setOnClickListener(onClick);
-		b2.setOnClickListener(onClick);
+		// b2.setOnClickListener(onClick); NOT IMPLEMENTED
 	}
 	    
 	private OnClickListener onClick = new OnClickListener()
