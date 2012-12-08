@@ -322,13 +322,8 @@ public class BattleshipPlacementScreen extends Activity {
 				}
 				
 				break;
-			
-			
 			default:
-				
 				break;
-			
-			
 			}
 		}
 		return false;

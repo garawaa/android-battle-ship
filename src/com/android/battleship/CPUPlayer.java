@@ -9,13 +9,13 @@
  */
 
 package com.android.battleship;
+import java.util.ArrayList;
 import java.util.Random;
-import com.android.battleship.objects.Ship;
 
-import android.annotation.TargetApi;
+import com.android.battleship.objects.Ship;
 import android.app.Activity;
 import android.content.Context;
-import android.os.Bundle;
+import android.content.Intent;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -24,8 +24,6 @@ public class CPUPlayer extends Activity {
 	int randHigh = 6;
 	int randLow = 0;
 	private int result = 0;
-	private Random generator = new Random(10);
-	private Random generator2;
 	private int x, y, lastX, lastY, firstHitX, firstHitY, direction;
 	private boolean attackSuccess;
 	boolean hitSuccess;
@@ -41,13 +39,17 @@ public class CPUPlayer extends Activity {
 	final int west = 3;
 	private int strategyState = 0;
 	BattleshipHitsAndMissesScreen hit = new BattleshipHitsAndMissesScreen();
-	String[] guesses = new String[100];
+	ArrayList<String> guesses = new ArrayList<String>(1);
+	int guessesCounter = 0;
 	private int numSunk = 0;
 	private int numSunkCurr = 0;
 	// Initialize variables for a toast
 	CharSequence toastText = "Hello toast!";
 	int duration = Toast.LENGTH_SHORT;
 	Context context;
+	// NEED RANDOM NUMBERS
+	Random rand = new Random(System.currentTimeMillis());
+	int randCounter = 0;
 	// Initialize the ships array
 	private Ship[] ships = new Ship[5];
 	{
@@ -58,10 +60,12 @@ public class CPUPlayer extends Activity {
 		ships[4] = new Ship("PT Boat", 2); // Add a PT boat
 	}
 	
+	/** Empty constructor will call initShips() to set up ships array */
 	public CPUPlayer() {
 		initShips();
 	}
 
+	/** Set the context to be used for toasts */
 	public void setContext(Context ctext){
 		this.context = ctext;
 	}
@@ -71,13 +75,15 @@ public class CPUPlayer extends Activity {
 		return ships;
 	}
 
+	/** Get a random number to determine which set of ships to use */
 	private void initShips() {
 		CPURandomizer();
 		CPUPlacer(result);
 	}
 
 	/** This is the "main" function to facilitate CPU logic needs to be passed an int: 0 for ship not
-	 *  sunk, 1 for ship sunk
+	 *  sunk, 1 for ship sunk; When a ship is sunk, pass a 1 into the method to reset strategy.
+	 *  @param shipSunk
 	 */
 	public void computerMove(int shipSunk) { 
 		
@@ -85,7 +91,6 @@ public class CPUPlayer extends Activity {
 			shipSunk = 0; // Reset 
 			strategyState = random;
 		}
-
 		switch (strategyState) {
 			case random:
 				Log.v("", "computerMove(): case random, calling getCpuRandomMove()");
@@ -114,15 +119,11 @@ public class CPUPlayer extends Activity {
 		String move = getMove(x, y);
 
 		
-		/* Check for a move & check for CPU win */
-		hitSuccess = hit.checkForHit(BattleshipPlacementScreen.ships, move);
-		if(hitSuccess){
-			// TODO: toast
-			toastText = "The CPU hit one of your ships!";
-			Toast toast = Toast.makeText(context, toastText, duration);
-			toast.show();
-			
+		/* Check for a hit & check for CPU win; display a toast when there is a hit */
+		hitSuccess = hit.checkForHit(BattleshipPlacementScreen.ships, move, 2);
+		if(hitSuccess){			
 			Log.v("", "CPU hit your ship: " + move);
+			Toast.makeText(context, "The CPU hit your ship at: " + move + "!", duration).show();
 			// After a hit, get a new strategy
 			strategyAssign(hitSuccess, strategyState); 
 			
@@ -137,11 +138,18 @@ public class CPUPlayer extends Activity {
 			// Check to see if the CPU has taken down all ships
 			if(hit.checkForWin(MainActivity.cpu.getShipArray())){
 				won = true;
-				//Toast.makeText(this, "The computer beat you!", Toast.LENGTH_SHORT).show(); 
+				GameMessages gm = new GameMessages(); 
+				// Dialog to display victory
+			    gm.displayMsg(context, "The computer beat you!!", "End of the Game"); 
+			    Intent intent = new Intent(context, MainActivity.class);
+			    startActivityForResult(intent, 1);
 			}
 		}
 	}
 
+	/** If the strategy is set to followDirection and the CPU has a miss, it should change the attack 
+	 * direction in order to take down the ship.
+	 */
 	private void changeAttackDirection() {
 		
 		lastX = firstHitX;
@@ -195,6 +203,11 @@ public class CPUPlayer extends Activity {
 		}
 	}
 
+	/** After a hitSuccess the strategy will change to direction find, and after a subsequent hit,
+	 * the strategy will change to directionFollow.
+	 * @param hitSuccess
+	 * @param strategyState2
+	 */
 	private void strategyAssign(boolean hitSuccess, int strategyState2) {
 		
 		switch (strategyState) {
@@ -209,19 +222,11 @@ public class CPUPlayer extends Activity {
 				strategyState = directionFollow;
 			}
 			break;
-		/*
-		 * THIS SWITCH HANDLED IN CONTINUE ATTACK METHOD case directionFollow:
-		 * if (hitSuccess = false){ strategyState = directionChange; } break; /*
-		 * DIRECTION CHANGE SHOULD NOT BE A VALID CASE AT THIS POINT IN CODE *
-		 * case directionChange: if (hitSuccess = true){ strategyState =
-		 * directionFollow; }
-		 * 
-		 * break;
-		 */
 		}
 
 	}
 
+	/** Generate & set random numbers for x and y. */
 	private void getCpuRandomMove() {
 		
 		Log.v("", "Getting CpuRandomMove");
@@ -232,6 +237,11 @@ public class CPUPlayer extends Activity {
 		lastY = y;
 	}
 
+	/** Get a String representation of x and y for the CPU move 
+	 * @param x
+	 * @param y
+	 * @return move
+	 */
 	private String getMove(int x, int y) {
 		
 		Log.v("", "getMove() was called");
@@ -274,27 +284,47 @@ public class CPUPlayer extends Activity {
 
 		id += Integer.toString(y);
 		Log.v("", "CPU Move ID = " + id);
-		for(int i = 0; i < guesses.length; i++){
-			// The ID has already been tried, get new X & Y
-			if(guesses[i] == id){
-				Log.v("", "CPU Move ID was not unique, getting a new one. ID was: " + id);
-				getCpuRandomMove();
-				getMove(x, y);
-			}
+		if(checkUniqueMove(id)){
+			Log.v("", "CPU Move ID was unique; adding to array");
+			// Update guesses array & continue
+			guesses.add(id);
 		}
+		// Keep getting stackOverflowException
+		/*else{
+			getCpuRandomMove();
+			//getJavaRand();
+			getMove(x, y);
+		}*/
 		return id;
 	}
 
+	//PSEUDO RANDOM SUCKS!
+/*	private void getJavaRand(){
+		randCounter++; 
+		rand.setSeed((System.currentTimeMillis() + randCounter));
+		y = 1 + rand.nextInt(10);
+		x = rand.nextInt(10);
+	} */
+	
+	/** Check the CPU move against the already tried moves in the guesses arrayList; Return true for a 
+	 * unique move and false if the move is not unique.
+	 * @param id
+	 * @return boolean
+	 */
+	private boolean checkUniqueMove(String id){
+		for(int i = 0; i < guesses.size(); i++){
+			// The ID has already been tried, get new X & Y
+			if(guesses.get(i).equals(id)){
+				Log.v("", "CPU Move ID was not unique, getting a new one. ID was: " + id);
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	/** Set the direction of attack once the CPU gets a hit */
 	private void setCpuDirection() {
 
-		/* This kept producing the same int, looping out of control, and causing a stackOverflowException */
-		/*generator2 = new Random(100);
-		 int guess = generator2.nextInt(3) + 1; // 1 - 4
-		if (hitGuesses[guess] == 1) { // if the random guess has already been guessed, get new
-			setCpuDirection();
-			Log.v("", "setCpuDirection, hit guess already tried: " + guess);
-		} */
-		
 		int guess = 1; // Let's just start with one and increment from there
 		Log.v("", "setCpuDirection, guess: " + guess);
 
@@ -326,8 +356,6 @@ public class CPUPlayer extends Activity {
 			default:
 				break;
 			}
-
-			//setCpuDirection(); // ?? Why was this being called again?
 			direction = guess;
 	}
 
@@ -389,15 +417,12 @@ public class CPUPlayer extends Activity {
 		return attackCompleted;
 	}
 
-	/** Randomizes a number for use in placing the CPU ships 
-	 * 
-	 */
+	/** Randomizes a number for use in placing the CPU ships */
 	public void CPURandomizer() {
 		result = randLow + (int) (Math.random() * (randHigh - randLow) + 0.5);
 	}
 
 	/** Use a random generated number from 1-5 to determine where to place ships
-	 * 
 	 * @param rand
 	 */
 	public void CPUPlacer(int rand) {

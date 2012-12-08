@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -135,6 +136,7 @@ public class BattleshipGridScreen extends Activity{
 		setContentView(R.layout.grid_screen);
 		init();
 		MainActivity.cpu.setContext(context);
+		hit.setContext(context);
 	}
 	
 	private OnClickListener onMoveClick = new OnClickListener()
@@ -150,15 +152,19 @@ public class BattleshipGridScreen extends Activity{
 			tag = (String)v.getTag();
 			Log.v(msg,"Tag = " + tag);
 			
-			hitt = hit.checkForHit(MainActivity.cpu.getShipArray(), tag);
+			hitt = hit.checkForHit(MainActivity.cpu.getShipArray(), tag, 1);
 			
 			if(hitt){
-				Toast.makeText(BattleshipGridScreen.this, "You hit one of the opponent's ships!", Toast.LENGTH_SHORT).show(); 
 				Log.v(msg,"You hit one of the opponent's ships!");
 				b.setImageResource(R.drawable.spear);
 				if(hit.checkForWin(MainActivity.cpu.getShipArray())){
 					won = true;
 					Log.v(msg, " YOU WIN!!");
+					// Dialog to display victory
+					GameMessages gm = new GameMessages(); 
+				    gm.displayMsg(context, "You won!!", "End of the Game"); 
+				    Intent intent = new Intent(context, MainActivity.class);
+				    startActivityForResult(intent, 1);
 				}
 			}
 			else{
