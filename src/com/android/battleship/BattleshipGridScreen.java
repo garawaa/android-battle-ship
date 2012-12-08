@@ -3,6 +3,7 @@ package com.android.battleship;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -19,6 +20,7 @@ import android.widget.Toast;
 @SuppressLint("Registered")
 public class BattleshipGridScreen extends Activity{
 	
+	final Context context = this;
 	BattleshipHitsAndMissesScreen hit = new BattleshipHitsAndMissesScreen();
 	
 	String msg;
@@ -129,12 +131,10 @@ public class BattleshipGridScreen extends Activity{
 	@Override
 	public void onCreate(Bundle savedInstanceState)
 	{
-		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.grid_screen);
-
 		init();
-		
+		MainActivity.cpu.setContext(context);
 	}
 	
 	private OnClickListener onMoveClick = new OnClickListener()
